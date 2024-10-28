@@ -1,58 +1,57 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\PhpClass;
+namespace Zerotoprod\DataModelGenerator\Model;
 
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
-class PhpClass
+class Model
 {
     use DataModel;
 
     /** The Fully Qualified Namespace of the class */
-    public const  namespace = 'namespace';
+    public const namespace = 'namespace';
 
     /** Imports used in the class */
-    public const  imports = 'imports';
+    public const imports = 'imports';
 
     /** Specifies a class */
-    public const  readonly = 'readonly';
+    public const readonly = 'readonly';
 
     /** Specifies the class comment */
-    public const  comment = 'comment';
+    public const comment = 'comment';
 
     /** Traits used in the class */
-    public const  use_statements = 'use_statements';
+    public const use_statements = 'use_statements';
 
     /** Constants used in the class */
-    public const  constants = 'constants';
+    public const constants = 'constants';
 
     /** Properties used in the class */
-    public const  properties = 'properties';
+    public const properties = 'properties';
 
     /** File details for the PhpClass */
-    public const  File = 'File';
+    public const File = 'File';
 
     /** The Fully Qualified Namespace of the class*/
-    #[Describe(['required' => true])]
-    public string $namespace;
+    public readonly string $namespace;
 
     /** Imports used in the class */
     #[Describe(['default' => []])]
-    public array $imports;
+    public readonly array $imports;
 
     /** Specifies a class*/
     #[Describe(['default' => false])]
-    public bool $readonly;
+    public readonly bool $readonly;
 
     /** Specifies the class comment */
     #[Describe(['missing_as_null' => true])]
-    public ?string $comment;
+    public readonly ?string $comment;
 
     /** Traits used in the class */
     #[Describe(['default' => []])]
-    public array $use_statements;
+    public readonly array $use_statements;
 
     /**
      * Constants used in the class
@@ -63,7 +62,7 @@ class PhpClass
         'cast' => [self::class, 'mapOf'],
         'type' => Constant::class,
     ])]
-    public array $constants;
+    public readonly array $constants;
 
     /**
      * Properties used in the class
@@ -74,11 +73,11 @@ class PhpClass
         'cast' => [self::class, 'mapOf'],
         'type' => Property::class,
     ])]
-    public array $properties;
+    public readonly array $properties;
 
     /** File details for the PhpClass */
     #[Describe(['required' => true])]
-    public File $File;
+    public readonly File $File;
 
     /**
      * Renders the class
@@ -113,7 +112,9 @@ class PhpClass
      */
     public function namespaceLine(): string
     {
-        return "namespace $this->namespace;";
+        return isset($this->namespace)
+            ? "namespace $this->namespace;"
+            : '';
     }
 
     /**
@@ -141,7 +142,7 @@ class PhpClass
     public function classLine(): string
     {
         return $this->readonly
-            ? "class {$this->className()}"
+            ? "class readonly {$this->className()}"
             : "class {$this->className()}";
     }
 
@@ -153,7 +154,7 @@ class PhpClass
      */
     public function className(): string
     {
-        return pathinfo($this->File->filename, PATHINFO_FILENAME);
+        return pathinfo($this->File->name, PATHINFO_FILENAME);
     }
 
     /**

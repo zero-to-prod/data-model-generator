@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\PhpClass;
+namespace Zerotoprod\DataModelGenerator\Model;
 
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
@@ -10,38 +10,38 @@ class Constant
     use DataModel;
 
     /** The constants docblock */
-    public const  comment = 'comment';
+    public const comment = 'comment';
 
     /** The constants visibility: public, protected, private */
-    public const  visibility = 'visibility';
+    public const visibility = 'visibility';
 
     /** The constants type */
-    public const  type = 'type';
+    public const type = 'type';
 
     /** The constants name */
-    public const  name = 'name';
+    public const name = 'name';
 
     /** The constants value */
-    public const  value = 'value';
+    public const value = 'value';
 
     /** The constants docblock */
     public string $comment;
 
     /** The constants visibility: public, protected, private */
     #[Describe(['default' => Visibility::public])]
-    public Visibility $visibility;
+    public readonly Visibility $visibility;
 
     /** The constants type */
     #[Describe(['default' => null])]
-    public ?string $type;
+    public readonly ?string $type;
 
     /** The constants name */
     #[Describe(['required' => true])]
-    public string $name;
+    public readonly string $name;
 
     /** The constants value */
     #[Describe(['required' => true])]
-    public string $value;
+    public readonly string $value;
 
     /**
      * Renders the constant

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\PhpClass;
+namespace Zerotoprod\DataModelGenerator\Model;
 
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
@@ -10,39 +10,39 @@ class Property
     use DataModel;
 
     /** The property docblock */
-    public const  comment = 'comment';
+    public const comment = 'comment';
 
     /** The property visibility: public, protected, private */
-    public const  visibility = 'visibility';
+    public const visibility = 'visibility';
 
     /** The property type */
-    public const  type = 'type';
+    public const type = 'type';
 
     /** The property name */
-    public const  name = 'name';
+    public const name = 'name';
 
     /** Attributes of the property */
-    public const  attributes = 'attributes';
+    public const attributes = 'attributes';
 
     /** The property docblock */
     #[Describe(['missing_as_null' => true])]
-    private ?string $comment;
+    private readonly ?string $comment;
 
     /** The property visibility: public, protected, private */
     #[Describe(['default' => Visibility::public])]
-    private Visibility $visibility;
+    private readonly Visibility $visibility;
 
     /** The property type */
     #[Describe(['default' => null])]
-    private ?string $type;
+    private readonly ?string $type;
 
     /** The property name */
     #[Describe(['required' => true])]
-    private string $name;
+    private readonly string $name;
 
     /** Attributes of the property */
     #[Describe(['missing_as_null' => true])]
-    private ?array $attributes;
+    private readonly ?array $attributes;
 
     /**
      * Renders the property

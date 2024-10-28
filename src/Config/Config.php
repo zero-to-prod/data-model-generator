@@ -10,10 +10,10 @@ class Config
     use DataModel;
 
     /** The directory DataModels will be saved to. */
-    public const  directory = 'directory';
+    public const directory = 'directory';
 
     /** The Fully Qualified Namespace for the DataModels */
-    public const  namespace = 'namespace';
+    public const namespace = 'namespace';
 
     /** The directory DataModels will be saved to. */
     #[Describe(['default' => '.'])]

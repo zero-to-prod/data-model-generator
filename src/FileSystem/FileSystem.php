@@ -4,7 +4,7 @@ namespace Zerotoprod\DataModelGenerator\FileSystem;
 
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
-use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
+use Zerotoprod\DataModelGenerator\Model\Model;
 
 class FileSystem
 {
@@ -16,11 +16,11 @@ class FileSystem
     /**
      * A collection of models
      *
-     * @var PhpClass[] $Models
+     * @var Model[] $Models
      */
     #[Describe([
         'cast' => [self::class, 'mapOf'],
-        'type' => PhpClass::class,
+        'type' => Model::class,
     ])]
-    public array $Models;
+    public readonly array $Models;
 }

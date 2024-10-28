@@ -6,31 +6,31 @@ use Factories\PhpClassFactory;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\FileSystem\File;
-use Zerotoprod\DataModelGenerator\PhpClass\Constant;
-use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
-use Zerotoprod\DataModelGenerator\PhpClass\Property;
-use Zerotoprod\DataModelGenerator\PhpClass\Visibility;
+use Zerotoprod\DataModelGenerator\Model\Constant;
+use Zerotoprod\DataModelGenerator\Model\Model;
+use Zerotoprod\DataModelGenerator\Model\Property;
+use Zerotoprod\DataModelGenerator\Model\Visibility;
 
 class PhpClassTest extends TestCase
 {
 
-    /** @link PhpClass::render() */
+    /** @link Model::render() */
     #[Test] public function render(): void
     {
-        $PhpClass = PhpClass::from([
-            PhpClass::namespace => 'App\\DataModels',
-            PhpClass::imports => [
+        $PhpClass = Model::from([
+            Model::namespace => 'App\\DataModels',
+            Model::imports => [
                 'App\\DataModel',
                 'ZeroToProd\\DataModel\\DataModel',
             ],
-            PhpClass::readonly => true,
-            PhpClass::use_statements => [
+            Model::readonly => true,
+            Model::use_statements => [
                 'DataModel'
             ],
-            PhpClass::File => [
-                File::filename => 'User.php',
+            Model::File => [
+                File::name => 'User.php',
             ],
-            PhpClass::constants => [
+            Model::constants => [
                 [
                     Constant::comment => '/** Comment */',
                     Constant::visibility => Visibility::public,
@@ -46,7 +46,7 @@ class PhpClassTest extends TestCase
                     Constant::value => "true",
                 ]
             ],
-            PhpClass::properties => [
+            Model::properties => [
                 [
                     Property::comment => '/** Comment */',
                     Property::visibility => Visibility::public,
@@ -74,7 +74,7 @@ class PhpClassTest extends TestCase
             namespace App\DataModels;
             use App\DataModel;
             use ZeroToProd\DataModel\DataModel;
-            class User
+            class readonly User
             {
             use DataModel;
             /** Comment */
@@ -93,11 +93,11 @@ class PhpClassTest extends TestCase
         );
     }
 
-    /** @link PhpClass::namespaceLine() */
+    /** @link Model::namespaceLine() */
     #[Test] public function namespaceLine(): void
     {
         $PhpClass = PhpClassFactory::factory()
-            ->set(PhpClass::namespace, 'App\\DataModels')
+            ->set(Model::namespace, 'App\\DataModels')
             ->make();
 
         $this->assertEquals(
@@ -106,11 +106,11 @@ class PhpClassTest extends TestCase
         );
     }
 
-    /** @link PhpClass::imports() */
+    /** @link Model::imports() */
     #[Test] public function imports(): void
     {
         $PhpClass = PhpClassFactory::factory()
-            ->set(PhpClass::imports, [
+            ->set(Model::imports, [
                 'App\\DataModel',
                 'ZeroToProd\\DataModel\\DataModel',
             ])
@@ -125,7 +125,7 @@ class PhpClassTest extends TestCase
         );
     }
 
-    /** @link PhpClass::classLine() */
+    /** @link Model::classLine() */
     #[Test] public function classLine(): void
     {
         $PhpClass = PhpClassFactory::factory()->make();
@@ -133,24 +133,24 @@ class PhpClassTest extends TestCase
         $this->assertEquals('class User', $PhpClass->classLine());
     }
 
-    /** @link PhpClass::classLine() */
+    /** @link Model::classLine() */
     #[Test] public function readonlyClassLine(): void
     {
         $PhpClass = PhpClassFactory::factory([
-            PhpClass::readonly => true,
-            PhpClass::File => [
-                File::filename => 'User.php',
+            Model::readonly => true,
+            Model::File => [
+                File::name => 'User.php',
             ],
         ])->make();
 
-        $this->assertEquals('class User', $PhpClass->classLine());
+        $this->assertEquals('class readonly User', $PhpClass->classLine());
     }
 
-    /** @link PhpClass::useStatements() */
+    /** @link Model::useStatements() */
     #[Test] public function useStatements(): void
     {
         $PhpClass = PhpClassFactory::factory()
-            ->set(PhpClass::use_statements, ['DataModel'])
+            ->set(Model::use_statements, ['DataModel'])
             ->make();
 
         $this->assertEquals(
@@ -161,11 +161,11 @@ class PhpClassTest extends TestCase
         );
     }
 
-    /** @link PhpClass::constants() */
+    /** @link Model::constants() */
     #[Test] public function constants(): void
     {
         $PhpClass = PhpClassFactory::factory([
-            PhpClass::constants => [
+            Model::constants => [
                 [
                     Constant::comment => '/** Comment */',
                     Constant::visibility => Visibility::public,
@@ -194,11 +194,11 @@ class PhpClassTest extends TestCase
         );
     }
 
-    /** @link PhpClass::properties() */
+    /** @link Model::properties() */
     #[Test] public function properties(): void
     {
         $PhpClass = PhpClassFactory::factory([
-            PhpClass::properties => [
+            Model::properties => [
                 [
                     Property::comment => '/** Comment */',
                     Property::visibility => Visibility::public,

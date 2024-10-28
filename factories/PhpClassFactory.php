@@ -2,28 +2,28 @@
 
 namespace Factories;
 
-use Zerotoprod\DataModelGenerator\FileSystem\File;
-use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
 use Zerotoprod\DataModelFactory\Factory;
+use Zerotoprod\DataModelGenerator\FileSystem\File;
+use Zerotoprod\DataModelGenerator\Model\Model;
 
 class PhpClassFactory
 {
     use Factory;
 
-    protected string $model = PhpClass::class;
+    protected string $model = Model::class;
 
     protected function definition(): array
     {
         return [
-            PhpClass::namespace => 'App\\DataModels',
-            PhpClass::File => [
-                File::filename => 'User.php',
+            Model::namespace => 'App\\DataModels',
+            Model::File => [
+                File::name => 'User.php',
                 File::directory => './app/DataModels',
             ],
         ];
     }
 
-    public function make(): PhpClass
+    public function make(): Model
     {
         return $this->instantiate();
     }

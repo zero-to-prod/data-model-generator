@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../src/Schema/schema.json",
+  "Models": [
+    {
+      "File": {
+        "name": "User.php",
+        "directory": "./tests/generated"
+      }
+    }
+  ]
+}

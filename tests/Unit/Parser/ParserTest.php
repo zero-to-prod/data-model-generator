@@ -6,11 +6,11 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
+use Zerotoprod\DataModelGenerator\Model\Constant;
+use Zerotoprod\DataModelGenerator\Model\Model;
+use Zerotoprod\DataModelGenerator\Model\Property;
+use Zerotoprod\DataModelGenerator\Model\Visibility;
 use Zerotoprod\DataModelGenerator\Parser;
-use Zerotoprod\DataModelGenerator\PhpClass\Constant;
-use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
-use Zerotoprod\DataModelGenerator\PhpClass\Property;
-use Zerotoprod\DataModelGenerator\PhpClass\Visibility;
 
 class ParserTest extends TestCase
 {
@@ -20,10 +20,10 @@ class ParserTest extends TestCase
         Parser::generate(FileSystem::from([
             FileSystem::Models => [
                 [
-                    PhpClass::namespace => 'App\\DataModels',
-                    PhpClass::File => [
+                    Model::namespace => 'App\\DataModels',
+                    Model::File => [
                         File::directory => self::$test_dir,
-                        File::filename => 'User.php',
+                        File::name => 'User.php',
                     ],
                 ]
             ]
@@ -47,18 +47,18 @@ class ParserTest extends TestCase
         Parser::generate(FileSystem::from([
             FileSystem::Models => [
                 [
-                    PhpClass::namespace => 'App\\DataModels',
-                    PhpClass::File => [
+                    Model::namespace => 'App\\DataModels',
+                    Model::File => [
                         File::directory => self::$test_dir,
-                        File::filename => 'User.php',
+                        File::name => 'User.php',
                     ],
-                    PhpClass::imports => [
+                    Model::imports => [
                         'Zerotoprod\\DataModel\\DataModel'
                     ],
-                    PhpClass::use_statements => [
+                    Model::use_statements => [
                         'DataModel'
                     ],
-                    PhpClass::constants => [
+                    Model::constants => [
                         [
                             Constant::comment => '/** Comment */',
                             Constant::visibility => Visibility::public,
@@ -74,7 +74,7 @@ class ParserTest extends TestCase
                             Constant::value => "'bool'",
                         ]
                     ],
-                    PhpClass::properties => [
+                    Model::properties => [
                         [
                             Property::comment => '/** Comment */',
                             Property::visibility => Visibility::public,

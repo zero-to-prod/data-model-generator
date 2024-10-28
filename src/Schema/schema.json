@@ -16,16 +16,15 @@
             "properties": {
               "directory": {
                 "type": "string",
-                "description": "Directory path of the file"
+                "description": "Directory path of the file. Default is '.'"
               },
-              "filename": {
+              "name": {
                 "type": "string",
-                "description": "Filename"
+                "description": "The name of the file including any extension/s"
               }
             },
             "required": [
-              "directory",
-              "filename"
+              "name"
             ]
           },
           "imports": {
@@ -125,12 +124,7 @@
           }
         },
         "required": [
-          "namespace",
-          "File",
-          "imports",
-          "use_statements",
-          "constants",
-          "properties"
+          "File"
         ]
       }
     }
