@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "Namespace of the PHP class"
+          },
+          "File": {
+            "type": "object",
+            "properties": {
+              "directory": {
+                "type": "string",
+                "description": "Directory path of the file"
+              },
+              "filename": {
+                "type": "string",
+                "description": "Filename"
+              }
+            },
+            "required": [
+              "directory",
+              "filename"
+            ]
+          },
+          "imports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of imported namespaces"
+          },
+          "use_statements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of use statements"
+          },
+          "constants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "description": "Comment for the constant"
+                },
+                "visibility": {
+                  "type": "string",
+                  "enum": [
+                    "public",
+                    "protected",
+                    "private"
+                  ],
+                  "description": "Visibility of the constant"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Data type of the constant"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the constant"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Value of the constant"
+                }
+              },
+              "required": [
+                "comment",
+                "visibility",
+                "type",
+                "name",
+                "value"
+              ]
+            }
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "description": "Comment for the property"
+                },
+                "visibility": {
+                  "type": "string",
+                  "enum": [
+                    "public",
+                    "protected",
+                    "private"
+                  ],
+                  "description": "Visibility of the property"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Data type of the property"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the property"
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "List of attributes for the property"
+                }
+              },
+              "required": [
+                "visibility",
+                "type",
+                "name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "namespace",
+          "File",
+          "imports",
+          "use_statements",
+          "constants",
+          "properties"
+        ]
+      }
+    }
+  },
+  "required": [
+    "Models"
+  ]
+}
