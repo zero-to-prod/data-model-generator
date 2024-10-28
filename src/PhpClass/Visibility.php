@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\DataModelBuilder\PhpClass;
+namespace Zerotoprod\DataModelGenerator\PhpClass;
 
 enum Visibility: string
 {

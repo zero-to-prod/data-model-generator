@@ -4,13 +4,13 @@ namespace Tests\Unit\Parser;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelBuilder\FileSystem\File;
-use Zerotoprod\DataModelBuilder\FileSystem\FileSystem;
-use Zerotoprod\DataModelBuilder\Parser;
-use Zerotoprod\DataModelBuilder\PhpClass\Constant;
-use Zerotoprod\DataModelBuilder\PhpClass\PhpClass;
-use Zerotoprod\DataModelBuilder\PhpClass\Property;
-use Zerotoprod\DataModelBuilder\PhpClass\Visibility;
+use Zerotoprod\DataModelGenerator\FileSystem\File;
+use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
+use Zerotoprod\DataModelGenerator\Parser;
+use Zerotoprod\DataModelGenerator\PhpClass\Constant;
+use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
+use Zerotoprod\DataModelGenerator\PhpClass\Property;
+use Zerotoprod\DataModelGenerator\PhpClass\Visibility;
 
 class ParserTest extends TestCase
 {

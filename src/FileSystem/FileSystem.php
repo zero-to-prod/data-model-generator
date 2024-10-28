@@ -1,10 +1,10 @@
 <?php
 
-namespace Zerotoprod\DataModelBuilder\FileSystem;
+namespace Zerotoprod\DataModelGenerator\FileSystem;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelBuilder\Helpers\DataModel;
-use Zerotoprod\DataModelBuilder\PhpClass\PhpClass;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
 
 class FileSystem
 {

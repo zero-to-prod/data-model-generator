@@ -2,8 +2,8 @@
 
 namespace Factories;
 
-use Zerotoprod\DataModelBuilder\FileSystem\File;
-use Zerotoprod\DataModelBuilder\PhpClass\PhpClass;
+use Zerotoprod\DataModelGenerator\FileSystem\File;
+use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
 use Zerotoprod\DataModelFactory\Factory;
 
 class PhpClassFactory

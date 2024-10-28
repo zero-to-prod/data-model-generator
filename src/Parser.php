@@ -1,9 +1,9 @@
 <?php
 
-namespace Zerotoprod\DataModelBuilder;
+namespace Zerotoprod\DataModelGenerator;
 
-use Zerotoprod\DataModelBuilder\FileSystem\FileSystem;
-use Zerotoprod\DataModelBuilder\PhpClass\PhpClass;
+use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
+use Zerotoprod\DataModelGenerator\PhpClass\PhpClass;
 
 class Parser
 {

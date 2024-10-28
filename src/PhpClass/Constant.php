@@ -1,9 +1,9 @@
 <?php
 
-namespace Zerotoprod\DataModelBuilder\PhpClass;
+namespace Zerotoprod\DataModelGenerator\PhpClass;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelBuilder\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
 class Constant
 {

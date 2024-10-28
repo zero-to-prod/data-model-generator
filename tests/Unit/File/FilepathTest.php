@@ -4,7 +4,7 @@ namespace Tests\Unit\File;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelBuilder\FileSystem\File;
+use Zerotoprod\DataModelGenerator\FileSystem\File;
 
 class FilepathTest extends TestCase
 {

@@ -1,13 +1,13 @@
 {
   "type": "library",
-  "name": "zero-to-prod/data-model-builder",
+  "name": "zero-to-prod/data-model-generator",
   "description": "Builds DataModels from a Schema",
   "keywords": [
     "zero-to-prod",
-    "DataModelBuilder",
-    "data-model-builder"
+    "DataModelGenerator",
+    "data-model-generator"
   ],
-  "homepage": "https://github.com/zero-to-prod/data-model-builder",
+  "homepage": "https://github.com/zero-to-prod/data-model-generator",
   "license": "MIT",
   "authors": [
     {
@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Zerotoprod\\DataModelBuilder\\": "src/"
+      "Zerotoprod\\DataModelGenerator\\": "src/"
     }
   },
   "autoload-dev": {

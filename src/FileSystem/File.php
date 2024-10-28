@@ -1,11 +1,11 @@
 <?php
 
-namespace Zerotoprod\DataModelBuilder\FileSystem;
+namespace Zerotoprod\DataModelGenerator\FileSystem;
 
 use Tests\Unit\File\FilepathTest;
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelBuilder\Helpers\DataModel;
-use Zerotoprod\DataModelBuilder\Helpers\FileMethods;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\FileMethods;
 
 class File
 {

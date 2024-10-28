@@ -1,9 +1,9 @@
 <?php
 
-namespace Zerotoprod\DataModelBuilder\Config;
+namespace Zerotoprod\DataModelGenerator\Config;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelBuilder\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
 class Config
 {
