@@ -15,6 +15,9 @@ class Property
     /** The property visibility: public, protected, private */
     public const visibility = 'visibility';
 
+    /** Applies readonly modifier. */
+    public const readonly = 'readonly';
+
     /** The property type */
     public const type = 'type';
 
@@ -31,6 +34,9 @@ class Property
     /** The property visibility: public, protected, private */
     #[Describe(['default' => Visibility::public])]
     private readonly Visibility $visibility;
+
+    #[Describe(['default' => false])]
+    private readonly bool $readonly;
 
     /** The property type */
     #[Describe(['default' => null])]
@@ -54,7 +60,12 @@ class Property
         return implode(PHP_EOL, array_filter([
             $this->comment,
             implode(PHP_EOL, $this->attributes ?? []),
-            "{$this->visibility->value} $this->type $$this->name;"
+            implode(" ", array_filter([
+                $this->visibility->value,
+                $this->readonly ? 'readonly' : null,
+                $this->type,
+                "$$this->name",
+            ])).';'
         ]));
     }
 }

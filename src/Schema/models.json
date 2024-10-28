@@ -11,6 +11,10 @@
             "type": "string",
             "description": "Namespace of the PHP class"
           },
+          "readonly": {
+            "type": "boolean",
+            "description": "Adds the `readonly` modifier to the class"
+          },
           "File": {
             "type": "object",
             "properties": {

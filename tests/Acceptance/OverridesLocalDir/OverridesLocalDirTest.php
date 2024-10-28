@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\DoesNotOverrideNamespaceFromConfig;
+namespace Acceptance\OverridesLocalDir;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class WithNamespaceTest extends TestCase
+class OverridesLocalDirTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -20,8 +20,17 @@ class WithNamespaceTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                namespace App\Models;
                 class User
+                {
+                }
+                PHP
+        );
+
+        self::assertStringEqualsFile(
+            expectedFile: self::$test_dir.'/Address.php',
+            actualString: <<<PHP
+                <?php
+                class Address
                 {
                 }
                 PHP

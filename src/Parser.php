@@ -21,6 +21,7 @@ class Parser
                         ? $Config[Config::directory]
                         : $Model[Model::File][File::directory],
                 ],
+                Model::readonly => $Model[Model::readonly] ?? $Config[Config::readonly],
             ])->save();
         }
     }

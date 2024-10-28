@@ -143,7 +143,7 @@ class Model
     public function classLine(): string
     {
         return $this->readonly
-            ? "class readonly {$this->className()}"
+            ? "readonly class {$this->className()}"
             : "class {$this->className()}";
     }
 

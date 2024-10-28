@@ -5,13 +5,16 @@
   "properties": {
     "directory": {
       "type": "string",
-      "description": "The directory DataModels will be saved to.",
+      "description": "The directory DataModels will be saved to",
       "default": "."
     },
     "namespace": {
-      "type": ["string", "null"],
-      "description": "The Fully Qualified Namespace for the DataModels",
-      "default": null
+      "type": "string",
+      "description": "The Fully Qualified Namespace for the DataModels"
+    },
+    "readonly": {
+      "type": "boolean",
+      "description": "Adds the `readonly` modifier"
     }
   }
 }

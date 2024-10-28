@@ -15,6 +15,7 @@ class PropertyTest extends TestCase
         $Property = Property::from([
             Property::comment => '/** Comment */',
             Property::visibility => Visibility::public,
+            Property::readonly => true,
             Property::type => 'App\\User',
             Property::name => 'name',
             Property::attributes => [
@@ -28,7 +29,7 @@ class PropertyTest extends TestCase
             /** Comment */
             \ZeroToProd\DataModel\Describe(['required' => true])
             \ZeroToProd\DataModel\Describe(['required' => true])
-            public App\User \$name;
+            public readonly App\User \$name;
             PHP,
             $Property->render()
         );

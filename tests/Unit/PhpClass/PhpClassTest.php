@@ -74,7 +74,7 @@ class PhpClassTest extends TestCase
             namespace App\DataModels;
             use App\DataModel;
             use ZeroToProd\DataModel\DataModel;
-            class readonly User
+            readonly class User
             {
             use DataModel;
             /** Comment */
@@ -143,7 +143,7 @@ class PhpClassTest extends TestCase
             ],
         ])->make();
 
-        $this->assertEquals('class readonly User', $PhpClass->classLine());
+        $this->assertEquals('readonly class User', $PhpClass->classLine());
     }
 
     /** @link Model::useStatements() */

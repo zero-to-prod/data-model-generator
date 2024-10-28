@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class BasicClassTest extends TestCase
+class FileLocationFromConfigTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
