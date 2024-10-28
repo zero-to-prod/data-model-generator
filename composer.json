@@ -1,7 +1,6 @@
 {
   "type": "library",
   "name": "zero-to-prod/data-model-builder",
-  "version": "1.0.0",
   "description": "Builds DataModels from a Schema",
   "keywords": [
     "zero-to-prod",
