@@ -3,14 +3,12 @@
   "Models": [
     {
       "File": {
-        "name": "User.php",
-        "directory": "./tests/generated"
+        "name": "User.php"
       }
     },
     {
       "File": {
-        "name": "Address.php",
-        "directory": "./tests/generated"
+        "name": "Address.php"
       }
     }
   ]

@@ -20,6 +20,6 @@ class Config
     public string $directory;
 
     /** The Fully Qualified Namespace for the DataModels */
-    #[Describe(['required' => true])]
-    public string $namespace;
+    #[Describe(['missing_as_null' => true])]
+    public ?string $namespace;
 }

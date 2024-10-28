@@ -35,7 +35,8 @@ class Model
     public const File = 'File';
 
     /** The Fully Qualified Namespace of the class*/
-    public readonly string $namespace;
+    #[Describe(['missing_as_null' => true])]
+    public readonly ?string $namespace;
 
     /** Imports used in the class */
     #[Describe(['default' => []])]
