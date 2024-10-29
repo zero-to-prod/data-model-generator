@@ -9,6 +9,7 @@ use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Model\Constant;
 use Zerotoprod\DataModelGenerator\Model\Model;
 use Zerotoprod\DataModelGenerator\Model\Property;
+use Zerotoprod\DataModelGenerator\Model\PropertyType;
 use Zerotoprod\DataModelGenerator\Model\Visibility;
 use Zerotoprod\DataModelGenerator\Parser;
 

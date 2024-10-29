@@ -27,6 +27,9 @@ class Property
     /** Attributes of the property */
     public const attributes = 'attributes';
 
+    /** The format of the data */
+    public const format = 'format';
+
     /** The property docblock */
     #[Describe(['missing_as_null' => true])]
     private readonly ?string $comment;
@@ -39,7 +42,7 @@ class Property
     private readonly bool $readonly;
 
     /** The property type */
-    #[Describe(['default' => null])]
+    #[Describe(['missing_as_null' => true])]
     private readonly ?string $type;
 
     /** The property name */
@@ -49,6 +52,10 @@ class Property
     /** Attributes of the property */
     #[Describe(['missing_as_null' => true])]
     private readonly ?array $attributes;
+
+    /** The format of the data */
+    #[Describe(['missing_as_null' => true])]
+    private readonly ?PropertyFormat $format;
 
     /**
      * Renders the property

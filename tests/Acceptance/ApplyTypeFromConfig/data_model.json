@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../src/Schema/data_model.json",
+  "namespace": "App\\DataModels",
+  "types": [
+    {
+      "format": "int32",
+      "type": "\\App\\Int"
+    }
+  ]
+}

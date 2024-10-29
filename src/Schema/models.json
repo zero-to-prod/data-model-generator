@@ -117,11 +117,28 @@
                     "type": "string"
                   },
                   "description": "List of attributes for the property"
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "number",
+                    "float",
+                    "double",
+                    "integer",
+                    "int32",
+                    "int64",
+                    "date",
+                    "date-time",
+                    "password",
+                    "byte",
+                    "binary"
+                  ],
+                  "description": "Visibility of the property"
                 }
               },
               "required": [
                 "visibility",
-                "type",
+                "format",
                 "name"
               ]
             }
