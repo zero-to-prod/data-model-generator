@@ -14,14 +14,12 @@ class Parser
         foreach ($FileSystem[FileSystem::Models] as $Model) {
             Model::from([
                 ...$Model,
-                Model::namespace => $Model[Model::namespace] ?? $Config[Config::namespace],
+                Model::namespace => $Model[Model::namespace] ?? $Config[Config::namespace] ?? null,
                 Model::File => [
                     ...$Model[Model::File],
-                    File::directory => $Model[Model::File][File::directory] === null && isset($Config[Config::directory])
-                        ? $Config[Config::directory]
-                        : $Model[Model::File][File::directory],
+                    File::directory => $Model[Model::File][File::directory] ?? $Config[Config::directory] ?? null,
                 ],
-                Model::readonly => $Model[Model::readonly] ?? $Config[Config::readonly],
+                Model::readonly => $Model[Model::readonly] ?? $Config[Config::readonly] ?? null,
             ])->save();
         }
     }
