@@ -31,12 +31,15 @@ class Parser
                 Model::properties => array_map(static function ($property) use ($Config, $types) {
                     $property[Property::type] = ($property[Property::format] ?? null) && isset($types[$property[Property::format]])
                         ? $types[$property[Property::format]][Property::type]
-                        : $property[Property::type];
+                        : $property[Property::type] ?? null;
 
-                    $property[Property::comment] = $Config[Config::properties][PropertyConfig::exclude_comments]
-                        ? null
-                        : $property[Property::comment];
-                    $property[Property::readonly] = $Config[Config::properties][PropertyConfig::readonly] ?? $property[Property::readonly];
+                    if (isset($Config[Config::properties][PropertyConfig::exclude_comments]) && $Config[Config::properties][PropertyConfig::exclude_comments]) {
+                        $property[Property::comment] = null;
+                    }
+
+                    if (isset($Config[Config::properties][PropertyConfig::readonly])) {
+                        $property[Property::readonly] = $Config[Config::properties][PropertyConfig::readonly];
+                    }
 
                     return $property;
                 }, $Model[Model::properties] ?? []),
