@@ -21,6 +21,9 @@ class Config
     /** A map of types and the resulting type. */
     public const properties = 'properties';
 
+    /** Constants for the class */
+    public const constants = 'constants';
+
     /** Controls the visibility of comments */
     public const comments = 'comments';
 
@@ -40,6 +43,11 @@ class Config
      * A map of types and the resulting type.
      */
     public PropertyConfig $properties;
+
+    /**
+     * A map of types and the resulting type.
+     */
+    public ConstantConfig $constants;
 
     /** Controls the visibility of comments */
     #[Describe(['default' => true])]

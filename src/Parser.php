@@ -3,10 +3,12 @@
 namespace Zerotoprod\DataModelGenerator;
 
 use Zerotoprod\DataModelGenerator\Config\Config;
+use Zerotoprod\DataModelGenerator\Config\ConstantConfig;
 use Zerotoprod\DataModelGenerator\Config\PropertyConfig;
 use Zerotoprod\DataModelGenerator\Config\Type;
 use Zerotoprod\DataModelGenerator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
+use Zerotoprod\DataModelGenerator\Model\Constant;
 use Zerotoprod\DataModelGenerator\Model\Model;
 use Zerotoprod\DataModelGenerator\Model\Property;
 
@@ -47,6 +49,13 @@ class Parser
 
                     return $property;
                 }, $Model[Model::properties] ?? []),
+                Model::constants => array_map(static function ($constant) use ($Config) {
+                    if (isset($Config[Config::constants][ConstantConfig::exclude_comments]) && $Config[Config::constants][ConstantConfig::exclude_comments]) {
+                        $constant[Constant::comment] = null;
+                    }
+
+                    return $constant;
+                }, $Model[Model::constants] ?? []),
             ])->save();
         }
     }

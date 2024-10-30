@@ -76,6 +76,30 @@
           "description": "Visibility of the property"
         }
       }
+    },
+    "constants": {
+      "type": "object",
+      "description": "Contains nested properties",
+      "properties": {
+        "comments": {
+          "type": "string",
+          "description": "The type of constant"
+        },
+        "exclude_comments": {
+          "type": "boolean",
+          "description": "Controls the visibility of comments",
+          "default": false
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "public",
+            "protected",
+            "private"
+          ],
+          "description": "Visibility of the property"
+        }
+      }
     }
   }
 }
