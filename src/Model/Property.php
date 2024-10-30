@@ -3,6 +3,7 @@
 namespace Zerotoprod\DataModelGenerator\Model;
 
 use Zerotoprod\DataModel\Describe;
+use Zerotoprod\DataModelGenerator\Config\PropertyFormat;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
 class Property

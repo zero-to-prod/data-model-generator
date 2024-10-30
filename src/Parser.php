@@ -3,12 +3,12 @@
 namespace Zerotoprod\DataModelGenerator;
 
 use Zerotoprod\DataModelGenerator\Config\Config;
+use Zerotoprod\DataModelGenerator\Config\PropertyConfig;
+use Zerotoprod\DataModelGenerator\Config\Type;
 use Zerotoprod\DataModelGenerator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Model\Model;
 use Zerotoprod\DataModelGenerator\Model\Property;
-use Zerotoprod\DataModelGenerator\Model\PropertyConfig;
-use Zerotoprod\DataModelGenerator\Model\Type;
 
 class Parser
 {

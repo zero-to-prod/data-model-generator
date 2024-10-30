@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Model;
+namespace Zerotoprod\DataModelGenerator\Config;
 
 enum PropertyFormat: string
 {

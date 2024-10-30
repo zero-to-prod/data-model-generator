@@ -4,7 +4,6 @@ namespace Zerotoprod\DataModelGenerator\Config;
 
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
-use Zerotoprod\DataModelGenerator\Model\PropertyConfig;
 
 class Config
 {
