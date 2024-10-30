@@ -4,8 +4,7 @@ namespace Zerotoprod\DataModelGenerator\Config;
 
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
-use Zerotoprod\DataModelGenerator\Model\Type;
-use Zerotoprod\DataModelHelper\DataModelHelper;
+use Zerotoprod\DataModelGenerator\Model\PropertyConfig;
 
 class Config
 {
@@ -21,7 +20,10 @@ class Config
     public const readonly = 'readonly';
 
     /** A map of types and the resulting type. */
-    public const types = 'types';
+    public const properties = 'properties';
+
+    /** Controls the visibility of comments */
+    public const comments = 'comments';
 
     /** The directory DataModels will be saved to. */
     #[Describe(['default' => '.'])]
@@ -37,12 +39,10 @@ class Config
 
     /**
      * A map of types and the resulting type.
-     *
-     * @var Type[] $types
      */
-    #[Describe([
-        'cast' => [DataModelHelper::class, 'mapOf'],
-        'type' => Type::class
-    ])]
-    public array $types;
+    public PropertyConfig $properties;
+
+    /** Controls the visibility of comments */
+    #[Describe(['default' => true])]
+    public bool $comments;
 }

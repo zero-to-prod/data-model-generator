@@ -7,6 +7,7 @@ use Zerotoprod\DataModelGenerator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Model\Model;
 use Zerotoprod\DataModelGenerator\Model\Property;
+use Zerotoprod\DataModelGenerator\Model\PropertyConfig;
 use Zerotoprod\DataModelGenerator\Model\Type;
 
 class Parser
@@ -15,8 +16,8 @@ class Parser
     {
         foreach ($FileSystem[FileSystem::Models] as $Model) {
             $types = array_combine(
-                array_column($Config[Config::types] ?? [], Type::format),
-                $Config[Config::types] ?? []
+                array_column($Config[Config::properties][PropertyConfig::types] ?? [], Type::format),
+                $Config[Config::properties][PropertyConfig::types] ?? []
             );
 
             Model::from([

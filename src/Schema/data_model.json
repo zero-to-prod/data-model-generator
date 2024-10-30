@@ -18,39 +18,47 @@
       "description": "Adds the `readonly` modifier",
       "default": true
     },
-    "types": {
-      "type": "array",
-      "description": "A map of types and the resulting type",
-      "items": {
-        "type": "object",
-        "properties": {
-          "format": {
-            "type": "string",
-            "enum": [
-              "number",
-              "float",
-              "double",
-              "integer",
-              "int32",
-              "int64",
-              "date",
-              "date-time",
-              "password",
-              "byte",
-              "binary"
-            ],
-            "description": "Defines the format of the property"
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of the property"
+    "properties": {
+      "type": "object",
+      "description": "Contains nested properties",
+      "properties": {
+        "types": {
+          "type": "array",
+          "description": "A map of types and the resulting type",
+          "items": {
+            "type": "object",
+            "properties": {
+              "format": {
+                "type": "string",
+                "enum": [
+                  "number",
+                  "float",
+                  "double",
+                  "integer",
+                  "int32",
+                  "int64",
+                  "date",
+                  "date-time",
+                  "password",
+                  "byte",
+                  "binary"
+                ],
+                "description": "Defines the format of the property"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of the property"
+              }
+            },
+            "required": [
+              "format",
+              "type"
+            ]
           }
-        },
-        "required": [
-          "format",
-          "type"
-        ]
-      }
+        }
+      },
+      "required": ["types"]
     }
-  }
+  },
+  "required": ["namespace"]
 }
