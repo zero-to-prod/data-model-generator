@@ -34,7 +34,7 @@ class Parser
                         $property[Property::type] = $types[$format][Property::type];
                     }
 
-                    if ($Config[Config::properties][PropertyConfig::exclude_comments]) {
+                    if ($Config[Config::properties][PropertyConfig::exclude_comments] ?? false) {
                         $property[Property::comment] = null;
                     }
 
