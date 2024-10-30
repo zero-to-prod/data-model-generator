@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Properties\Types;
+namespace Acceptance\Config\Namespace\Overrides;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class TypeTest extends TestCase
+class OverridesNamespaceTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -20,9 +20,9 @@ class TypeTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
+                namespace App\DataModels;
                 class User
                 {
-                public \App\Int \$age;
                 }
                 PHP
         );

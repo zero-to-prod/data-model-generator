@@ -6,11 +6,8 @@
         "name": "User.php",
         "directory": "./tests/generated"
       },
-      "namespace": "App\\Models",
       "properties": [
         {
-          "visibility": "public",
-          "format": "int32",
           "name": "age",
           "comment": "/** comment */"
         }

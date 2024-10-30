@@ -1,13 +1,6 @@
 {
   "$schema": "../../../../../../src/Schema/data_model.json",
-  "namespace": "App\\DataModels",
   "properties": {
-    "types": [
-      {
-        "format": "int32",
-        "type": "\\App\\Int"
-      }
-    ],
     "exclude_comments": true
   }
 }

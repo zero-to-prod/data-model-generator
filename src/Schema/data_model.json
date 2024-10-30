@@ -60,6 +60,11 @@
           "type": "boolean",
           "description": "Controls the visibility of comments",
           "default": false
+        },
+        "readonly": {
+          "type": "boolean",
+          "description": "Adds the `readonly` modifier",
+          "default": true
         }
       }
     }

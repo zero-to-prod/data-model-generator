@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../../../src/Schema/models.json",
+  "$schema": "../../../../../../src/Schema/models.json",
   "Models": [
     {
       "File": {
@@ -8,8 +8,6 @@
       },
       "properties": [
         {
-          "visibility": "public",
-          "format": "int32",
           "name": "age"
         }
       ]

@@ -10,6 +10,9 @@ class PropertyConfig
 {
     use DataModel;
 
+    /** Controls the readonly modifier for the property */
+    public const readonly = 'readonly';
+
     /**
      * A map of types and the resulting type.
      *
@@ -19,6 +22,10 @@ class PropertyConfig
 
     /** Controls the visibility of comments */
     public const exclude_comments = 'exclude_comments';
+
+    /** Controls the readonly modifier for the property */
+    #[Describe(['missing_as_null' => true])]
+    public bool $readonly;
 
     /**
      * A map of types and the resulting type.

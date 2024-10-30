@@ -103,6 +103,10 @@
                   ],
                   "description": "Visibility of the property"
                 },
+                "readonly": {
+                  "type": "boolean",
+                  "description": "Controls the readonly modifier of the property."
+                },
                 "type": {
                   "type": "string",
                   "description": "Data type of the property"
@@ -137,8 +141,6 @@
                 }
               },
               "required": [
-                "visibility",
-                "format",
                 "name"
               ]
             }

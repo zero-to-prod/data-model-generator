@@ -1,6 +1,6 @@
 <?php
 
-namespace Acceptance\Config\Properties\Types;
+namespace Acceptance\Model\Properties\Types;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -13,16 +13,16 @@ class TypeTest extends TestCase
     {
         Parser::generate(
             json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            json_decode(file_get_contents(__DIR__.'/data_model.json'), true)
         );
 
         self::assertStringEqualsFile(
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
+                namespace App\Models;
                 class User
                 {
-                public \App\Int \$age;
+                public int \$age;
                 }
                 PHP
         );

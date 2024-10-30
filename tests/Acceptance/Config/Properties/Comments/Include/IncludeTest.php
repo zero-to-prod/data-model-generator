@@ -20,11 +20,10 @@ class IncludeTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                namespace App\Models;
                 class User
                 {
                 /** comment */
-                public \App\Int \$age;
+                public \$age;
                 }
                 PHP
         );

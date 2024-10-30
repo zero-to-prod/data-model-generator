@@ -1,19 +1,18 @@
 <?php
 
-namespace Acceptance\Config\Namespace\DoesNotOverride;
+namespace Acceptance\Model\Properties\Readonly\AppliesReadonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class DoesNotOverrideTest extends TestCase
+class AppliesReadonlyTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
     {
         Parser::generate(
             json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            json_decode(file_get_contents(__DIR__.'/data_model.json'), true)
         );
 
         self::assertStringEqualsFile(
@@ -23,6 +22,7 @@ class DoesNotOverrideTest extends TestCase
                 namespace App\Models;
                 class User
                 {
+                public readonly \$age;
                 }
                 PHP
         );

@@ -1,6 +1,5 @@
 {
   "$schema": "../../../../../src/Schema/data_model.json",
-  "namespace": "App\\DataModels",
   "properties": {
     "types": [
       {

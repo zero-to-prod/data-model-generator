@@ -3,8 +3,7 @@
   "Models": [
     {
       "File": {
-        "name": "User.php",
-        "directory": "./tests/generated"
+        "name": "User.php"
       },
       "namespace": "App\\Models"
     }

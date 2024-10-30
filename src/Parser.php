@@ -22,21 +22,21 @@ class Parser
 
             Model::from([
                 ...$Model,
-                Model::namespace => $Model[Model::namespace] ?? $Config[Config::namespace] ?? null,
+                Model::namespace => $Config[Config::namespace] ?? $Model[Model::namespace] ?? null,
                 Model::File => [
                     ...$Model[Model::File],
                     File::directory => $Model[Model::File][File::directory] ?? $Config[Config::directory] ?? null,
                 ],
                 Model::readonly => $Model[Model::readonly] ?? $Config[Config::readonly] ?? null,
                 Model::properties => array_map(static function ($property) use ($Config, $types) {
-                    $format = $property[Property::format] ?? null;
-                    if ($format && isset($types[$format])) {
-                        $property[Property::type] = $types[$format][Property::type];
-                    }
+                    $property[Property::type] = ($property[Property::format] ?? null) && isset($types[$property[Property::format]])
+                        ? $types[$property[Property::format]][Property::type]
+                        : $property[Property::type];
 
-                    if ($Config[Config::properties][PropertyConfig::exclude_comments] ?? false) {
-                        $property[Property::comment] = null;
-                    }
+                    $property[Property::comment] = $Config[Config::properties][PropertyConfig::exclude_comments]
+                        ? null
+                        : $property[Property::comment];
+                    $property[Property::readonly] = $Config[Config::properties][PropertyConfig::readonly] ?? $property[Property::readonly];
 
                     return $property;
                 }, $Model[Model::properties] ?? []),
