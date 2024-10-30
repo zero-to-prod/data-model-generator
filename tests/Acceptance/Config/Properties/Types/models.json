@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../../../src/Schema/models.json",
+  "Models": [
+    {
+      "File": {
+        "name": "User.php",
+        "directory": "./tests/generated"
+      },
+      "namespace": "App\\Models",
+      "properties": [
+        {
+          "visibility": "public",
+          "format": "int32",
+          "name": "age"
+        }
+      ]
+    }
+  ]
+}
