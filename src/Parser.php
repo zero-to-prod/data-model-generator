@@ -54,6 +54,10 @@ class Parser
                         $constant[Constant::comment] = null;
                     }
 
+                    if (isset($Config[Config::constants][ConstantConfig::visibility])) {
+                        $constant[Constant::visibility] = $Config[Config::constants][ConstantConfig::visibility];
+                    }
+
                     return $constant;
                 }, $Model[Model::constants] ?? []),
             ])->save();
