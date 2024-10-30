@@ -65,6 +65,15 @@
           "type": "boolean",
           "description": "Adds the `readonly` modifier",
           "default": true
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "public",
+            "protected",
+            "private"
+          ],
+          "description": "Visibility of the property"
         }
       }
     }

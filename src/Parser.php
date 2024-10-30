@@ -37,6 +37,10 @@ class Parser
                         $property[Property::comment] = null;
                     }
 
+                    if (isset($Config[Config::properties][PropertyConfig::visibility])) {
+                        $property[Property::visibility] = $Config[Config::properties][PropertyConfig::visibility];
+                    }
+
                     if (isset($Config[Config::properties][PropertyConfig::readonly])) {
                         $property[Property::readonly] = $Config[Config::properties][PropertyConfig::readonly];
                     }

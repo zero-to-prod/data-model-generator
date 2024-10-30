@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Namespace\AppliesNamespace;
+namespace Acceptance\Config\Readonly\Readonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class AppliesNamespaceTest extends TestCase
+class ReadonlyTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -20,8 +20,7 @@ class AppliesNamespaceTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                namespace App\DataModels;
-                class User
+                readonly class User
                 {
                 }
                 PHP

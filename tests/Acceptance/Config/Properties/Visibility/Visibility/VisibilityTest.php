@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Class\OverridesReadonly;
+namespace Acceptance\Config\Properties\Visibility\Visibility;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class OverridesReadonlyTest extends TestCase
+class VisibilityTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -20,8 +20,9 @@ class OverridesReadonlyTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                readonly class User
+                class User
                 {
+                private \$age;
                 }
                 PHP
         );

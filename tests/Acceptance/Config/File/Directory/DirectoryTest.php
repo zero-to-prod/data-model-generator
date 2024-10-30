@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Class\AppliesReadonly;
+namespace Acceptance\Config\File\Directory;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class AppliesReadonlyTest extends TestCase
+class DirectoryTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -17,10 +17,20 @@ class AppliesReadonlyTest extends TestCase
         );
 
         self::assertStringEqualsFile(
-            expectedFile: self::$test_dir.'/User.php',
+            expectedFile: self::$test_dir.'/app/User.php',
             actualString: <<<PHP
                 <?php
-                readonly class User
+                class User
+                {
+                }
+                PHP
+        );
+
+        self::assertStringEqualsFile(
+            expectedFile: self::$test_dir.'/app/Address.php',
+            actualString: <<<PHP
+                <?php
+                class Address
                 {
                 }
                 PHP

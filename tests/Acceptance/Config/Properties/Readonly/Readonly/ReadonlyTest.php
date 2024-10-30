@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Properties\Readonly\AppliesReadonly;
+namespace Acceptance\Config\Properties\Readonly\Readonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class AppliesReadonlyTest extends TestCase
+class ReadonlyTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void

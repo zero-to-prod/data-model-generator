@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Namespace\Overrides;
+namespace Acceptance\Config\Namespace\Namespace;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class OverridesNamespaceTest extends TestCase
+class NamespaceTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void

@@ -4,6 +4,7 @@ namespace Zerotoprod\DataModelGenerator\Config;
 
 use Zerotoprod\DataModel\DataModel;
 use Zerotoprod\DataModel\Describe;
+use Zerotoprod\DataModelGenerator\Model\Visibility;
 use Zerotoprod\DataModelHelper\DataModelHelper;
 
 class PropertyConfig
@@ -12,6 +13,9 @@ class PropertyConfig
 
     /** Controls the readonly modifier for the property */
     public const readonly = 'readonly';
+
+    /** Controls the visibility of the property */
+    public const visibility = 'visibility';
 
     /**
      * A map of types and the resulting type.
@@ -22,6 +26,9 @@ class PropertyConfig
 
     /** Controls the visibility of comments */
     public const exclude_comments = 'exclude_comments';
+
+    /** Controls the visibility of the property */
+    public Visibility $visibility;
 
     /** Controls the readonly modifier for the property */
     #[Describe(['missing_as_null' => true])]

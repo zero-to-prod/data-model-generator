@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\Properties\Readonly\DoesNotApplyReadonly;
+namespace Acceptance\Config\Readonly\OverridesReadonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class DoesNotApplyReadonlyTest extends TestCase
+class OverridesReadonlyTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -20,9 +20,8 @@ class DoesNotApplyReadonlyTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                class User
+                readonly class User
                 {
-                public \$age;
                 }
                 PHP
         );

@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\File\OverridesDir;
+namespace Acceptance\Config\Properties\Visibility\OverridesVisibility;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class OverridesDirTest extends TestCase
+class OverridesVisibilityTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -17,21 +17,12 @@ class OverridesDirTest extends TestCase
         );
 
         self::assertStringEqualsFile(
-            expectedFile: self::$test_dir.'/app/User.php',
+            expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
                 class User
                 {
-                }
-                PHP
-        );
-
-        self::assertStringEqualsFile(
-            expectedFile: self::$test_dir.'/app/Address.php',
-            actualString: <<<PHP
-                <?php
-                class Address
-                {
+                private \$age;
                 }
                 PHP
         );
