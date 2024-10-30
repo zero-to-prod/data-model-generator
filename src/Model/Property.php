@@ -39,6 +39,7 @@ class Property
     #[Describe(['default' => Visibility::public])]
     private readonly Visibility $visibility;
 
+    /** Applies readonly modifier. */
     #[Describe(['default' => false])]
     private readonly bool $readonly;
 

@@ -6,11 +6,9 @@
         "name": "User.php",
         "directory": "./tests/generated"
       },
-      "properties": [
-        {
-          "type": "int",
-          "name": "age"
-        }
+      "use_statements": [
+        "\\Zerotoprod\\DataModel\\DataModel",
+        "\\Zerotoprod\\DataModel\\Transformable"
       ]
     }
   ]

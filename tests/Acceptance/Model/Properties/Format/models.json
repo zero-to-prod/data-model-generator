@@ -8,8 +8,8 @@
       },
       "properties": [
         {
-          "type": "int",
-          "name": "age"
+          "name": "age",
+          "format": "binary"
         }
       ]
     }

@@ -6,10 +6,10 @@
         "name": "User.php",
         "directory": "./tests/generated"
       },
-      "properties": [
+      "constants": [
         {
-          "type": "int",
-          "name": "age"
+          "name": "age",
+          "value": "3"
         }
       ]
     }

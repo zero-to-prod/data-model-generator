@@ -8,8 +8,11 @@
       },
       "properties": [
         {
-          "type": "int",
-          "name": "age"
+          "name": "age",
+          "attributes": [
+            "#[\\Zerotoprod\\DataModel\\Describe(['default' => 'a'])]",
+            "#[\\Zerotoprod\\DataModel\\Describe(['default' => 'a'])]"
+          ]
         }
       ]
     }

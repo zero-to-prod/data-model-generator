@@ -25,14 +25,15 @@ class Constant
     public const value = 'value';
 
     /** The constants docblock */
-    public string $comment;
+    #[Describe(['missing_as_null' => true])]
+    public ?string $comment;
 
     /** The constants visibility: public, protected, private */
     #[Describe(['default' => Visibility::public])]
     public readonly Visibility $visibility;
 
     /** The constants type */
-    #[Describe(['default' => null])]
+    #[Describe(['missing_as_null' => true])]
     public readonly ?string $type;
 
     /** The constants name */
@@ -54,7 +55,14 @@ class Constant
             PHP_EOL,
             array_filter([
                 $this->comment,
-                "{$this->visibility->value} const $this->type $this->name = $this->value;"
+                implode(" ", array_filter([
+                    $this->visibility->value,
+                    'const',
+                    $this->type,
+                    $this->name,
+                    '=',
+                    $this->value
+                ])) . ';'
             ])
         );
     }

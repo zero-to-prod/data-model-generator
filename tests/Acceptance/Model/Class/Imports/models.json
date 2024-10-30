@@ -6,12 +6,8 @@
         "name": "User.php",
         "directory": "./tests/generated"
       },
-      "properties": [
-        {
-          "type": "int",
-          "name": "age"
-        }
-      ]
+      "namespace": "App\\DataModels",
+      "imports": ["Zerotoprod\\DataModel\\DataModel"]
     }
   ]
 }

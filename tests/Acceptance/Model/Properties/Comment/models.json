@@ -8,7 +8,7 @@
       },
       "properties": [
         {
-          "type": "int",
+          "comment": "/** Comment */",
           "name": "age"
         }
       ]

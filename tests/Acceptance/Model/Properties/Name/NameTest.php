@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Model\Properties\Types;
+namespace Acceptance\Model\Properties\Name;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class TypeTest extends TestCase
+class NameTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -21,7 +21,7 @@ class TypeTest extends TestCase
                 <?php
                 class User
                 {
-                public int \$age;
+                public \$age;
                 }
                 PHP
         );

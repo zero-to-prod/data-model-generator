@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Model\Class\Namespace;
+namespace Acceptance\Model\Constants\Type;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class FromFileTest extends TestCase
+class TypeTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -19,9 +19,9 @@ class FromFileTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                namespace App\DataModels;
                 class User
                 {
+                public const string age = 'age';
                 }
                 PHP
         );
