@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Config\File\DoesNotOverride;
+namespace Acceptance\Config\Class\OverridesReadonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class DoesNotOverrideTest extends TestCase
+class OverridesReadonlyTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
@@ -20,17 +20,7 @@ class DoesNotOverrideTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
-                class User
-                {
-                }
-                PHP
-        );
-
-        self::assertStringEqualsFile(
-            expectedFile: self::$test_dir.'/Address.php',
-            actualString: <<<PHP
-                <?php
-                class Address
+                readonly class User
                 {
                 }
                 PHP

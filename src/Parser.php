@@ -25,9 +25,9 @@ class Parser
                 Model::namespace => $Config[Config::namespace] ?? $Model[Model::namespace] ?? null,
                 Model::File => [
                     ...$Model[Model::File],
-                    File::directory => $Model[Model::File][File::directory] ?? $Config[Config::directory] ?? null,
+                    File::directory => $Config[Config::directory] ?? $Model[Model::File][File::directory] ?? null,
                 ],
-                Model::readonly => $Model[Model::readonly] ?? $Config[Config::readonly] ?? null,
+                Model::readonly => $Config[Config::readonly] ?? $Model[Model::readonly] ?? null,
                 Model::properties => array_map(static function ($property) use ($Config, $types) {
                     $property[Property::type] = ($property[Property::format] ?? null) && isset($types[$property[Property::format]])
                         ? $types[$property[Property::format]][Property::type]

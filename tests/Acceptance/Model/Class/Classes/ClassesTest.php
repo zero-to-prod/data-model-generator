@@ -1,12 +1,12 @@
 <?php
 
-namespace Acceptance\Model\Class\Basic;
+namespace Acceptance\Model\Class\Classes;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Parser;
 
-class BasicTest extends TestCase
+class ClassesTest extends TestCase
 {
     /** @link Parser::generate() */
     #[Test] public function generate(): void
