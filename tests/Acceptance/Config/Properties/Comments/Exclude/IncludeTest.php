@@ -1,6 +1,6 @@
 <?php
 
-namespace Acceptance\Config\Properties\Comments\Include;
+namespace Acceptance\Config\Properties\Comments\Exclude;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -23,7 +23,6 @@ class IncludeTest extends TestCase
                 namespace App\Models;
                 class User
                 {
-                /** comment */
                 public \App\Int \$age;
                 }
                 PHP

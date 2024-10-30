@@ -8,6 +8,6 @@
         "type": "\\App\\Int"
       }
     ],
-    "exclude_comments": false
+    "exclude_comments": true
   }
 }

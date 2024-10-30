@@ -28,10 +28,14 @@ class Parser
                     File::directory => $Model[Model::File][File::directory] ?? $Config[Config::directory] ?? null,
                 ],
                 Model::readonly => $Model[Model::readonly] ?? $Config[Config::readonly] ?? null,
-                Model::properties => array_map(static function ($property) use ($types) {
+                Model::properties => array_map(static function ($property) use ($Config, $types) {
                     $format = $property[Property::format] ?? null;
                     if ($format && isset($types[$format])) {
                         $property[Property::type] = $types[$format][Property::type];
+                    }
+
+                    if ($Config[Config::properties][PropertyConfig::exclude_comments]) {
+                        $property[Property::comment] = null;
                     }
 
                     return $property;

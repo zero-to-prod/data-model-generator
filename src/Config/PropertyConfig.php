@@ -18,7 +18,7 @@ class PropertyConfig
     public const types = 'types';
 
     /** Controls the visibility of comments */
-    public const include_comments = 'include_comments';
+    public const exclude_comments = 'exclude_comments';
 
     /**
      * A map of types and the resulting type.
@@ -32,6 +32,6 @@ class PropertyConfig
     public array $types;
 
     /** Controls the visibility of comments */
-    #[Describe(['default' => true])]
-    public bool $include_comments;
+    #[Describe(['default' => false])]
+    public bool $exclude_comments;
 }

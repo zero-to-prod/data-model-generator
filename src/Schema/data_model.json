@@ -55,9 +55,13 @@
               "type"
             ]
           }
+        },
+        "exclude_comments": {
+          "type": "boolean",
+          "description": "Controls the visibility of comments",
+          "default": false
         }
-      },
-      "required": ["types"]
+      }
     }
   }
 }
