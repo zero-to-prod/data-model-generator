@@ -6,6 +6,7 @@ use Zerotoprod\DataModel\DataModel;
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Model\Visibility;
 use Zerotoprod\DataModelHelper\DataModelHelper;
+use Zerotoprod\DataModelGenerator\Config\Type;
 
 class PropertyConfig
 {
@@ -31,7 +32,7 @@ class PropertyConfig
     public Visibility $visibility;
 
     /** Controls the readonly modifier for the property */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['default' => false])]
     public bool $readonly;
 
     /**

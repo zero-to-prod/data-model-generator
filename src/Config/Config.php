@@ -15,13 +15,13 @@ class Config
     /** The Fully Qualified Namespace for the DataModels */
     public const namespace = 'namespace';
 
-    /** Creates readonly properties or classes. */
+    /** Applies readonly to the class */
     public const readonly = 'readonly';
 
-    /** A map of types and the resulting type. */
+    /** Config for properties */
     public const properties = 'properties';
 
-    /** Constants for the class */
+    /** Config for constants */
     public const constants = 'constants';
 
     /** Controls the visibility of comments */
@@ -35,18 +35,14 @@ class Config
     #[Describe(['missing_as_null' => true])]
     public ?string $namespace;
 
-    /** Creates readonly properties or classes. */
+    /** Applies readonly to the class */
     #[Describe(['default' => true])]
     public bool $readonly;
 
-    /**
-     * A map of types and the resulting type.
-     */
+    /** Config for properties */
     public PropertyConfig $properties;
 
-    /**
-     * A map of types and the resulting type.
-     */
+    /** Config for constants */
     public ConstantConfig $constants;
 
     /** Controls the visibility of comments */

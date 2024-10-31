@@ -55,7 +55,7 @@ class Constant
             PHP_EOL,
             array_filter([
                 $this->comment,
-                implode(" ", array_filter([
+                implode(' ', array_filter([
                     $this->visibility->value,
                     'const',
                     $this->type,

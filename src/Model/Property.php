@@ -52,8 +52,8 @@ class Property
     private readonly string $name;
 
     /** Attributes of the property */
-    #[Describe(['missing_as_null' => true])]
-    private readonly ?array $attributes;
+    #[Describe(['default' => []])]
+    private readonly array $attributes;
 
     /** The format of the data */
     #[Describe(['missing_as_null' => true])]
@@ -68,8 +68,8 @@ class Property
     {
         return implode(PHP_EOL, array_filter([
             $this->comment,
-            implode(PHP_EOL, $this->attributes ?? []),
-            implode(" ", array_filter([
+            implode(PHP_EOL, $this->attributes),
+            implode(' ', array_filter([
                 $this->visibility->value,
                 $this->readonly ? 'readonly' : null,
                 $this->type,
