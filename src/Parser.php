@@ -11,6 +11,7 @@ use Zerotoprod\DataModelGenerator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Model\Constant;
 use Zerotoprod\DataModelGenerator\Model\Model;
 use Zerotoprod\DataModelGenerator\Model\Property;
+use Zerotoprod\DataModelGenerator\Model\Visibility;
 
 class Parser
 {
@@ -33,40 +34,39 @@ class Parser
                 Model::properties => array_map(static function ($property) use ($Config, $types) {
                     $property[Property::type] = ($property[Property::format] ?? null) && isset($types[$property[Property::format]])
                         ? $types[$property[Property::format]][Property::type]
-                        : $property[Property::type] ?? null;
+                        : $property[Property::type]
+                        ?? null;
 
-                    if (isset($Config[Config::properties][PropertyConfig::exclude_comments])
-                        && $Config[Config::properties][PropertyConfig::exclude_comments]
-                    ) {
-                        $property[Property::comment] = null;
-                    }
+                    $property[Property::comment] = isset($Config[Config::properties][PropertyConfig::exclude_comments])
+                    && $Config[Config::properties][PropertyConfig::exclude_comments]
+                        ? null
+                        : $property[Property::comment] ?? null;
 
-                    if (isset($Config[Config::properties][PropertyConfig::visibility])) {
-                        $property[Property::visibility] = $Config[Config::properties][PropertyConfig::visibility];
-                    }
+                    $property[Property::visibility] = $Config[Config::properties][PropertyConfig::visibility] ??
+                        $property[Property::visibility] ?? Visibility::public->value;
 
-                    if (isset($Config[Config::properties][PropertyConfig::readonly])) {
-                        $property[Property::readonly] = $Config[Config::properties][PropertyConfig::readonly];
-                    }
+                    $property[Property::readonly] = $Config[Config::properties][PropertyConfig::readonly]
+                        ?? $property[Property::readonly]
+                        ?? null;
 
                     return $property;
                 }, $Model[Model::properties] ?? []),
                 Model::constants => array_map(static function ($constant) use ($Config) {
-                    if (isset($Config[Config::constants][ConstantConfig::exclude_comments])
-                        && $Config[Config::constants][ConstantConfig::exclude_comments]
-                    ) {
-                        $constant[Constant::comment] = null;
-                    }
+                    $constant[Constant::comment] = isset($Config[Config::constants][ConstantConfig::exclude_comments])
+                    && $Config[Config::constants][ConstantConfig::exclude_comments]
+                        ? null
+                        : $constant[Constant::comment]
+                        ?? null;
 
-                    if (isset($Config[Config::constants][ConstantConfig::visibility])) {
-                        $constant[Constant::visibility] = $Config[Config::constants][ConstantConfig::visibility];
-                    }
+                    $constant[Constant::visibility] = $Config[Config::constants][ConstantConfig::visibility]
+                        ?? $constant[Constant::visibility]
+                        ?? null;
 
-                    if (isset($Config[Config::constants][ConstantConfig::exclude_type])
-                        && $Config[Config::constants][ConstantConfig::exclude_type]
-                    ) {
-                        $constant[Constant::type] = null;
-                    }
+                    $constant[Constant::type] = isset($Config[Config::constants][ConstantConfig::exclude_type])
+                    && $Config[Config::constants][ConstantConfig::exclude_type]
+                        ? null
+                        : $constant[Constant::type]
+                        ?? null;
 
                     return $constant;
                 }, $Model[Model::constants] ?? []),
