@@ -8,9 +8,9 @@
       },
       "constants": [
         {
-          "name": "age",
-          "value": "'age'",
-          "comment": "/** comment */"
+          "name": "name",
+          "type": "string",
+          "value": "'name'"
         }
       ]
     }

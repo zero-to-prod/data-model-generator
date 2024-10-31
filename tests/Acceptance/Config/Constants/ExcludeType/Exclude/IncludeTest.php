@@ -1,6 +1,6 @@
 <?php
 
-namespace Acceptance\Config\Constants\Comments\Include;
+namespace Acceptance\Config\Constants\ExcludeType\Exclude;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -22,8 +22,7 @@ class IncludeTest extends TestCase
                 <?php
                 class User
                 {
-                /** comment */
-                public const age = 'age';
+                public const name = 'name';
                 }
                 PHP
         );

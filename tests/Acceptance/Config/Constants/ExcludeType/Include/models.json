@@ -10,7 +10,7 @@
         {
           "name": "age",
           "value": "'age'",
-          "comment": "/** comment */"
+          "type": "string"
         }
       ]
     }

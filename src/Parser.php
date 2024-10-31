@@ -35,7 +35,9 @@ class Parser
                         ? $types[$property[Property::format]][Property::type]
                         : $property[Property::type] ?? null;
 
-                    if (isset($Config[Config::properties][PropertyConfig::exclude_comments]) && $Config[Config::properties][PropertyConfig::exclude_comments]) {
+                    if (isset($Config[Config::properties][PropertyConfig::exclude_comments])
+                        && $Config[Config::properties][PropertyConfig::exclude_comments]
+                    ) {
                         $property[Property::comment] = null;
                     }
 
@@ -50,12 +52,20 @@ class Parser
                     return $property;
                 }, $Model[Model::properties] ?? []),
                 Model::constants => array_map(static function ($constant) use ($Config) {
-                    if (isset($Config[Config::constants][ConstantConfig::exclude_comments]) && $Config[Config::constants][ConstantConfig::exclude_comments]) {
+                    if (isset($Config[Config::constants][ConstantConfig::exclude_comments])
+                        && $Config[Config::constants][ConstantConfig::exclude_comments]
+                    ) {
                         $constant[Constant::comment] = null;
                     }
 
                     if (isset($Config[Config::constants][ConstantConfig::visibility])) {
                         $constant[Constant::visibility] = $Config[Config::constants][ConstantConfig::visibility];
+                    }
+
+                    if (isset($Config[Config::constants][ConstantConfig::exclude_type])
+                        && $Config[Config::constants][ConstantConfig::exclude_type]
+                    ) {
+                        $constant[Constant::type] = null;
                     }
 
                     return $constant;
