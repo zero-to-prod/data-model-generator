@@ -1,15 +1,11 @@
 {
-  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "$schema": "../../../../../../src/Generator/Schema/models.json",
   "Models": [
     {
-      "File": {
-        "name": "User.php"
-      }
+      "filename": "User.php"
     },
     {
-      "File": {
-        "name": "Address.php"
-      }
+      "filename": "Address.php"
     }
   ]
 }

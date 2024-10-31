@@ -6,7 +6,6 @@ use Zerotoprod\DataModelGenerator\Generator\Config\Config;
 use Zerotoprod\DataModelGenerator\Generator\Config\ConstantConfig;
 use Zerotoprod\DataModelGenerator\Generator\Config\PropertyConfig;
 use Zerotoprod\DataModelGenerator\Generator\Config\Type;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Generator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
 use Zerotoprod\DataModelGenerator\Generator\Model\Model;
@@ -28,10 +27,8 @@ class Engine
             Model::from([
                 Model::namespace => $Config[Config::namespace] ?? $Model[Model::namespace] ?? null,
                 Model::imports => $Model[Model::imports] ?? [],
-                Model::File => [
-                    File::name => $Model[Model::File][File::name] ?? null,
-                    File::directory => $Config[Config::directory] ?? $Model[Model::File][File::directory] ?? null,
-                ],
+                Model::filename => $Model[Model::filename] ?? null,
+                Model::directory => $Config[Config::directory] ?? $Model[Model::directory] ?? null,
                 Model::comment => $Model[Model::comment] ?? null,
                 Model::readonly => $Config[Config::readonly] ?? $Model[Model::readonly] ?? null,
                 Model::use_statements => $Model[Model::use_statements] ?? [],

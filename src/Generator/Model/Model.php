@@ -11,6 +11,7 @@ class Model
 {
     use DataModel;
     use ClassHelper;
+    use File;
 
     /** The Fully Qualified Namespace of the class */
     public const namespace = 'namespace';
@@ -35,6 +36,12 @@ class Model
 
     /** File details for the PhpClass */
     public const File = 'File';
+
+    /** The filename of the file. */
+    public const filename = 'filename';
+
+    /** The directory of the file. */
+    public const directory = 'directory';
 
     /** The Fully Qualified Namespace of the class*/
     #[Describe(['missing_as_null' => true])]
@@ -78,9 +85,24 @@ class Model
     ])]
     public readonly array $properties;
 
-    /** File details for the PhpClass */
+    /** The filename of the file. */
     #[Describe(['required' => true])]
-    public readonly File $File;
+    public readonly string $filename;
+
+    /** The directory of the file. */
+    #[Describe(['default' => '.'])]
+    public readonly string $directory;
+
+    #[Describe(['cast' => [self::class, 'path']])]
+    public readonly string $path;
+
+    /** @link FilepathTest */
+    private static function path($value, array $context): string
+    {
+        return rtrim($context[self::directory] ?? '.', DIRECTORY_SEPARATOR)
+            .DIRECTORY_SEPARATOR
+            .$context[self::filename];
+    }
 
     /**
      * Renders the class
@@ -105,7 +127,7 @@ class Model
 
     public function save(): string
     {
-        return $this->File->create($this->render());
+        return $this->create($this->render());
     }
 
     /**
@@ -129,7 +151,7 @@ class Model
      */
     public function className(): string
     {
-        return pathinfo($this->File->name, PATHINFO_FILENAME);
+        return pathinfo($this->filename, PATHINFO_FILENAME);
     }
 
     /**

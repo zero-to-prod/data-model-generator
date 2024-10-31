@@ -113,6 +113,6 @@ class Enum
      */
     public function className(): string
     {
-        return pathinfo($this->File->name, PATHINFO_FILENAME);
+        return pathinfo($this->File->filename, PATHINFO_FILENAME);
     }
 }

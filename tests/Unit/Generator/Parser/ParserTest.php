@@ -5,7 +5,6 @@ namespace Tests\Unit\Generator\Parser;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Generator\Engine;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Generator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
 use Zerotoprod\DataModelGenerator\Generator\Model\Model;
@@ -21,10 +20,8 @@ class ParserTest extends TestCase
             FileSystem::Models => [
                 [
                     Model::namespace => 'App\\DataModels',
-                    Model::File => [
-                        File::directory => self::$test_dir,
-                        File::name => 'User.php',
-                    ],
+                    Model::directory => self::$test_dir,
+                    Model::filename => 'User.php',
                 ]
             ]
         ]);
@@ -48,10 +45,8 @@ class ParserTest extends TestCase
             FileSystem::Models => [
                 [
                     Model::namespace => 'App\\DataModels',
-                    Model::File => [
-                        File::directory => self::$test_dir,
-                        File::name => 'User.php',
-                    ],
+                    Model::directory => self::$test_dir,
+                    Model::filename => 'User.php',
                     Model::imports => [
                         'Zerotoprod\\DataModel\\DataModel'
                     ],

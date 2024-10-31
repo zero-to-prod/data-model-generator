@@ -19,21 +19,13 @@
             "type": "string",
             "description": "The class comment."
           },
-          "File": {
-            "type": "object",
-            "properties": {
-              "directory": {
-                "type": "string",
-                "description": "Directory path of the file. Default is '.'"
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of the file including any extension/s"
-              }
-            },
-            "required": [
-              "name"
-            ]
+          "directory": {
+            "type": "string",
+            "description": "Directory path of the file. Default is '.'"
+          },
+          "filename": {
+            "type": "string",
+            "description": "The filename of the file including any extension/s"
           },
           "imports": {
             "type": "array",
@@ -148,7 +140,7 @@
           }
         },
         "required": [
-          "File"
+          "filename"
         ]
       }
     }

@@ -1,11 +1,9 @@
 {
-  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "$schema": "../../../../../../src/Generator/Schema/models.json",
   "Models": [
     {
-      "File": {
-        "name": "User.php",
-        "directory": "./tests/generated"
-      },
+      "filename": "User.php",
+      "directory": "./tests/generated",
       "readonly": true
     }
   ]

@@ -3,7 +3,6 @@
 namespace Factories;
 
 use Zerotoprod\DataModelFactory\Factory;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Generator\Model\Model;
 
 class PhpClassFactory
@@ -16,10 +15,8 @@ class PhpClassFactory
     {
         return [
             Model::namespace => 'App\\DataModels',
-            Model::File => [
-                File::name => 'User.php',
-                File::directory => './app/DataModels',
-            ],
+            Model::filename => 'User.php',
+            Model::directory => './app/DataModels',
         ];
     }
 

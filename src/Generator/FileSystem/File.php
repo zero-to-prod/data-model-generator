@@ -3,37 +3,9 @@
 namespace Zerotoprod\DataModelGenerator\Generator\FileSystem;
 
 use RuntimeException;
-use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\Helpers\DataModel;
 
-class File
+trait File
 {
-    use DataModel;
-
-    /** The name of the file. */
-    public const name = 'name';
-
-    /** The directory of the file. */
-    public const directory = 'directory';
-
-    /** The name of the file. */
-    #[Describe(['required' => true])]
-    public readonly string $name;
-
-    /** The directory of the file. */
-    #[Describe(['default' => '.'])]
-    public readonly string $directory;
-
-    #[Describe(['cast' => [self::class, 'path']])]
-    public readonly string $path;
-
-    /** @link FilepathTest */
-    private static function path($value, array $context): string
-    {
-        return rtrim($context[self::directory] ?? '.', DIRECTORY_SEPARATOR)
-            .DIRECTORY_SEPARATOR
-            .$context[self::name];
-    }
 
     public function create(mixed $content = '', int $permissions = 0777, bool $overwrite = false): string
     {

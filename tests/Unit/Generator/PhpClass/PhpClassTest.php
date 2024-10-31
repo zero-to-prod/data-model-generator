@@ -5,7 +5,6 @@ namespace Tests\Unit\Generator\PhpClass;
 use Factories\PhpClassFactory;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
 use Zerotoprod\DataModelGenerator\Generator\Model\Model;
 use Zerotoprod\DataModelGenerator\Generator\Model\Property;
@@ -27,9 +26,7 @@ class PhpClassTest extends TestCase
             Model::use_statements => [
                 'DataModel'
             ],
-            Model::File => [
-                File::name => 'User.php',
-            ],
+            Model::filename => 'User.php',
             Model::constants => [
                 [
                     Constant::comment => '/** Comment */',
@@ -138,9 +135,7 @@ class PhpClassTest extends TestCase
     {
         $PhpClass = PhpClassFactory::factory([
             Model::readonly => true,
-            Model::File => [
-                File::name => 'User.php',
-            ],
+            Model::filename => 'User.php',
         ])->make();
 
         $this->assertEquals('readonly class User', $PhpClass->classLine());
