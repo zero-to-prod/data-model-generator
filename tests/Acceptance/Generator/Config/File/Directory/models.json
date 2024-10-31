@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "Models": [
+    {
+      "File": {
+        "name": "User.php"
+      }
+    },
+    {
+      "File": {
+        "name": "Address.php"
+      }
+    }
+  ]
+}

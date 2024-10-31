@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "Models": [
+    {
+      "File": {
+        "name": "User.php",
+        "directory": "./tests/generated"
+      },
+      "use_statements": [
+        "\\Zerotoprod\\DataModel\\DataModel",
+        "\\Zerotoprod\\DataModel\\Transformable"
+      ]
+    }
+  ]
+}

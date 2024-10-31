@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../../../../src/Generator/Schema/data_model.json",
+  "constants": {
+    "exclude_type": true
+  }
+}

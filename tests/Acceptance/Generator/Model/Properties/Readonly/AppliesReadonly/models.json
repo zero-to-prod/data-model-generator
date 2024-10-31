@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../../../src/Generator/Schema/models.json",
+  "Models": [
+    {
+      "File": {
+        "name": "User.php",
+        "directory": "./tests/generated"
+      },
+      "namespace": "App\\Models",
+      "properties": [
+        {
+          "readonly": true,
+          "name": "age"
+        }
+      ]
+    }
+  ]
+}
