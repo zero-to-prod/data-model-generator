@@ -18,19 +18,23 @@ class Parser
     public static function generate(array $FileSystem, array $Config = []): void
     {
         foreach ($FileSystem[FileSystem::Models] as $Model) {
-            $types = array_combine(
-                array_column($Config[Config::properties][PropertyConfig::types] ?? [], Type::format),
-                $Config[Config::properties][PropertyConfig::types] ?? []
-            );
+            $types = isset($Config[Config::properties][PropertyConfig::types])
+                ? array_combine(
+                    array_column($Config[Config::properties][PropertyConfig::types], Type::format),
+                    $Config[Config::properties][PropertyConfig::types]
+                )
+                : [];
 
             Model::from([
-                ...$Model,
                 Model::namespace => $Config[Config::namespace] ?? $Model[Model::namespace] ?? null,
+                Model::imports => $Model[Model::imports] ?? [],
                 Model::File => [
-                    ...$Model[Model::File],
+                    File::name => $Model[Model::File][File::name] ?? null,
                     File::directory => $Config[Config::directory] ?? $Model[Model::File][File::directory] ?? null,
                 ],
+                Model::comment => $Model[Model::comment] ?? null,
                 Model::readonly => $Config[Config::readonly] ?? $Model[Model::readonly] ?? null,
+                Model::use_statements => $Model[Model::use_statements] ?? [],
                 Model::properties => array_map(static function ($property) use ($Config, $types) {
                     $property[Property::type] = ($property[Property::format] ?? null) && isset($types[$property[Property::format]])
                         ? $types[$property[Property::format]][Property::type]
@@ -40,7 +44,8 @@ class Parser
                     $property[Property::comment] = isset($Config[Config::properties][PropertyConfig::exclude_comments])
                     && $Config[Config::properties][PropertyConfig::exclude_comments]
                         ? null
-                        : $property[Property::comment] ?? null;
+                        : $property[Property::comment]
+                        ?? null;
 
                     $property[Property::visibility] = $Config[Config::properties][PropertyConfig::visibility] ??
                         $property[Property::visibility] ?? Visibility::public->value;
@@ -73,4 +78,5 @@ class Parser
             ])->save();
         }
     }
+
 }
