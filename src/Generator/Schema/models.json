@@ -220,6 +220,30 @@
             },
             "description": "Constants used in the enum"
           },
+          "cases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "description": "The case docblock"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The case name"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The case value"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "description": "Constants used in the enum"
+          },
           "filename": {
             "type": "string",
             "description": "The filename of the file"

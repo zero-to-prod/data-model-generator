@@ -31,6 +31,9 @@ class Enum
     /** Constants used in the enum */
     public const constants = 'constants';
 
+    /** Cases used in the enum */
+    public const cases = 'cases';
+
     /** The filename of the file. */
     public const filename = 'filename';
 
@@ -69,6 +72,17 @@ class Enum
     public readonly array $constants;
 
     /**
+     * Cases used in the enum
+     *
+     * @var EnumCase[]
+     */
+    #[Describe([
+        'cast' => [self::class, 'mapOf'],
+        'type' => EnumCase::class,
+    ])]
+    public readonly array $cases;
+
+    /**
      * Renders the enum
      */
     public function render(): string
@@ -82,6 +96,7 @@ class Enum
             '{',
             $this->useStatements(),
             $this->constants(),
+            $this->cases(),
             '}'
         ]));
     }
@@ -101,5 +116,18 @@ class Enum
     public function className(): string
     {
         return pathinfo($this->filename, PATHINFO_FILENAME);
+    }
+
+    /**
+     * Properties used in the class
+     *
+     * @link PhpClassTest::properties()
+     */
+    public function cases(): string
+    {
+        return implode(
+            PHP_EOL,
+            array_map(static fn(EnumCase $Case) => $Case->render(), $this->cases)
+        );
     }
 }

@@ -68,6 +68,7 @@ class Engine
                 Enum::backed_type => $Enum[Enum::backed_type] ?? null,
                 Enum::use_statements => $Enum[Enum::use_statements] ?? [],
                 Enum::constants => self::transformConstants($Config, $Enum[Enum::constants] ?? []),
+                Enum::cases => $Enum[Enum::cases] ?? [],
             ])->save();
         }
     }
@@ -94,5 +95,4 @@ class Engine
             return $constant;
         }, $Enum ?? []);
     }
-
 }
