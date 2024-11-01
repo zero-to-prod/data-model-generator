@@ -73,7 +73,7 @@ class Engine
         }
     }
 
-    private static function transformConstants(array $Config, array $Enum): array
+    private static function transformConstants(array $Config, array $Constants): array
     {
         return array_map(static function ($constant) use ($Config) {
             $constant[Constant::comment] = isset($Config[Config::constants][ConstantConfig::exclude_comments])
@@ -93,6 +93,6 @@ class Engine
                 ?? null;
 
             return $constant;
-        }, $Enum ?? []);
+        }, $Constants);
     }
 }
