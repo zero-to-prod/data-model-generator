@@ -8,6 +8,7 @@ use Zerotoprod\DataModelGenerator\Generator\Config\PropertyConfig;
 use Zerotoprod\DataModelGenerator\Generator\Config\Type;
 use Zerotoprod\DataModelGenerator\Generator\FileSystem\FileSystem;
 use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
+use Zerotoprod\DataModelGenerator\Generator\Model\Enum;
 use Zerotoprod\DataModelGenerator\Generator\Model\Model;
 use Zerotoprod\DataModelGenerator\Generator\Model\Property;
 use Zerotoprod\DataModelGenerator\Generator\Model\Visibility;
@@ -16,7 +17,7 @@ class Engine
 {
     public static function generate(array $FileSystem, array $Config = []): void
     {
-        foreach ($FileSystem[FileSystem::Models] as $Model) {
+        foreach ($FileSystem[FileSystem::Models] ?? [] as $Model) {
             $types = isset($Config[Config::properties][PropertyConfig::types])
                 ? array_combine(
                     array_column($Config[Config::properties][PropertyConfig::types], Type::format),
@@ -53,27 +54,44 @@ class Engine
 
                     return $property;
                 }, $Model[Model::properties] ?? []),
-                Model::constants => array_map(static function ($constant) use ($Config) {
-                    $constant[Constant::comment] = isset($Config[Config::constants][ConstantConfig::exclude_comments])
-                    && $Config[Config::constants][ConstantConfig::exclude_comments]
-                        ? null
-                        : $constant[Constant::comment]
-                        ?? null;
-
-                    $constant[Constant::visibility] = $Config[Config::constants][ConstantConfig::visibility]
-                        ?? $constant[Constant::visibility]
-                        ?? null;
-
-                    $constant[Constant::type] = isset($Config[Config::constants][ConstantConfig::exclude_type])
-                    && $Config[Config::constants][ConstantConfig::exclude_type]
-                        ? null
-                        : $constant[Constant::type]
-                        ?? null;
-
-                    return $constant;
-                }, $Model[Model::constants] ?? []),
+                Model::constants => self::transformConstants($Config, $Model[Enum::constants] ?? []),
             ])->save();
         }
+
+        foreach ($FileSystem[FileSystem::Enums] ?? [] as $Enum) {
+            Enum::from([
+                Enum::namespace => $Config[Config::namespace] ?? $Enum[Enum::namespace] ?? null,
+                Enum::imports => $Enum[Enum::imports] ?? [],
+                Enum::filename => $Enum[Enum::filename] ?? null,
+                Enum::directory => $Config[Config::directory] ?? $Enum[Enum::directory] ?? null,
+                Enum::comment => $Enum[Enum::comment] ?? null,
+                Enum::use_statements => $Enum[Enum::use_statements] ?? [],
+                Enum::constants => self::transformConstants($Config, $Enum[Enum::constants] ?? []),
+            ])->save();
+        }
+    }
+
+    private static function transformConstants(array $Config, array $Enum): array
+    {
+        return array_map(static function ($constant) use ($Config) {
+            $constant[Constant::comment] = isset($Config[Config::constants][ConstantConfig::exclude_comments])
+            && $Config[Config::constants][ConstantConfig::exclude_comments]
+                ? null
+                : $constant[Constant::comment]
+                ?? null;
+
+            $constant[Constant::visibility] = $Config[Config::constants][ConstantConfig::visibility]
+                ?? $constant[Constant::visibility]
+                ?? null;
+
+            $constant[Constant::type] = isset($Config[Config::constants][ConstantConfig::exclude_type])
+            && $Config[Config::constants][ConstantConfig::exclude_type]
+                ? null
+                : $constant[Constant::type]
+                ?? null;
+
+            return $constant;
+        }, $Enum ?? []);
     }
 
 }

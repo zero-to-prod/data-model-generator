@@ -11,6 +11,7 @@ class Enum
 {
     use DataModel;
     use ClassHelper;
+    use File;
 
     /** The Fully Qualified Namespace of the enum */
     public const namespace = 'namespace';
@@ -30,8 +31,11 @@ class Enum
     /** Constants used in the enum */
     public const constants = 'constants';
 
-    /** File details for the enum */
-    public const File = 'File';
+    /** The filename of the file. */
+    public const filename = 'filename';
+
+    /** The directory of the file. */
+    public const directory = 'directory';
 
     /** The Fully Qualified Namespace of the enum */
     #[Describe(['missing_as_null' => true])]
@@ -46,6 +50,7 @@ class Enum
     public readonly ?string $comment;
 
     /** The enum backing */
+    #[Describe(['missing_as_null' => true])]
     public readonly ?string $backed_type;
 
     /** Traits used in the enum */
@@ -63,14 +68,8 @@ class Enum
     ])]
     public readonly array $constants;
 
-    /** File details for the enum */
-    #[Describe(['required' => true])]
-    public readonly File $File;
-
     /**
      * Renders the enum
-     *
-     * @link PhpClassTest::render()
      */
     public function render(): string
     {
@@ -89,15 +88,9 @@ class Enum
 
     public function save(): string
     {
-        return $this->File->create($this->render());
+        return $this->create($this->render());
     }
 
-    /**
-     * Returns enum line
-     *
-     * @link PhpClassTest::classLine()
-     * @link PhpClassTest::readonlyClassLine()
-     */
     public function classLine(): string
     {
         return $this->backed_type
@@ -105,14 +98,8 @@ class Enum
             : "enum {$this->className()}";
     }
 
-    /**
-     * Get enum name
-     *
-     * @link PhpClassTest::classLine()
-     * @link PhpClassTest::readonlyClassLine()
-     */
     public function className(): string
     {
-        return pathinfo($this->File->filename, PATHINFO_FILENAME);
+        return pathinfo($this->filename, PATHINFO_FILENAME);
     }
 }

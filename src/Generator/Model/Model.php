@@ -34,9 +34,6 @@ class Model
     /** Properties used in the class */
     public const properties = 'properties';
 
-    /** File details for the PhpClass */
-    public const File = 'File';
-
     /** The filename of the file. */
     public const filename = 'filename';
 
@@ -84,25 +81,6 @@ class Model
         'type' => Property::class,
     ])]
     public readonly array $properties;
-
-    /** The filename of the file. */
-    #[Describe(['required' => true])]
-    public readonly string $filename;
-
-    /** The directory of the file. */
-    #[Describe(['default' => '.'])]
-    public readonly string $directory;
-
-    #[Describe(['cast' => [self::class, 'path']])]
-    public readonly string $path;
-
-    /** @link FilepathTest */
-    private static function path($value, array $context): string
-    {
-        return rtrim($context[self::directory] ?? '.', DIRECTORY_SEPARATOR)
-            .DIRECTORY_SEPARATOR
-            .$context[self::filename];
-    }
 
     /**
      * Renders the class

@@ -143,9 +143,92 @@
           "filename"
         ]
       }
+    },
+    "Enums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "The Fully Qualified Namespace of the enum"
+          },
+          "imports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Imports used in the enum",
+            "default": []
+          },
+          "comment": {
+            "type": "string",
+            "description": "Specifies the enum comment"
+          },
+          "backed_type": {
+            "type": "string",
+            "description": "The enum backing type"
+          },
+          "use_statements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Traits used in the enum",
+            "default": []
+          },
+          "constants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string",
+                  "description": "The constants docblock"
+                },
+                "visibility": {
+                  "type": "string",
+                  "enum": [
+                    "public",
+                    "protected",
+                    "private"
+                  ],
+                  "description": "The constants visibility",
+                  "default": "public"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The constants type"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The constants name"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The constants value"
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            },
+            "description": "Constants used in the enum"
+          },
+          "filename": {
+            "type": "string",
+            "description": "The filename of the file"
+          },
+          "directory": {
+            "type": "string",
+            "description": "The directory of the file"
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      }
     }
-  },
-  "required": [
-    "Models"
-  ]
+  }
 }
