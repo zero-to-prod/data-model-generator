@@ -167,7 +167,11 @@
           },
           "backed_type": {
             "type": "string",
-            "description": "The enum backing type"
+            "description": "The enum backing type",
+            "enum": [
+              "string",
+              "int"
+            ]
           },
           "use_statements": {
             "type": "array",

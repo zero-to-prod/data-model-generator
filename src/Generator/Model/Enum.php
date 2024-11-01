@@ -51,7 +51,7 @@ class Enum
 
     /** The enum backing */
     #[Describe(['missing_as_null' => true])]
-    public readonly ?string $backed_type;
+    public readonly ?BackedEnumType $backed_type;
 
     /** Traits used in the enum */
     #[Describe(['default' => []])]
@@ -94,7 +94,7 @@ class Enum
     public function classLine(): string
     {
         return $this->backed_type
-            ? "enum {$this->className()}: $this->backed_type"
+            ? "enum {$this->className()}: {$this->backed_type->value}"
             : "enum {$this->className()}";
     }
 

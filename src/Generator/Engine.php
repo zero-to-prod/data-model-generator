@@ -65,6 +65,7 @@ class Engine
                 Enum::filename => $Enum[Enum::filename] ?? null,
                 Enum::directory => $Config[Config::directory] ?? $Enum[Enum::directory] ?? null,
                 Enum::comment => $Enum[Enum::comment] ?? null,
+                Enum::backed_type => $Enum[Enum::backed_type] ?? null,
                 Enum::use_statements => $Enum[Enum::use_statements] ?? [],
                 Enum::constants => self::transformConstants($Config, $Enum[Enum::constants] ?? []),
             ])->save();

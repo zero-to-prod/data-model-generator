@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../../../../src/Generator/Schema/models.json",
+  "Enums": [
+    {
+      "filename": "Role.php",
+      "directory": "./tests/generated",
+      "constants": [
+        {
+          "name": "admin",
+          "value": "3"
+        }
+      ]
+    }
+  ]
+}
