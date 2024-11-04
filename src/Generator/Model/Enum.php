@@ -3,9 +3,9 @@
 namespace Zerotoprod\DataModelGenerator\Generator\Model;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Generator\Helpers\ClassHelper;
 use Zerotoprod\DataModelGenerator\Generator\Helpers\DataModel;
+use Zerotoprod\File\File;
 
 class Enum
 {
@@ -103,26 +103,16 @@ class Enum
 
     public function save(): string
     {
-        return $this->create($this->render());
+        return $this->put($this->render());
     }
 
     public function classLine(): string
     {
         return $this->backed_type
-            ? "enum {$this->className()}: {$this->backed_type->value}"
-            : "enum {$this->className()}";
+            ? "enum {$this->filename()}: {$this->backed_type->value}"
+            : "enum {$this->filename()}";
     }
 
-    public function className(): string
-    {
-        return pathinfo($this->filename, PATHINFO_FILENAME);
-    }
-
-    /**
-     * Properties used in the class
-     *
-     * @link PhpClassTest::properties()
-     */
     public function cases(): string
     {
         return implode(

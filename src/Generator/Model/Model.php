@@ -3,9 +3,9 @@
 namespace Zerotoprod\DataModelGenerator\Generator\Model;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\File;
 use Zerotoprod\DataModelGenerator\Generator\Helpers\ClassHelper;
 use Zerotoprod\DataModelGenerator\Generator\Helpers\DataModel;
+use Zerotoprod\File\File;
 
 class Model
 {
@@ -105,7 +105,7 @@ class Model
 
     public function save(): string
     {
-        return $this->create($this->render());
+        return $this->put($this->render());
     }
 
     /**
@@ -117,19 +117,8 @@ class Model
     public function classLine(): string
     {
         return $this->readonly
-            ? "readonly class {$this->className()}"
-            : "class {$this->className()}";
-    }
-
-    /**
-     * Get class name
-     *
-     * @link PhpClassTest::classLine()
-     * @link PhpClassTest::readonlyClassLine()
-     */
-    public function className(): string
-    {
-        return pathinfo($this->filename, PATHINFO_FILENAME);
+            ? "readonly class {$this->filename()}"
+            : "class {$this->filename()}";
     }
 
     /**
@@ -141,7 +130,8 @@ class Model
     {
         return implode(
             PHP_EOL,
-            array_map(static fn(Property $Property) => $Property->render(), $this->properties)
+            array_map(static fn(Property $Property) => $Property->render(),
+                $this->properties)
         );
     }
 }
