@@ -52,6 +52,7 @@ class Engine
                 Enum::namespace => $Config->namespace ?? $Enum->namespace,
                 Enum::directory => $Config->directory ?? $Enum->directory,
                 Enum::constants => self::transformConstants($Config, $Enum->constants),
+                Enum::backed_type => $Enum->backed_type,
             ])->save();
         }
     }
