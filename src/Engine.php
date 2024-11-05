@@ -16,12 +16,13 @@ class Engine
     public static function generate(Components $Components): void
     {
         $Config = $Components->Config;
+        $types = isset($Config->properties->types)
+            ? array_combine(
+                array_column($Config->properties->types, Type::format),
+                $Config->properties->types
+            )
+            : [];
         foreach ($Components->Models as $Model) {
-            $types = array_combine(
-                array_column($Config->properties?->types ?? [], Type::format),
-                $Config->properties?->types ?? []
-            );
-
             Model::from([
                 ...$Model->toArray(),
                 Model::namespace => $Config->namespace ?? $Model->namespace,
