@@ -28,19 +28,20 @@ class Config
     public const comments = 'comments';
 
     /** The directory DataModels will be saved to. */
-    #[Describe(['default' => '.'])]
-    public string $directory;
+    #[Describe(['missing_as_null' => true])]
+    public ?string $directory;
 
     /** The Fully Qualified Namespace for the DataModels */
     #[Describe(['missing_as_null' => true])]
     public ?string $namespace;
 
     /** Applies readonly to the class */
-    #[Describe(['default' => true])]
+    #[Describe(['default' => false])]
     public bool $readonly;
 
     /** Config for properties */
-    public PropertyConfig $properties;
+    #[Describe(['missing_as_null' => true])]
+    public ?PropertyConfig $properties;
 
     /** Config for constants */
     public ConstantConfig $constants;

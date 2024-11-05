@@ -4,6 +4,7 @@ namespace Acceptance\Generator\Config\File\OverridesDirectory;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Zerotoprod\DataModelGenerator\Generator\Config\Config;
 use Zerotoprod\DataModelGenerator\Generator\Engine;
 
 class OverridesDirectoryTest extends TestCase
@@ -13,7 +14,7 @@ class OverridesDirectoryTest extends TestCase
     {
         Engine::generate(
             json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            json_decode(file_get_contents(__DIR__.'/data_model.json'), true)
+            Config::from(json_decode(file_get_contents(__DIR__.'/data_model.json'), true))
         );
 
         self::assertStringEqualsFile(

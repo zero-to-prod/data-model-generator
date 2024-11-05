@@ -4,6 +4,7 @@ namespace Acceptance\Generator\Config\Properties\Readonly\OverridesReadonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Zerotoprod\DataModelGenerator\Generator\Config\Config;
 use Zerotoprod\DataModelGenerator\Generator\Engine;
 
 class OverridesReadonlyTest extends TestCase
@@ -13,7 +14,7 @@ class OverridesReadonlyTest extends TestCase
     {
         Engine::generate(
             json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            json_decode(file_get_contents(__DIR__.'/data_model.json'), true)
+            Config::from(json_decode(file_get_contents(__DIR__.'/data_model.json'), true))
         );
 
         self::assertStringEqualsFile(

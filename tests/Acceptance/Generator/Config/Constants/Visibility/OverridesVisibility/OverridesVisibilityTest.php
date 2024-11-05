@@ -4,6 +4,7 @@ namespace Acceptance\Generator\Config\Constants\Visibility\OverridesVisibility;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Zerotoprod\DataModelGenerator\Generator\Config\Config;
 use Zerotoprod\DataModelGenerator\Generator\Engine;
 
 class OverridesVisibilityTest extends TestCase
@@ -13,7 +14,7 @@ class OverridesVisibilityTest extends TestCase
     {
         Engine::generate(
             json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            json_decode(file_get_contents(__DIR__.'/data_model.json'), true)
+            Config::from(json_decode(file_get_contents(__DIR__.'/data_model.json'), true))
         );
 
         self::assertStringEqualsFile(

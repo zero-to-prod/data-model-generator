@@ -39,10 +39,7 @@ class PropertyConfig
      *
      * @var Type[] $types
      */
-    #[Describe([
-        'cast' => [DataModelHelper::class, 'mapOf'],
-        'type' => Type::class
-    ])]
+    #[Describe(['default' => []])]
     public array $types;
 
     /** Controls the visibility of comments */
