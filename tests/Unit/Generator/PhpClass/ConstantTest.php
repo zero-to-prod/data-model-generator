@@ -4,8 +4,8 @@ namespace Tests\Unit\Generator\PhpClass;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
-use Zerotoprod\DataModelGenerator\Generator\Model\Visibility;
+use Zerotoprod\DataModelGenerator\Models\Constant;
+use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class ConstantTest extends TestCase
 {

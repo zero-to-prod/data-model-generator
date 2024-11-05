@@ -4,8 +4,8 @@ namespace Tests\Acceptance\Config\Properties\Comments\Exclude;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Config\Config;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Config;
 
 class IncludeTest extends TestCase
 {

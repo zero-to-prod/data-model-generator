@@ -4,7 +4,7 @@ namespace Tests\Acceptance\Model\Properties\Visibility;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
 
 class VisibilityTest extends TestCase
 {

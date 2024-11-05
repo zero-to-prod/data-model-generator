@@ -1,11 +1,9 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\Config;
+namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\DataModel;
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\Model\Visibility;
-use Zerotoprod\DataModelHelper\DataModelHelper;
 
 class PropertyConfig
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\Helpers;
+namespace Zerotoprod\DataModelGenerator\Helpers;
 
 use Zerotoprod\DataModelHelper\DataModelHelper;
 use Zerotoprod\Transformable\Transformable;

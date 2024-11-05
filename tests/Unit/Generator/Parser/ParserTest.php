@@ -4,12 +4,12 @@ namespace Tests\Unit\Generator\Parser;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\FileSystem;
-use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
-use Zerotoprod\DataModelGenerator\Generator\Model\Model;
-use Zerotoprod\DataModelGenerator\Generator\Model\Property;
-use Zerotoprod\DataModelGenerator\Generator\Model\Visibility;
+use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Constant;
+use Zerotoprod\DataModelGenerator\Models\Components;
+use Zerotoprod\DataModelGenerator\Models\Model;
+use Zerotoprod\DataModelGenerator\Models\Property;
+use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class ParserTest extends TestCase
 {
@@ -17,7 +17,7 @@ class ParserTest extends TestCase
     #[Test] public function generateClass(): void
     {
         Engine::generate([
-            FileSystem::Models => [
+            Components::Models => [
                 [
                     Model::namespace => 'App\\DataModels',
                     Model::directory => self::$test_dir,
@@ -42,7 +42,7 @@ class ParserTest extends TestCase
     #[Test] public function generate(): void
     {
         Engine::generate([
-            FileSystem::Models => [
+            Components::Models => [
                 [
                     Model::namespace => 'App\\DataModels',
                     Model::directory => self::$test_dir,

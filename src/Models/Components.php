@@ -1,13 +1,11 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\FileSystem;
+namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\Helpers\DataModel;
-use Zerotoprod\DataModelGenerator\Generator\Model\Enum;
-use Zerotoprod\DataModelGenerator\Generator\Model\Model;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
-class FileSystem
+class Components
 {
     use DataModel;
 

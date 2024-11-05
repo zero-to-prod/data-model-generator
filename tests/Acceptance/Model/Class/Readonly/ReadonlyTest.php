@@ -4,7 +4,7 @@ namespace Tests\Acceptance\Model\Class\Readonly;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
 
 class ReadonlyTest extends TestCase
 {

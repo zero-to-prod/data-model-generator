@@ -1,16 +1,16 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\Model;
+namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\Helpers\ClassHelper;
-use Zerotoprod\DataModelGenerator\Generator\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 use Zerotoprod\File\File;
 
 class Model
 {
     use DataModel;
-    use ClassHelper;
+    use RendersClassComponents;
     use File;
 
     /** The Fully Qualified Namespace of the class */

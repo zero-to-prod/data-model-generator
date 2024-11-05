@@ -4,7 +4,7 @@ namespace Tests\Acceptance\Model\Constants\Name;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
 
 class NameTest extends TestCase
 {

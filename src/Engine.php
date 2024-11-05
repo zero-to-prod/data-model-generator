@@ -1,21 +1,21 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator;
+namespace Zerotoprod\DataModelGenerator;
 
-use Zerotoprod\DataModelGenerator\Generator\Config\Config;
-use Zerotoprod\DataModelGenerator\Generator\Config\Type;
-use Zerotoprod\DataModelGenerator\Generator\FileSystem\FileSystem;
-use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
-use Zerotoprod\DataModelGenerator\Generator\Model\Enum;
-use Zerotoprod\DataModelGenerator\Generator\Model\Model;
-use Zerotoprod\DataModelGenerator\Generator\Model\Property;
-use Zerotoprod\DataModelGenerator\Generator\Model\Visibility;
+use Zerotoprod\DataModelGenerator\Models\Config;
+use Zerotoprod\DataModelGenerator\Models\Constant;
+use Zerotoprod\DataModelGenerator\Models\Enum;
+use Zerotoprod\DataModelGenerator\Models\Components;
+use Zerotoprod\DataModelGenerator\Models\Model;
+use Zerotoprod\DataModelGenerator\Models\Property;
+use Zerotoprod\DataModelGenerator\Models\Type;
+use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class Engine
 {
     public static function generate(array $FileSystem, ?Config $Config = null): void
     {
-        foreach ($FileSystem[FileSystem::Models] ?? [] as $Model) {
+        foreach ($FileSystem[Components::Models] ?? [] as $Model) {
             $types = $Config?->properties?->types
                 ? array_combine(
                     array_column($Config?->properties->types, Type::format),
@@ -56,7 +56,7 @@ class Engine
             ])->save();
         }
 
-        foreach ($FileSystem[FileSystem::Enums] ?? [] as $Enum) {
+        foreach ($FileSystem[Components::Enums] ?? [] as $Enum) {
             Enum::from([
                 Enum::namespace => $Config->namespace ?? $Enum[Enum::namespace] ?? null,
                 Enum::imports => $Enum[Enum::imports] ?? [],

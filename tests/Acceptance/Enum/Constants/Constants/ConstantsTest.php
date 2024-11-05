@@ -4,7 +4,7 @@ namespace Tests\Acceptance\Enum\Constants\Constants;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
 
 class ConstantsTest extends TestCase
 {

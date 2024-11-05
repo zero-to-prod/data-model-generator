@@ -3,7 +3,7 @@
 namespace Factories;
 
 use Zerotoprod\DataModelFactory\Factory;
-use Zerotoprod\DataModelGenerator\Generator\Model\Model;
+use Zerotoprod\DataModelGenerator\Models\Model;
 
 class PhpClassFactory
 {

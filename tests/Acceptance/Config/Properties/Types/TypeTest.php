@@ -4,8 +4,8 @@ namespace Tests\Acceptance\Config\Properties\Types;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Config\Config;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Config;
 
 class TypeTest extends TestCase
 {

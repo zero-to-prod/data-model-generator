@@ -1,9 +1,9 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\Model;
+namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Generator\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
 class EnumCase
 {

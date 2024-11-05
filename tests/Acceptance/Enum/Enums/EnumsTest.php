@@ -4,7 +4,7 @@ namespace Tests\Acceptance\Enum\Enums;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Engine;
+use Zerotoprod\DataModelGenerator\Engine;
 
 class EnumsTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\Config;
+namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\DataModel;
 

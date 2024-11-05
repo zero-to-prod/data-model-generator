@@ -1,10 +1,10 @@
 <?php
 
-namespace Zerotoprod\DataModelGenerator\Generator\Helpers;
+namespace Zerotoprod\DataModelGenerator\Helpers;
 
-use Zerotoprod\DataModelGenerator\Generator\Model\Constant;
+use Zerotoprod\DataModelGenerator\Models\Constant;
 
-trait ClassHelper
+trait RendersClassComponents
 {
     /**
      * Returns the Fully Qualified namespace line

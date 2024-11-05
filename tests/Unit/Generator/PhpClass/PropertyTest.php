@@ -4,8 +4,8 @@ namespace Tests\Unit\Generator\PhpClass;
 
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Zerotoprod\DataModelGenerator\Generator\Model\Property;
-use Zerotoprod\DataModelGenerator\Generator\Model\Visibility;
+use Zerotoprod\DataModelGenerator\Models\Property;
+use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class PropertyTest extends TestCase
 {
