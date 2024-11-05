@@ -30,7 +30,7 @@ class Engine
                 Model::readonly => $Config->readonly ?? $Model->readonly,
                 Model::properties => array_map(static function (Property $Property) use ($Config, $types) {
                     $result = $Property->toArray();
-                    $result[Property::type] = isset($result[Property::format], $types[$result[Property::format]])
+                    $result[Property::type] = isset($result[Property::format], $types[$result[Property::format]][Property::type])
                         ? $types[$result[Property::format]][Property::type]
                         : $Property->type;
                     $result[Property::comment] = $Config?->properties?->exclude_comments
