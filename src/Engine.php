@@ -13,9 +13,10 @@ use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class Engine
 {
-    public static function generate(array $FileSystem, ?Config $Config = null): void
+    public static function generate(Components $Components): void
     {
-        foreach ($FileSystem[Components::Models] ?? [] as $Model) {
+        $Config = $Components->Config;
+        foreach ($Components->Models as $Model) {
             $types = $Config?->properties?->types
                 ? array_combine(
                     array_column($Config?->properties->types, Type::format),
@@ -24,14 +25,15 @@ class Engine
                 : [];
 
             Model::from([
-                Model::namespace => $Config->namespace ?? $Model[Model::namespace] ?? null,
-                Model::imports => $Model[Model::imports] ?? [],
-                Model::filename => $Model[Model::filename] ?? null,
-                Model::directory => $Config->directory ?? $Model[Model::directory] ?? null,
-                Model::comment => $Model[Model::comment] ?? null,
-                Model::readonly => $Config->readonly ?? $Model[Model::readonly] ?? null,
-                Model::use_statements => $Model[Model::use_statements] ?? [],
+                Model::namespace => $Config->namespace ?? $Model->namespace ?? null,
+                Model::imports => $Model->imports ?? [],
+                Model::filename => $Model->filename ?? null,
+                Model::directory => $Config->directory ?? $Model->directory ?? null,
+                Model::comment => $Model->comment ?? null,
+                Model::readonly => $Config->readonly ?? $Model->readonly ?? null,
+                Model::use_statements => $Model->use_statements ?? [],
                 Model::properties => array_map(static function ($property) use ($Config, $types) {
+                    $property = $property->toArray();
                     $property[Property::type] = ($property[Property::format] ?? null) && isset($types[$property[Property::format]])
                         ? $types[$property[Property::format]][Property::type]
                         : $property[Property::type]
@@ -51,22 +53,22 @@ class Engine
                         ?? null;
 
                     return $property;
-                }, $Model[Model::properties] ?? []),
-                Model::constants => self::transformConstants($Config, $Model[Enum::constants] ?? []),
+                }, $Model->properties ?? []),
+                Model::constants => self::transformConstants($Config, $Model->constants ?? []),
             ])->save();
         }
 
-        foreach ($FileSystem[Components::Enums] ?? [] as $Enum) {
+        foreach ($Components->Enums ?? [] as $Enum) {
             Enum::from([
-                Enum::namespace => $Config->namespace ?? $Enum[Enum::namespace] ?? null,
-                Enum::imports => $Enum[Enum::imports] ?? [],
-                Enum::filename => $Enum[Enum::filename] ?? null,
-                Enum::directory => $Config->directory ?? $Enum[Enum::directory] ?? null,
-                Enum::comment => $Enum[Enum::comment] ?? null,
-                Enum::backed_type => $Enum[Enum::backed_type] ?? null,
-                Enum::use_statements => $Enum[Enum::use_statements] ?? [],
-                Enum::constants => self::transformConstants($Config, $Enum[Enum::constants] ?? []),
-                Enum::cases => $Enum[Enum::cases] ?? [],
+                Enum::namespace => $Config->namespace ?? $Enum->namespace ?? null,
+                Enum::imports => $Enum->imports ?? [],
+                Enum::filename => $Enum->filename ?? null,
+                Enum::directory => $Config->directory ?? $Enum->directory ?? null,
+                Enum::comment => $Enum->comment ?? null,
+                Enum::backed_type => $Enum->backed_type ?? null,
+                Enum::use_statements => $Enum->use_statements ?? [],
+                Enum::constants => self::transformConstants($Config, $Enum->constants ?? []),
+                Enum::cases => $Enum->cases ?? [],
             ])->save();
         }
     }
@@ -74,6 +76,7 @@ class Engine
     private static function transformConstants(?Config $Config, array $Constants): array
     {
         return array_map(static function ($constant) use ($Config) {
+            $constant = $constant->toArray();
             $constant[Constant::comment] = isset($Config->constants->exclude_comments)
             && $Config->constants->exclude_comments
                 ? null

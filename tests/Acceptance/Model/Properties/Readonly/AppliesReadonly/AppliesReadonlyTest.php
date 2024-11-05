@@ -5,6 +5,7 @@ namespace Tests\Acceptance\Model\Properties\Readonly\AppliesReadonly;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Components;
 
 class AppliesReadonlyTest extends TestCase
 {
@@ -12,7 +13,7 @@ class AppliesReadonlyTest extends TestCase
     #[Test] public function generate(): void
     {
         Engine::generate(
-            json_decode(file_get_contents(__DIR__.'/models.json'), true),
+            Components::from(json_decode(file_get_contents(__DIR__.'/models.json'), true)),
         );
 
         self::assertStringEqualsFile(

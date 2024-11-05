@@ -1,5 +1,5 @@
 {
-  "$schema": "../../../../../../src/Generator/Schema/data_model.json",
+  "$schema": "../../../../../../src/Schema/data_model.json",
   "constants": {
     "exclude_comments": false
   }

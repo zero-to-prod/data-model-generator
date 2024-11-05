@@ -5,6 +5,7 @@ namespace Tests\Acceptance\Model\Class\Imports;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Components;
 
 class ImportsTest extends TestCase
 {
@@ -12,7 +13,7 @@ class ImportsTest extends TestCase
     #[Test] public function generate(): void
     {
         Engine::generate(
-            json_decode(file_get_contents(__DIR__.'/models.json'), true)
+            Components::from(json_decode(file_get_contents(__DIR__.'/models.json'), true)),
         );
 
         self::assertStringEqualsFile(

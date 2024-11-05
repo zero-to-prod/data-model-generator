@@ -9,11 +9,18 @@ class Components
 {
     use DataModel;
 
+    /** A Config for the project */
+    public const Config = 'Config';
+
     /** A collection of Models */
     public const Models = 'Models';
 
     /** A collection of Enums */
     public const Enums = 'Enums';
+
+    /** A collection of Models */
+    #[Describe(['missing_as_null' => true])]
+    public ?Config $Config;
 
     /**
      * A collection of Models

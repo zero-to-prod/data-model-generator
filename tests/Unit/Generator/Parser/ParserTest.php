@@ -16,7 +16,7 @@ class ParserTest extends TestCase
     /** @link Engine::generate() */
     #[Test] public function generateClass(): void
     {
-        Engine::generate([
+        Engine::generate(Components::from([
             Components::Models => [
                 [
                     Model::namespace => 'App\\DataModels',
@@ -24,7 +24,7 @@ class ParserTest extends TestCase
                     Model::filename => 'User.php',
                 ]
             ]
-        ]);
+        ]));
 
         self::assertStringEqualsFile(
             expectedFile: self::$test_dir.'/User.php',
@@ -41,7 +41,7 @@ class ParserTest extends TestCase
     /** @link Engine::generate() */
     #[Test] public function generate(): void
     {
-        Engine::generate([
+        Engine::generate(Components::from([
             Components::Models => [
                 [
                     Model::namespace => 'App\\DataModels',
@@ -88,7 +88,7 @@ class ParserTest extends TestCase
                     ]
                 ]
             ]
-        ]);
+        ]));
 
         self::assertStringEqualsFile(
             expectedFile: self::$test_dir.'/User.php',

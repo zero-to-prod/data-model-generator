@@ -5,6 +5,7 @@ namespace Tests\Acceptance\Config\Readonly\Readonly;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Components;
 use Zerotoprod\DataModelGenerator\Models\Config;
 
 class ReadonlyTest extends TestCase
@@ -13,8 +14,10 @@ class ReadonlyTest extends TestCase
     #[Test] public function generate(): void
     {
         Engine::generate(
-            json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            Config::from(json_decode(file_get_contents(__DIR__.'/data_model.json'), true))
+            Components::from([
+                Components::Config => json_decode(file_get_contents(__DIR__.'/data_model.json'), true),
+                ...json_decode(file_get_contents(__DIR__.'/models.json'), true),
+            ]),
         );
 
         self::assertStringEqualsFile(
