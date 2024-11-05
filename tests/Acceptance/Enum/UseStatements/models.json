@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../../src/Generator/Schema/models.json",
+  "Enums": [
+    {
+      "filename": "Role.php",
+      "directory": "./tests/generated",
+      "use_statements": [
+        "\\Zerotoprod\\DataModel\\DataModel",
+        "\\Zerotoprod\\DataModel\\Transformable"
+      ]
+    }
+  ]
+}

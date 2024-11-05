@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "Models": [
+    {
+      "filename": "User.php",
+      "namespace": "App\\Models"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../../../src/Generator/Schema/data_model.json",
+  "properties": {
+    "types": [
+      {
+        "format": "int32",
+        "type": "\\App\\Int"
+      }
+    ]
+  }
+}

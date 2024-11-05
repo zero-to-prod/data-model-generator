@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "Models": [
+    {
+      "filename": "User.php",
+      "directory": "./tests/generated",
+      "properties": [
+        {
+          "visibility": "private",
+          "name": "age"
+        }
+      ]
+    }
+  ]
+}

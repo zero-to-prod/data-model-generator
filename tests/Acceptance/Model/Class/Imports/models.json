@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../../../src/Generator/Schema/models.json",
+  "Models": [
+    {
+      "filename": "User.php",
+      "directory": "./tests/generated",
+      "namespace": "App\\DataModels",
+      "imports": [
+        "Zerotoprod\\DataModel\\DataModel"
+      ]
+    }
+  ]
+}
