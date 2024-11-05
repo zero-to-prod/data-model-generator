@@ -32,31 +32,31 @@ class Property
 
     /** The property docblock */
     #[Describe(['missing_as_null' => true])]
-    private readonly ?string $comment;
+    public readonly ?string $comment;
 
     /** The property visibility: public, protected, private */
     #[Describe(['default' => Visibility::public])]
-    private readonly Visibility $visibility;
+    public readonly Visibility $visibility;
 
     /** Applies readonly modifier. */
     #[Describe(['default' => false])]
-    private readonly bool $readonly;
+    public readonly bool $readonly;
 
     /** The property type */
     #[Describe(['missing_as_null' => true])]
-    private readonly ?string $type;
+    public readonly ?string $type;
 
     /** The property name */
     #[Describe(['required' => true])]
-    private readonly string $name;
+    public readonly string $name;
 
     /** Attributes of the property */
     #[Describe(['default' => []])]
-    private readonly array $attributes;
+    public readonly array $attributes;
 
     /** The format of the data */
     #[Describe(['missing_as_null' => true])]
-    private readonly ?PropertyFormat $format;
+    public readonly ?PropertyFormat $format;
 
     /**
      * Renders the property

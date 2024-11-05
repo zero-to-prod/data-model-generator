@@ -41,6 +41,7 @@ class Components
     #[Describe([
         'cast' => [self::class, 'mapOf'],
         'type' => Enum::class,
+        'default' => []
     ])]
     public readonly array $Enums;
 }

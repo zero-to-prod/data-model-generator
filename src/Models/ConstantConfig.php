@@ -19,6 +19,7 @@ class ConstantConfig
     public const exclude_comments = 'exclude_comments';
 
     /** Excludes the constant type.*/
+    #[Describe(['default' => false])]
     public bool $exclude_type;
 
     /** Controls the visibility of the constant. */
