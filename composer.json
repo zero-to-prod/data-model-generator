@@ -37,6 +37,7 @@
     "phpunit/phpunit": "^10.0"
   },
   "suggest": {
+    "zero-to-prod/data-model": "Transform Data to Type-Safe DTOs",
     "zero-to-prod/data-model-helper": "Helpers for a DataModel."
   }
 }
