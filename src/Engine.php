@@ -30,15 +30,15 @@ class Engine
                 Model::readonly => $Config->readonly ?? $Model->readonly,
                 Model::properties => array_map(static function (Property $Property) use ($Config, $types) {
                     $result = $Property->toArray();
-                    $result[Property::type] = $result && $types && isset($result[Property::format], $types[$result[Property::format]][Property::type])
-                        ? $types[$result[Property::format]][Property::type]
+                    $result[Property::type] = $result && isset($result[Property::format], $types[$result[Property::format]['value']][Property::type])
+                        ? $types[$result[Property::format]['value']][Property::type]
                         : $Property->type;
                     $result[Property::comment] = $Config?->properties?->exclude_comments
                         ? null
                         : $Property->comment;
                     $result[Property::visibility] = $Config?->properties?->visibility ?? $Property->visibility ?? Visibility::public->value;
                     $result[Property::readonly] = $Config?->properties?->readonly ?? $Property->readonly;
-                    $result[Property::format] = $Property->format->value;
+                    $result[Property::format] = $Property->format->value ?? null;
 
                     return $result;
                 }, $Model->properties),
