@@ -49,11 +49,4 @@ class Config
     /** Controls the visibility of comments */
     #[Describe(['default' => true])]
     public bool $comments;
-
-    public function types(): array
-    {
-        return isset($this->properties->types)
-            ? array_combine(array_column($this->properties->types, Type::format), $this->properties->types)
-            : [];
-    }
 }
