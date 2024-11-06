@@ -18,8 +18,8 @@ class Engine
         $Config = $Components->Config;
         $types = isset($Config->properties->types)
             ? array_combine(
-                array_column($Config->properties->types, Type::format),
-                $Config->properties->types
+                keys: array_column($Config->properties->types, Type::format),
+                values: $Config->properties->types
             )
             : [];
         foreach ($Components->Models as $Model) {
@@ -36,8 +36,11 @@ class Engine
                     $result[Property::comment] = $Config?->properties?->exclude_comments
                         ? null
                         : $Property->comment;
-                    $result[Property::visibility] = $Config?->properties?->visibility ?? $Property->visibility ?? Visibility::public->value;
-                    $result[Property::readonly] = $Config?->properties?->readonly ?? $Property->readonly;
+                    $result[Property::visibility] = $Config?->properties?->visibility
+                        ?? $Property->visibility
+                        ?? Visibility::public;
+                    $result[Property::readonly] = $Config?->properties?->readonly
+                        ?? $Property->readonly;
 
                     return $result;
                 }, $Model->properties),
@@ -60,9 +63,14 @@ class Engine
     {
         return array_map(static function (Constant $Constant) use ($Config) {
             $result = $Constant->toArray();
-            $result[Constant::comment] = $Config?->constants->exclude_comments ? null : $Constant->comment;
-            $result[Constant::visibility] = $Config?->constants->visibility ?? $Constant->visibility;
-            $result[Constant::type] = $Config?->constants->exclude_type ? null : $Constant->type;
+            $result[Constant::comment] = $Config?->constants->exclude_comments
+                ? null
+                : $Constant->comment;
+            $result[Constant::visibility] = $Config?->constants->visibility
+                ?? $Constant->visibility;
+            $result[Constant::type] = $Config?->constants->exclude_type
+                ? null
+                : $Constant->type;
 
             return $result;
         }, $Constants);
