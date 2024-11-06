@@ -38,6 +38,7 @@ class Engine
                         : $Property->comment;
                     $result[Property::visibility] = $Config?->properties?->visibility ?? $Property->visibility ?? Visibility::public->value;
                     $result[Property::readonly] = $Config?->properties?->readonly ?? $Property->readonly;
+                    $result[Property::format] = $Property->format->value;
 
                     return $result;
                 }, $Model->properties),
