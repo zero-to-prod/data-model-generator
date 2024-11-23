@@ -4,13 +4,12 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "constants": [
-        {
+      "constants": {
+        "age": {
           "visibility": "private",
-          "name": "age",
           "value": "'age'"
         }
-      ]
+      }
     }
   ]
 }

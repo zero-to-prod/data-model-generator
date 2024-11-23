@@ -4,16 +4,14 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "constants": [
-        {
-          "name": "age",
+      "constants": {
+        "age": {
           "value": "'age'"
         },
-        {
-          "name": "name",
+        "name": {
           "value": "'name'"
         }
-      ]
+      }
     }
   ]
 }

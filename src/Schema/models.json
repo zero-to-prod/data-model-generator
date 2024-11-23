@@ -42,8 +42,9 @@
             "description": "List of use statements"
           },
           "constants": {
-            "type": "array",
-            "items": {
+            "type": "object",
+            "description": "Constants of the model with dynamic keys",
+            "additionalProperties": {
               "type": "object",
               "properties": {
                 "comment": {
@@ -73,7 +74,6 @@
                 }
               },
               "required": [
-                "name",
                 "value"
               ]
             }
@@ -176,9 +176,9 @@
             "default": []
           },
           "constants": {
-            "type": "array",
-            "items": {
-              "type": "object",
+            "type": "object",
+            "description": "Constants used in enum",
+            "additionalProperties": {
               "properties": {
                 "comment": {
                   "type": "string",
@@ -208,11 +208,9 @@
                 }
               },
               "required": [
-                "name",
                 "value"
               ]
-            },
-            "description": "Constants used in the enum"
+            }
           },
           "cases": {
             "type": "array",

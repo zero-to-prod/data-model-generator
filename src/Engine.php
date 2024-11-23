@@ -65,8 +65,10 @@ class Engine
 
     private static function transformConstants(?Config $Config, array $Constants): array
     {
-        return array_map(static function (Constant $Constant) use ($Config) {
+        $constants = [];
+        foreach ($Constants as $name => $Constant) {
             $result = $Constant->toArray();
+            $result[Constant::name] = $name;
             $result[Constant::comment] = $Config?->constants->exclude_comments
                 ? null
                 : $Constant->comment;
@@ -76,7 +78,9 @@ class Engine
                 ? null
                 : $Constant->type;
 
-            return $result;
-        }, $Constants);
+            $constants[$name] = $result;
+        }
+
+        return $constants;
     }
 }

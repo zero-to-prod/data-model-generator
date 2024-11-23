@@ -57,7 +57,7 @@ class Constant
     public readonly ?string $type;
 
     /** The constants name */
-    #[Describe(['required' => true])]
+//    #[Describe(['required' => true])]
     public readonly string $name;
 
     /** The constants value */

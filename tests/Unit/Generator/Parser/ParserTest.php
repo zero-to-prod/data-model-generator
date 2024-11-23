@@ -54,18 +54,16 @@ class ParserTest extends TestCase
                         'DataModel'
                     ],
                     Model::constants => [
-                        [
+                        'name' => [
                             Constant::comment => '/** Comment */',
                             Constant::visibility => Visibility::public,
                             Constant::type => 'string',
-                            Constant::name => 'name',
                             Constant::value => "'name'",
                         ],
-                        [
+                        'bool' => [
                             Constant::comment => '/** Comment */',
                             Constant::visibility => Visibility::private,
                             Constant::type => 'bool',
-                            Constant::name => 'bool',
                             Constant::value => "'bool'",
                         ]
                     ],

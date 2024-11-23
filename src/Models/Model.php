@@ -102,7 +102,7 @@ class Model
     /**
      * Constants used in the class
      *
-     * @var Constant[]
+     * @var array<string, Constant> $constants
      */
     #[Describe([
         'cast' => [self::class, 'mapOf'],

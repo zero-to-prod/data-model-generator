@@ -4,13 +4,12 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "constants": [
-        {
-          "name": "name",
+      "constants": {
+        "name": {
           "comment": "/** comment */",
           "value": "'name'"
         }
-      ]
+      }
     }
   ]
 }

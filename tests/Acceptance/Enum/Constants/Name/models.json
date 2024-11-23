@@ -4,12 +4,11 @@
     {
       "filename": "Role.php",
       "directory": "./tests/generated",
-      "constants": [
-        {
-          "name": "admin",
+      "constants": {
+        "admin": {
           "value": "'admin'"
         }
-      ]
+      }
     }
   ]
 }
