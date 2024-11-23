@@ -80,7 +80,7 @@ class Model
     public const directory = 'directory';
 
     /** The Fully Qualified Namespace of the class*/
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $namespace;
 
     /** Imports used in the class */
@@ -92,7 +92,7 @@ class Model
     public readonly bool $readonly;
 
     /** Specifies the class comment */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $comment;
 
     /** Traits used in the class */

@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../../../src/Schema/data_model.json",
+  "properties": {
+    "types": {
+      "date": {
+        "type": "\\Date"
+      }
+    }
+  }
+}

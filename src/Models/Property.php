@@ -52,7 +52,7 @@ class Property
     public const attributes = 'attributes';
 
     /** The property docblock */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $comment;
 
     /** The property visibility: public, protected, private */
@@ -64,7 +64,7 @@ class Property
     public readonly bool $readonly;
 
     /** The property type */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $type;
 
     /** The property name */

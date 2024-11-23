@@ -31,7 +31,7 @@ class EnumCase
     public const value = 'value';
 
     /** The case docblock */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     private readonly ?string $comment;
 
     /** The case name */
@@ -39,7 +39,7 @@ class EnumCase
     private readonly string $name;
 
     /** Value of the case */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     private readonly ?string $value;
 
     public function render(): string

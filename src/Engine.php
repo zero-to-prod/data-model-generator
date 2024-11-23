@@ -9,7 +9,6 @@ use Zerotoprod\DataModelGenerator\Models\Enum;
 use Zerotoprod\DataModelGenerator\Models\EnumCase;
 use Zerotoprod\DataModelGenerator\Models\Model;
 use Zerotoprod\DataModelGenerator\Models\Property;
-use Zerotoprod\DataModelGenerator\Models\Type;
 use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class Engine
@@ -17,12 +16,6 @@ class Engine
     public static function generate(Components $Components): void
     {
         $Config = $Components->Config;
-        $types = isset($Config->properties->types)
-            ? array_combine(
-                keys: array_column($Config->properties->types, Type::format),
-                values: $Config->properties->types
-            )
-            : [];
         foreach ($Components->Models as $Model) {
             Model::from([
                 ...$Model->toArray(),
@@ -32,12 +25,10 @@ class Engine
                 Model::properties => array_combine(
                     array_keys($Model->properties),
                     array_map(
-                        static function ($Property, $name) use ($types, $Config) {
+                        static function ($Property, $name) use ($Config) {
                             $result = $Property->toArray();
                             $result[Property::name] = $name;
-                            $result[Property::type] = $result && isset($result[Type::format], $types[$result[Type::format]][Property::type])
-                                ? $types[$result[Type::format]][Property::type]
-                                : $Property->type;
+                            $result[Property::type] = $Config->properties->types[$Property->type]->type ?? $Property->type;
                             $result[Property::comment] = $Config?->properties?->exclude_comments
                                 ? null
                                 : $Property->comment;

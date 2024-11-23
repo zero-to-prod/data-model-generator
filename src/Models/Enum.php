@@ -77,7 +77,7 @@ class Enum
     public const directory = 'directory';
 
     /** The Fully Qualified Namespace of the enum */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $namespace;
 
     /** Imports used in the enum */
@@ -85,11 +85,11 @@ class Enum
     public readonly array $imports;
 
     /** Specifies the enum comment */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $comment;
 
     /** The enum backing */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?BackedEnumType $backed_type;
 
     /** Traits used in the enum */

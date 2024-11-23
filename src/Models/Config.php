@@ -52,11 +52,11 @@ class Config
     public const comments = 'comments';
 
     /** The directory DataModels will be saved to. */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public ?string $directory;
 
     /** The Fully Qualified Namespace for the DataModels */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public ?string $namespace;
 
     /** Applies readonly to the class */
@@ -64,7 +64,7 @@ class Config
     public bool $readonly;
 
     /** Config for properties */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public ?PropertyConfig $properties;
 
     /** Config for constants */

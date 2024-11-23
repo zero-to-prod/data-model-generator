@@ -45,7 +45,7 @@ class Constant
     public const value = 'value';
 
     /** The constants docblock */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public ?string $comment;
 
     /** The constants visibility: public, protected, private */
@@ -53,7 +53,7 @@ class Constant
     public readonly Visibility $visibility;
 
     /** The constants type */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public readonly ?string $type;
 
     /** The constants name */

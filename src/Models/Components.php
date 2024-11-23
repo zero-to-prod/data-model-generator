@@ -31,7 +31,7 @@ class Components
     public const Enums = 'Enums';
 
     /** A collection of Models */
-    #[Describe(['missing_as_null' => true])]
+    #[Describe(['nullable'])]
     public ?Config $Config;
 
     /**
