@@ -42,6 +42,7 @@ class Components
     #[Describe([
         'cast' => [self::class, 'mapOf'],
         'type' => Model::class,
+        'default' => []
     ])]
     public readonly array $Models;
 
