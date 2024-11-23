@@ -47,10 +47,25 @@ class PropertyConfig
     /**
      * A map of types and the resulting type.
      *
-     * @var Type[] $types
+     * @var array<string, Type> $types
      */
-    #[Describe(['default' => []])]
+    #[Describe([
+        'cast' => [self::class, 'resolveTypes'],
+        'type' => Constant::class,
+    ])]
     public array $types;
+
+    public static function resolveTypes($value): array
+    {
+        return array_combine(
+            array_keys($value),
+            array_map(
+                static fn(string $format, array $type) => Type::from(array_merge([Type::format => $format], $type)),
+                array_keys($value),
+                $value
+            )
+        );
+    }
 
     /** Controls the visibility of comments */
     #[Describe(['default' => false])]

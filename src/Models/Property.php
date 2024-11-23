@@ -51,13 +51,6 @@ class Property
      */
     public const attributes = 'attributes';
 
-    /**
-     * The format of the data
-     *
-     * @see $format
-     */
-    public const format = 'format';
-
     /** The property docblock */
     #[Describe(['missing_as_null' => true])]
     public readonly ?string $comment;
@@ -81,10 +74,6 @@ class Property
     /** Attributes of the property */
     #[Describe(['default' => []])]
     public readonly array $attributes;
-
-    /** The format of the data */
-    #[Describe(['missing_as_null' => true])]
-    public readonly ?PropertyFormat $format;
 
     /**
      * Renders the property

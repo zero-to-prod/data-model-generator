@@ -112,12 +112,14 @@ class Model
 
     public static function resolveConstants($value): array
     {
-        $properties = [];
-        foreach ($value as $name => $constant) {
-            $properties[$name] = Constant::from(array_merge([Constant::name => $name], $constant));
-        }
-
-        return $properties;
+        return array_combine(
+            array_keys($value),
+            array_map(
+                static fn(string $name, array $constant) => Constant::from(array_merge([Constant::name => $name], $constant)),
+                array_keys($value),
+                $value
+            )
+        );
     }
 
     /**
@@ -133,12 +135,14 @@ class Model
 
     public static function resolveProperties($value): array
     {
-        $properties = [];
-        foreach ($value as $name => $property) {
-            $properties[$name] = Property::from(array_merge([Property::name => $name], $property));
-        }
-
-        return $properties;
+        return array_combine(
+            array_keys($value),
+            array_map(
+                static fn(string $name, array $property) => Property::from(array_merge([Property::name => $name], $property)),
+                array_keys($value),
+                $value
+            )
+        );
     }
 
     /**

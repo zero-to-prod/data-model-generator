@@ -22,7 +22,7 @@ class Type
      */
     public const type = 'type';
 
-    public PropertyFormat $format;
+    public string $format;
 
     public string $type;
 }

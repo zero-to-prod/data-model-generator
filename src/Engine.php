@@ -35,8 +35,8 @@ class Engine
                         static function ($Property, $name) use ($types, $Config) {
                             $result = $Property->toArray();
                             $result[Property::name] = $name;
-                            $result[Property::type] = $result && isset($result[Property::format], $types[$result[Property::format]][Property::type])
-                                ? $types[$result[Property::format]][Property::type]
+                            $result[Property::type] = $result && isset($result[Type::format], $types[$result[Type::format]][Property::type])
+                                ? $types[$result[Type::format]][Property::type]
                                 : $Property->type;
                             $result[Property::comment] = $Config?->properties?->exclude_comments
                                 ? null
