@@ -123,10 +123,20 @@ class Enum
      * @var EnumCase[]
      */
     #[Describe([
-        'cast' => [self::class, 'mapOf'],
+        'cast' => [self::class, 'resolveCases'],
         'type' => EnumCase::class,
     ])]
     public readonly array $cases;
+
+    public static function resolveCases($value): array
+    {
+        $properties = [];
+        foreach ($value as $name => $constant) {
+            $properties[$name] = EnumCase::from(array_merge([EnumCase::name => $name], $constant));
+        }
+
+        return $properties;
+    }
 
     /**
      * Renders the enum

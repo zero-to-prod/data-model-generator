@@ -4,12 +4,11 @@
     {
       "filename": "Role.php",
       "directory": "./tests/generated",
-      "cases": [
-        {
-          "comment": "/** comment */",
-          "name": "admin"
+      "cases": {
+        "admin": {
+          "comment": "/** comment */"
         }
-      ]
+      }
     }
   ]
 }

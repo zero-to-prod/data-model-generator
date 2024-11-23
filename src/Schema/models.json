@@ -213,8 +213,9 @@
             }
           },
           "cases": {
-            "type": "array",
-            "items": {
+            "type": "object",
+            "description": "Cases used in the enum",
+            "additionalProperties": {
               "type": "object",
               "properties": {
                 "comment": {
@@ -229,12 +230,8 @@
                   "type": "string",
                   "description": "The case value"
                 }
-              },
-              "required": [
-                "name"
-              ]
-            },
-            "description": "Cases used in the enum"
+              }
+            }
           },
           "filename": {
             "type": "string",

@@ -5,12 +5,11 @@
       "filename": "Role.php",
       "directory": "./tests/generated",
       "backed_type": "int",
-      "cases": [
-        {
-          "name": "admin",
+      "cases": {
+        "admin": {
           "value": "1"
         }
-      ]
+      }
     }
   ]
 }
