@@ -102,10 +102,20 @@ class Enum
      * @var Constant[]
      */
     #[Describe([
-        'cast' => [self::class, 'mapOf'],
+        'cast' => [self::class, 'resolveConstants'],
         'type' => Constant::class,
     ])]
     public readonly array $constants;
+
+    public static function resolveConstants($value): array
+    {
+        $properties = [];
+        foreach ($value as $name => $constant) {
+            $properties[$name] = Constant::from(array_merge([Constant::name => $name], $constant));
+        }
+
+        return $properties;
+    }
 
     /**
      * Cases used in the enum

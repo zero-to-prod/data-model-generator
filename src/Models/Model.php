@@ -105,10 +105,20 @@ class Model
      * @var array<string, Constant> $constants
      */
     #[Describe([
-        'cast' => [self::class, 'mapOf'],
+        'cast' => [self::class, 'resolveConstants'],
         'type' => Constant::class,
     ])]
     public readonly array $constants;
+
+    public static function resolveConstants($value): array
+    {
+        $properties = [];
+        foreach ($value as $name => $constant) {
+            $properties[$name] = Constant::from(array_merge([Constant::name => $name], $constant));
+        }
+
+        return $properties;
+    }
 
     /**
      * Properties used in the class
@@ -116,10 +126,20 @@ class Model
      * @var array<string, Property> $properties
      */
     #[Describe([
-        'cast' => [self::class, 'mapOf'],
+        'cast' => [self::class, 'resolveProperties'],
         'type' => Property::class,
     ])]
     public readonly array $properties;
+
+    public static function resolveProperties($value): array
+    {
+        $properties = [];
+        foreach ($value as $name => $property) {
+            $properties[$name] = Property::from(array_merge([Property::name => $name], $property));
+        }
+
+        return $properties;
+    }
 
     /**
      * Renders the class

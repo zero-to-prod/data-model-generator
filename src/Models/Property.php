@@ -75,7 +75,7 @@ class Property
     public readonly ?string $type;
 
     /** The property name */
-//    #[Describe(['required' => true])]
+    #[Describe(['required' => true])]
     public readonly string $name;
 
     /** Attributes of the property */
