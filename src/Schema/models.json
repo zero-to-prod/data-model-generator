@@ -79,8 +79,9 @@
             }
           },
           "properties": {
-            "type": "array",
-            "items": {
+            "type": "object",
+            "description": "Properties of the model with dynamic keys",
+            "additionalProperties": {
               "type": "object",
               "properties": {
                 "comment": {
@@ -104,10 +105,6 @@
                   "type": "string",
                   "description": "Data type of the property"
                 },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the property"
-                },
                 "attributes": {
                   "type": "array",
                   "items": {
@@ -130,12 +127,9 @@
                     "byte",
                     "binary"
                   ],
-                  "description": "Visibility of the property"
+                  "description": "Data Type of the property"
                 }
-              },
-              "required": [
-                "name"
-              ]
+              }
             }
           }
         },
@@ -242,7 +236,7 @@
                 "name"
               ]
             },
-            "description": "Constants used in the enum"
+            "description": "Cases used in the enum"
           },
           "filename": {
             "type": "string",

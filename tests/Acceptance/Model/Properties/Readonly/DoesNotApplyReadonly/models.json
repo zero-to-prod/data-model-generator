@@ -5,12 +5,11 @@
       "filename": "User.php",
       "directory": "./tests/generated",
       "namespace": "App\\Models",
-      "properties": [
-        {
-          "readonly": false,
-          "name": "age"
+      "properties": {
+        "age": {
+          "readonly": false
         }
-      ]
+      }
     }
   ]
 }

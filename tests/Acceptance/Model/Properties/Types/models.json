@@ -4,12 +4,11 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "properties": [
-        {
-          "type": "int",
-          "name": "age"
+      "properties": {
+        "age": {
+          "type": "int"
         }
-      ]
+      }
     }
   ]
 }

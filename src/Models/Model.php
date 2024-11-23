@@ -3,8 +3,8 @@
 namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
 use Zerotoprod\File\File;
 
 class Model
@@ -113,7 +113,7 @@ class Model
     /**
      * Properties used in the class
      *
-     * @var Property[]
+     * @var array<string, Property> $properties
      */
     #[Describe([
         'cast' => [self::class, 'mapOf'],
@@ -170,7 +170,8 @@ class Model
         return implode(
             PHP_EOL,
             array_map(static fn(Property $Property) => $Property->render(),
-                $this->properties)
+                $this->properties
+            )
         );
     }
 }

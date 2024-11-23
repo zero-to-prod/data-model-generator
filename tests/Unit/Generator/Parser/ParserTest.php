@@ -5,8 +5,8 @@ namespace Tests\Unit\Generator\Parser;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Engine;
-use Zerotoprod\DataModelGenerator\Models\Constant;
 use Zerotoprod\DataModelGenerator\Models\Components;
+use Zerotoprod\DataModelGenerator\Models\Constant;
 use Zerotoprod\DataModelGenerator\Models\Model;
 use Zerotoprod\DataModelGenerator\Models\Property;
 use Zerotoprod\DataModelGenerator\Models\Visibility;
@@ -70,20 +70,18 @@ class ParserTest extends TestCase
                         ]
                     ],
                     Model::properties => [
-                        [
+                        'User' => [
                             Property::comment => '/** Comment */',
                             Property::visibility => Visibility::public,
                             Property::type => 'App\\User',
-                            Property::name => 'User',
                             Property::attributes => [
                                 "\ZeroToProd\DataModel\Describe(['required' => true])",
                                 "\ZeroToProd\DataModel\Describe(['required' => true])"
                             ]
                         ],
-                        [
+                        'name' => [
                             Property::visibility => Visibility::private,
                             Property::type => 'string',
-                            Property::name => 'name',
                         ]
                     ]
                 ]

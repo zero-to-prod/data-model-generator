@@ -4,12 +4,11 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "properties": [
-        {
-          "visibility": "public",
-          "name": "age"
+      "properties": {
+        "age": {
+          "visibility": "public"
         }
-      ]
+      }
     }
   ]
 }

@@ -4,12 +4,11 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "properties": [
-        {
-          "readonly": true,
-          "name": "age"
+      "properties": {
+        "age": {
+          "readonly": true
         }
-      ]
+      }
     }
   ]
 }

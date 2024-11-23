@@ -4,12 +4,11 @@
     {
       "filename": "User.php",
       "directory": "./tests/generated",
-      "properties": [
-        {
-          "comment": "/** Comment */",
-          "name": "age"
+      "properties": {
+        "age": {
+          "comment": "/** Comment */"
         }
-      ]
+      }
     }
   ]
 }

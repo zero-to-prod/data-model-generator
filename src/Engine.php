@@ -23,27 +23,31 @@ class Engine
             )
             : [];
         foreach ($Components->Models as $Model) {
+            $properties = [];
+            foreach ($Model->properties as $name => $Property) {
+                $result = $Property->toArray();
+                $result[Property::name] = $name;
+                $result[Property::type] = $result && isset($result[Property::format], $types[$result[Property::format]][Property::type])
+                    ? $types[$result[Property::format]][Property::type]
+                    : $Property->type;
+                $result[Property::comment] = $Config?->properties?->exclude_comments
+                    ? null
+                    : $Property->comment;
+                $result[Property::visibility] = $Config?->properties?->visibility
+                    ?? $Property->visibility
+                    ?? Visibility::public;
+                $result[Property::readonly] = $Config?->properties?->readonly
+                    ?? $Property->readonly;
+
+                $properties[$name] = $result;
+            }
+
             Model::from([
                 ...$Model->toArray(),
                 Model::namespace => $Config->namespace ?? $Model->namespace,
                 Model::directory => $Config->directory ?? $Model->directory,
                 Model::readonly => $Config->readonly ?? $Model->readonly,
-                Model::properties => array_map(static function (Property $Property) use ($Config, $types) {
-                    $result = $Property->toArray();
-                    $result[Property::type] = $result && isset($result[Property::format], $types[$result[Property::format]][Property::type])
-                        ? $types[$result[Property::format]][Property::type]
-                        : $Property->type;
-                    $result[Property::comment] = $Config?->properties?->exclude_comments
-                        ? null
-                        : $Property->comment;
-                    $result[Property::visibility] = $Config?->properties?->visibility
-                        ?? $Property->visibility
-                        ?? Visibility::public;
-                    $result[Property::readonly] = $Config?->properties?->readonly
-                        ?? $Property->readonly;
-
-                    return $result;
-                }, $Model->properties),
+                Model::properties => $properties,
                 Model::constants => self::transformConstants($Config, $Model->constants),
             ])->save();
         }
