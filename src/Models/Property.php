@@ -9,25 +9,53 @@ class Property
 {
     use DataModel;
 
-    /** The property docblock */
+    /**
+     * The property docblock
+     *
+     * @see $comment
+     */
     public const comment = 'comment';
 
-    /** The property visibility: public, protected, private */
+    /**
+     * The property visibility: public, protected, private
+     *
+     * @see $visibility
+     */
     public const visibility = 'visibility';
 
-    /** Applies readonly modifier. */
+    /**
+     * Applies readonly modifier.
+     *
+     * @see $readonly
+     */
     public const readonly = 'readonly';
 
-    /** The property type */
+    /**
+     * The property type
+     *
+     * @see $type
+     */
     public const type = 'type';
 
-    /** The property name */
+    /**
+     * The property name
+     *
+     * @see $name
+     */
     public const name = 'name';
 
-    /** Attributes of the property */
+    /**
+     * Attributes of the property
+     *
+     * @see $attributes
+     */
     public const attributes = 'attributes';
 
-    /** The format of the data */
+    /**
+     * The format of the data
+     *
+     * @see $format
+     */
     public const format = 'format';
 
     /** The property docblock */

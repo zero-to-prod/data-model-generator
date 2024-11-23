@@ -13,31 +13,70 @@ class Model
     use RendersClassComponents;
     use File;
 
-    /** The Fully Qualified Namespace of the class */
+    /**
+     * The Fully Qualified Namespace of the class
+     *
+     * @see $namespace
+     */
     public const namespace = 'namespace';
 
-    /** Imports used in the class */
+    /**
+     * Imports used in the class
+     *
+     * @see $imports
+     */
     public const imports = 'imports';
 
-    /** Specifies a class */
+    /**
+     * Specifies a class
+     *
+     * @see $readonly
+     */
     public const readonly = 'readonly';
 
-    /** Specifies the class comment */
+    /**
+     * Specifies the class comment
+     *
+     * @see $comment
+     */
     public const comment = 'comment';
 
-    /** Traits used in the class */
+    /**
+     * Traits used in the class
+     *
+     * @see $use_statements
+     */
     public const use_statements = 'use_statements';
 
-    /** Constants used in the class */
+    /**
+     * Constants used in the class
+     *
+     * @see $constants
+     */
     public const constants = 'constants';
 
-    /** Properties used in the class */
+    /**
+     * Properties used in the class
+     *
+     * @see $properties
+     */
     public const properties = 'properties';
 
-    /** The filename of the file. */
+    /**
+     * The filename of the file including the extension:
+     * ```
+     * User.php
+     * ```
+     *
+     * @see $filename
+     */
     public const filename = 'filename';
 
-    /** The directory of the file. */
+    /**
+     * The directory of the file.
+     *
+     * @see $directory
+     */
     public const directory = 'directory';
 
     /** The Fully Qualified Namespace of the class*/

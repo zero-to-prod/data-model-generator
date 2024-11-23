@@ -9,13 +9,25 @@ class EnumCase
 {
     use DataModel;
 
-    /** The case docblock */
+    /**
+     * The case docblock
+     *
+     * @see $comment
+     */
     public const comment = 'comment';
 
-    /** The case name */
+    /**
+     * The case name
+     *
+     * @see $name
+     */
     public const name = 'name';
 
-    /** Value of the case */
+    /**
+     * Value of the case
+     *
+     * @see $value
+     */
     public const value = 'value';
 
     /** The case docblock */

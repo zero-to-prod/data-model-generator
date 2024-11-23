@@ -9,22 +9,46 @@ class Config
 {
     use DataModel;
 
-    /** The directory DataModels will be saved to. */
+    /**
+     * The directory DataModels will be saved to.
+     *
+     * @see $directory
+     */
     public const directory = 'directory';
 
-    /** The Fully Qualified Namespace for the DataModels */
+    /**
+     * The Fully Qualified Namespace for the DataModels
+     *
+     * @see $namespace
+     */
     public const namespace = 'namespace';
 
-    /** Applies readonly to the class */
+    /**
+     * Applies readonly to the class
+     *
+     * @see $readonly
+     */
     public const readonly = 'readonly';
 
-    /** Config for properties */
+    /**
+     * Config for properties
+     *
+     * @see $properties
+     */
     public const properties = 'properties';
 
-    /** Config for constants */
+    /**
+     * Config for constants
+     *
+     * @see $constants
+     */
     public const constants = 'constants';
 
-    /** Controls the visibility of comments */
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $comments
+     */
     public const comments = 'comments';
 
     /** The directory DataModels will be saved to. */

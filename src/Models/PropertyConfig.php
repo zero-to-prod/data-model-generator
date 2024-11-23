@@ -9,20 +9,32 @@ class PropertyConfig
 {
     use DataModel;
 
-    /** Controls the readonly modifier for the property */
+    /**
+     * Controls the readonly modifier for the property
+     *
+     * @see $readonly
+     */
     public const readonly = 'readonly';
 
-    /** Controls the visibility of the property */
+    /**
+     * Controls the visibility of the property
+     *
+     * @see $visibility
+     */
     public const visibility = 'visibility';
 
     /**
      * A map of types and the resulting type.
      *
-     * @see Type
+     * @see $types
      */
     public const types = 'types';
 
-    /** Controls the visibility of comments */
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $exclude_comments
+     */
     public const exclude_comments = 'exclude_comments';
 
     /** Controls the visibility of the property */

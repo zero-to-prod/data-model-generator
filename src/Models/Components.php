@@ -9,13 +9,25 @@ class Components
 {
     use DataModel;
 
-    /** A Config for the project */
+    /**
+     * A Config for the project
+     *
+     * @see $Config
+     */
     public const Config = 'Config';
 
-    /** A collection of Models */
+    /**
+     * A collection of Models
+     *
+     * @see $Models
+     */
     public const Models = 'Models';
 
-    /** A collection of Enums */
+    /**
+     * A collection of Enums
+     *
+     * @see $Enums
+     */
     public const Enums = 'Enums';
 
     /** A collection of Models */

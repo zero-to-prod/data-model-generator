@@ -9,19 +9,39 @@ class Constant
 {
     use DataModel;
 
-    /** The constants docblock */
+    /**
+     * The constants docblock
+     *
+     * @see $comment
+     */
     public const comment = 'comment';
 
-    /** The constants visibility: public, protected, private */
+    /**
+     * The constants visibility: public, protected, private
+     *
+     * @see $visibility
+     */
     public const visibility = 'visibility';
 
-    /** The constants type */
+    /**
+     * The constants type
+     *
+     * @see $type
+     */
     public const type = 'type';
 
-    /** The constants name */
+    /**
+     * The constants name
+     *
+     * @see $name
+     */
     public const name = 'name';
 
-    /** The constants value */
+    /**
+     * The constants value
+     *
+     * @see $value
+     */
     public const value = 'value';
 
     /** The constants docblock */

@@ -3,8 +3,8 @@
 namespace Zerotoprod\DataModelGenerator\Models;
 
 use Zerotoprod\DataModel\Describe;
-use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
 use Zerotoprod\File\File;
 
 class Enum
@@ -13,31 +13,67 @@ class Enum
     use RendersClassComponents;
     use File;
 
-    /** The Fully Qualified Namespace of the enum */
+    /**
+     * The Fully Qualified Namespace of the enum
+     *
+     * @see $namespace
+     */
     public const namespace = 'namespace';
 
-    /** Imports used in the enum */
+    /**
+     * Imports used in the enum
+     *
+     * @see $imports
+     */
     public const imports = 'imports';
 
-    /** Specifies the enum comment */
+    /**
+     * Specifies the enum comment
+     *
+     * @see $comment
+     */
     public const comment = 'comment';
 
-    /** The enum backing */
+    /**
+     * The enum backing
+     *
+     * @see $backed_type
+     */
     public const backed_type = 'backed_type';
 
-    /** Traits used in the enum */
+    /**
+     * Traits used in the enum
+     *
+     * @see $use_statements
+     */
     public const use_statements = 'use_statements';
 
-    /** Constants used in the enum */
+    /**
+     * Constants used in the enum
+     *
+     * @see $constants
+     */
     public const constants = 'constants';
 
-    /** Cases used in the enum */
+    /**
+     * Cases used in the enum
+     *
+     * @see $cases
+     */
     public const cases = 'cases';
 
-    /** The filename of the file. */
+    /**
+     * The filename of the file.
+     *
+     * @see $filename
+     */
     public const filename = 'filename';
 
-    /** The directory of the file. */
+    /**
+     * The directory of the file.
+     *
+     * @see $directory
+     */
     public const directory = 'directory';
 
     /** The Fully Qualified Namespace of the enum */

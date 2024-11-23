@@ -9,13 +9,25 @@ class ConstantConfig
 {
     use DataModel;
 
-    /** Excludes the constant type.*/
+    /**
+     * Excludes the constant type.
+     *
+     * @see $exclude_type
+     */
     public const exclude_type = 'exclude_type';
 
-    /** Controls the visibility of the constant. */
+    /**
+     * Controls the visibility of the constant.
+     *
+     * @see $visibility
+     */
     public const visibility = 'visibility';
 
-    /** Controls the visibility of comments */
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $exclude_comments
+     */
     public const exclude_comments = 'exclude_comments';
 
     /** Excludes the constant type.*/
