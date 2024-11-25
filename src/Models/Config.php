@@ -68,7 +68,8 @@ class Config
     public ?PropertyConfig $properties;
 
     /** Config for constants */
-    public ConstantConfig $constants;
+    #[Describe(['nullable'])]
+    public ?ConstantConfig $constants;
 
     /** Controls the visibility of comments */
     #[Describe(['default' => true])]
