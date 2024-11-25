@@ -2,8 +2,8 @@
 
 namespace Zerotoprod\DataModelGenerator\Models;
 
-use Zerotoprod\DataModel\DataModel;
 use Zerotoprod\DataModel\Describe;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
 class PropertyConfig
 {

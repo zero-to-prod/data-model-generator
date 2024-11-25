@@ -2,7 +2,7 @@
 
 namespace Zerotoprod\DataModelGenerator\Models;
 
-use Zerotoprod\DataModel\DataModel;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 use Zerotoprod\DataModel\Describe;
 
 class ConstantConfig

@@ -87,7 +87,7 @@ class Model
     #[Describe(['default' => []])]
     public readonly array $imports;
 
-    /** Specifies a class*/
+    /** Specifies a class */
     #[Describe(['default' => false])]
     public readonly bool $readonly;
 
