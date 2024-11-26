@@ -18,6 +18,11 @@
       "description": "Adds the `readonly` modifier",
       "default": true
     },
+    "exclude_constants": {
+      "type": "boolean",
+      "description": "Excludes constants",
+      "default": false
+    },
     "properties": {
       "type": "object",
       "description": "Contains nested properties",

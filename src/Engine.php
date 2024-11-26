@@ -44,7 +44,9 @@ class Engine
                         array_keys($Model->properties)
                     )
                 ),
-                Model::constants => self::transformConstants($Config, $Model->constants),
+                Model::constants => isset($Config->exclude_constants) && $Config->exclude_constants
+                    ? []
+                    : self::transformConstants($Config, $Model->constants),
             ])->save();
         }
 
@@ -58,7 +60,9 @@ class Engine
                 ),
                 Enum::namespace => $Config->namespace ?? $Enum->namespace,
                 Enum::directory => $Config->directory ?? $Enum->directory,
-                Enum::constants => self::transformConstants($Config, $Enum->constants),
+                Enum::constants => isset($Config->exclude_constants) && $Config->exclude_constants
+                    ? []
+                    : self::transformConstants($Config, $Enum->constants),
             ])->save();
         }
     }
