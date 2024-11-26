@@ -5,8 +5,8 @@
       "filename": "User.php",
       "directory": "./tests/generated",
       "use_statements": [
-        "\\Zerotoprod\\DataModel\\DataModel",
-        "\\Zerotoprod\\DataModel\\Transformable"
+        "use \\Zerotoprod\\DataModel\\DataModel;",
+        "use \\Zerotoprod\\DataModel\\Transformable;"
       ]
     }
   ]

@@ -19,6 +19,7 @@ class Engine
         foreach ($Components->Models as $Model) {
             Model::from([
                 ...$Model->toArray(),
+                Model::use_statements => array_merge($Config->model->use_statements ?? [], $Model->use_statements ?? []),
                 Model::namespace => $Config->namespace ?? $Model->namespace,
                 Model::directory => $Config->directory ?? $Model->directory,
                 Model::readonly => $Config->readonly ?? $Model->readonly,
