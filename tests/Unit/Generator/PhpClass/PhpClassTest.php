@@ -24,7 +24,7 @@ class PhpClassTest extends TestCase
             ],
             Model::readonly => true,
             Model::use_statements => [
-                'DataModel'
+                'use DataModel;'
             ],
             Model::filename => 'User.php',
             Model::constants => [
@@ -145,7 +145,7 @@ class PhpClassTest extends TestCase
     #[Test] public function useStatements(): void
     {
         $PhpClass = PhpClassFactory::factory()
-            ->set(Model::use_statements, ['DataModel'])
+            ->set(Model::use_statements, ['use DataModel;'])
             ->make();
 
         $this->assertEquals(

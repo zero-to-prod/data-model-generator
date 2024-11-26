@@ -1,0 +1,8 @@
+{
+  "$schema": "../../../../src/Schema/data_model.json",
+  "model": {
+    "use_statements": [
+      "use \\Zerotoprod\\DataModel;"
+    ]
+  }
+}

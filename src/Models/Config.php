@@ -31,6 +31,13 @@ class Config
     public const readonly = 'readonly';
 
     /**
+     * Config for model
+     *
+     * @see $model
+     */
+    public const model = 'model';
+
+    /**
      * Config for properties
      *
      * @see $properties
@@ -69,6 +76,10 @@ class Config
     /** Applies readonly to the class */
     #[Describe(['default' => false])]
     public bool $readonly;
+
+    /** Config for model */
+    #[Describe(['nullable'])]
+    public ?ModelConfig $model;
 
     /** Config for properties */
     #[Describe(['nullable'])]

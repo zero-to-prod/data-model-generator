@@ -51,7 +51,7 @@ class ParserTest extends TestCase
                         'Zerotoprod\\DataModel\\DataModel'
                     ],
                     Model::use_statements => [
-                        'DataModel'
+                        'use DataModel;'
                     ],
                     Model::constants => [
                         'name' => [

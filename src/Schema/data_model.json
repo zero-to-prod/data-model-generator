@@ -23,9 +23,19 @@
       "description": "Excludes constants",
       "default": false
     },
+    "model": {
+      "type": "object",
+      "description": "Config for a model",
+      "properties": {
+        "use_statements": {
+          "type": "array",
+          "description": "The use statements for the model."
+        }
+      }
+    },
     "properties": {
       "type": "object",
-      "description": "Contains nested properties",
+      "description": "Properties for the model.",
       "properties": {
         "types": {
           "type": "object",

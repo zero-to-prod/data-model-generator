@@ -41,12 +41,7 @@ trait RendersClassComponents
      */
     public function useStatements(): string
     {
-        return implode(
-            PHP_EOL,
-            array_map(static fn(string $statement) => "use $statement;",
-                $this->use_statements
-            )
-        );
+        return implode(PHP_EOL, $this->use_statements);
     }
 
     /**
