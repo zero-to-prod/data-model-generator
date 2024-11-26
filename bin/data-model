@@ -15,6 +15,21 @@ namespace Composer;
 $GLOBALS['_composer_bin_dir'] = __DIR__;
 $GLOBALS['_composer_autoload_path'] = __DIR__ . '/..'.'/autoload.php';
 
-if (PHP_VERSION_ID < 81000) {
-    echo 'hi';
+if (in_array('init', $argv, true)) {
+    $sourceFile = __DIR__ . '/data-model.json';
+    $destinationFile = './data-model.json';
+
+    if (!file_exists($destinationFile)) {
+        if (file_exists($sourceFile)) {
+            if (copy($sourceFile, $destinationFile)) {
+                echo "File 'data-model.json' copied\n";
+            } else {
+                echo "Failed to copy 'data-model.json'.\n";
+            }
+        } else {
+            echo "'data-model.json' does not exist.\n";
+        }
+    } else {
+        echo "'data-model.json' already exists. No action taken.\n";
+    }
 }
