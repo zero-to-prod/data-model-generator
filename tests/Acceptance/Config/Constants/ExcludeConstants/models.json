@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../../../src/Schema/models.json",
+  "Models": [
+    {
+      "filename": "User.php",
+      "directory": "./tests/generated",
+      "constants": {
+        "age": {
+          "value": "'age'",
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

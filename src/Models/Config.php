@@ -45,6 +45,13 @@ class Config
     public const constants = 'constants';
 
     /**
+     * Exclude constants
+     *
+     * @see $exclude_constants
+     */
+    public const exclude_constants = 'exclude_constants';
+
+    /**
      * Controls the visibility of comments
      *
      * @see $comments
@@ -70,6 +77,10 @@ class Config
     /** Config for constants */
     #[Describe(['nullable'])]
     public ?ConstantConfig $constants;
+
+    /** Exclude constants */
+    #[Describe(['default' => false])]
+    public bool $exclude_constants;
 
     /** Controls the visibility of comments */
     #[Describe(['default' => true])]
