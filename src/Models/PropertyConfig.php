@@ -51,7 +51,7 @@ class PropertyConfig
      */
     #[Describe([
         'cast' => [self::class, 'resolveTypes'],
-        'type' => Constant::class,
+        'type' => Type::class,
     ])]
     public array $types;
 

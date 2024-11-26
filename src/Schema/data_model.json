@@ -70,6 +70,7 @@
             "protected",
             "private"
           ],
+          "default": "public",
           "description": "Visibility of the property"
         }
       }
@@ -80,7 +81,8 @@
       "properties": {
         "exclude_type": {
           "type": "boolean",
-          "description": "Excludes the constant type"
+          "description": "Excludes the constant type",
+          "default": true
         },
         "exclude_comments": {
           "type": "boolean",
@@ -94,6 +96,7 @@
             "protected",
             "private"
           ],
+          "default": "public",
           "description": "Visibility of the property"
         }
       }
