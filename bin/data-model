@@ -12,11 +12,16 @@
 
 namespace Composer;
 
+use Zerotoprod\DataModelAdapterOpenapi30\OpenApi30;
+use Zerotoprod\DataModelGenerator\Engine;
+use Zerotoprod\DataModelGenerator\Models\Config;
+use Zerotoprod\DataModelGenerator\Models\ModelConfig;
+
 $GLOBALS['_composer_bin_dir'] = __DIR__;
-$GLOBALS['_composer_autoload_path'] = __DIR__ . '/..'.'/autoload.php';
+$GLOBALS['_composer_autoload_path'] = __DIR__.'/..'.'/autoload.php';
 
 if (in_array('init', $argv, true)) {
-    $sourceFile = __DIR__ . '/data-model.json';
+    $sourceFile = __DIR__.'/data-model.json';
     $destinationFile = './data-model.json';
 
     if (!file_exists($destinationFile)) {
@@ -31,5 +36,23 @@ if (in_array('init', $argv, true)) {
         }
     } else {
         echo "'data-model.json' already exists. No action taken.\n";
+    }
+}
+
+if ($argv[1] === 'generate' && isset($argv[2])) {
+    $source = $argv[2];
+
+    if (filter_var($source, FILTER_VALIDATE_URL)) {
+        $content = @file_get_contents($source);
+        if ($content === false) {
+            echo "Failed to download the file from the path specified: $source.\n";
+        } else {
+            $Components = OpenApi30::adapt(
+                json_decode($content, true),
+                Config::from(json_decode(file_get_contents(__DIR__.'/data-model.json'), true))
+            );
+
+            Engine::generate($Components);
+        }
     }
 }
