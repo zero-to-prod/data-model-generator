@@ -41,6 +41,7 @@ if (in_array('init', $argv, true)) {
 
 if ($argv[1] === 'generate' && isset($argv[2])) {
     $source = $argv[2];
+    echo $source . PHP_EOL;
 
     if (filter_var($source, FILTER_VALIDATE_URL)) {
         $content = @file_get_contents($source);
@@ -49,7 +50,7 @@ if ($argv[1] === 'generate' && isset($argv[2])) {
         } else {
             $Components = OpenApi30::adapt(
                 json_decode($content, true),
-                Config::from(json_decode(file_get_contents(__DIR__.'/data-model.json'), true))
+                Config::from(json_decode(file_get_contents(__DIR__.'../../data-model.json'), true))
             );
 
             Engine::generate($Components);
