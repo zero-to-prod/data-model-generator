@@ -64,14 +64,17 @@ class Engine
                 Enum::constants => $Config->exclude_constants ?? null
                     ? []
                     : self::transformConstants($Config, $Enum->constants),
-                Enum::cases => array_map(
-                    static fn(EnumCase $Case, $name) => [
-                        EnumCase::comment => $Case->comment,
-                        EnumCase::name => $name,
-                        EnumCase::value => $Case->value,
-                    ],
-                    $Enum->cases,
-                    array_keys($Enum->cases)
+                Enum::cases => array_combine(
+                    array_keys($Enum->cases),
+                    array_map(
+                        static fn(EnumCase $Case, $name) => [
+                            EnumCase::comment => $Case->comment,
+                            EnumCase::name => $name,
+                            EnumCase::value => $Case->value,
+                        ],
+                        $Enum->cases,
+                        array_keys($Enum->cases)
+                    )
                 ),
                 Enum::filename => $Enum->filename,
                 Enum::directory => $Config->directory ?? $Enum->directory,
