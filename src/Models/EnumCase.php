@@ -32,15 +32,15 @@ class EnumCase
 
     /** The case docblock */
     #[Describe(['nullable'])]
-    private readonly ?string $comment;
+    public readonly ?string $comment;
 
     /** The case name */
     #[Describe(['required' => true])]
-    private readonly string $name;
+    public readonly string $name;
 
     /** Value of the case */
     #[Describe(['nullable'])]
-    private readonly ?string $value;
+    public readonly ?string $value;
 
     public function render(): string
     {
