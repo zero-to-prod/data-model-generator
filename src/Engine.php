@@ -69,7 +69,7 @@ class Engine
                     array_map(
                         static fn(EnumCase $Case, $name) => [
                             EnumCase::comment => $Case->comment,
-                            EnumCase::name => $name,
+                            EnumCase::name => $Case->name,
                             EnumCase::value => $Case->value,
                         ],
                         $Enum->cases,
