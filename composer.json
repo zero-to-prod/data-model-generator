@@ -31,8 +31,7 @@
   "autoload-dev": {
     "psr-4": {
       "Tests\\": "tests/",
-      "Factories\\": "factories/",
-      "Bin\\": "bin/"
+      "Factories\\": "factories/"
     }
   },
   "require-dev": {

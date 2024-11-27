@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-namespace Bin;
+include __DIR__.'/../vendor/autoload.php';
 
 use Zerotoprod\DataModelAdapterOpenapi30\OpenApi30;
 use Zerotoprod\DataModelGenerator\Engine;
