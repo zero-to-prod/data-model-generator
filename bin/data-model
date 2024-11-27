@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-include __DIR__.'/../vendor/autoload.php';
+namespace Bin;
 
 use Zerotoprod\DataModelAdapterOpenapi30\OpenApi30;
 use Zerotoprod\DataModelGenerator\Engine;
@@ -27,12 +27,10 @@ if (in_array('init', $argv, true)) {
 }
 
 if ($argv[1] === 'generate' && isset($argv[2])) {
-    $source = $argv[2];
-
-    $content = @file_get_contents($source);
+    $content = @file_get_contents($argv[2]);
 
     if ($content === false) {
-        echo "Failed to download the file from the path specified: $source.\n";
+        echo "Failed to download the file from the path specified: $argv[2].\n";
     } else {
         $Components = OpenApi30::adapt(
             $content,
