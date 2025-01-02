@@ -6,7 +6,7 @@
 [![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/data-model-generator?color=f28d1a)](https://packagist.org/packages/zero-to-prod/data-model-generator)
 [![License](https://img.shields.io/packagist/l/zero-to-prod/data-model-generator?color=red)](https://github.com/zero-to-prod/data-model-generator/blob/main/LICENSE.md)
 [![wakatime](https://wakatime.com/badge/github/zero-to-prod/data-model-generator.svg)](https://wakatime.com/badge/github/zero-to-prod/data-model-generator)
-[![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod//data-model-generator?branch=main)](https://hitsofcode.com/github/zero-to-prod//data-model-generator/view?branch=main)
+[![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod/data-model-generator?branch=main)](https://hitsofcode.com/github/zero-to-prod/data-model-generator/view?branch=main)
 
 ## Testing
 
