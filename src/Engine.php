@@ -58,9 +58,9 @@ class Engine
             Enum::from([
                 Enum::namespace => $Config->namespace ?? $Enum->namespace,
                 Enum::imports => $Enum->imports,
-                Enum::comment => $Config?->comments
-                    ? null
-                    : $Enum->comment,
+                Enum::comment => $Config?->comments || $Config === null
+                    ? $Enum->comment
+                    : null,
                 Enum::backed_type => $Enum->backed_type,
                 Enum::use_statements => $Enum->use_statements,
                 Enum::constants => $Config->exclude_constants ?? null
