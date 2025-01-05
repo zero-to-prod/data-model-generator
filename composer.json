@@ -11,8 +11,8 @@
   "support": {
     "email": "dave0016@gmail.com",
     "issues": "https://github.com/zero-to-prod/data-model-generator/issues",
-    "source": "https://github.com/zero-to-prod/data-model",
-    "docs": "https://zero-to-prod.github.io/data-model-generator/",
+    "source": "https://github.com/zero-to-prod/data-model-generator",
+    "docs": "https://zero-to-prod.github.io/data-model-generator",
     "security": "https://github.com/zero-to-prod/data-model-generator/blob/main/SECURITY.md"
   },
   "license": "MIT",
