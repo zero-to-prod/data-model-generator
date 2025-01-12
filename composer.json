@@ -58,7 +58,5 @@
   "suggest": {
     "zero-to-prod/data-model": "Transform Data to Type-Safe DTOs",
     "zero-to-prod/data-model-helper": "Helpers for a DataModel."
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": false
+  }
 }
