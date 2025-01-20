@@ -15,7 +15,10 @@ class Engine
 {
     public static function generate(Components $Components): void
     {
-        $Config = $Components->Config ?? Config::from();
+        $Config = $Components->Config;
+        if (is_null($Config->model)) {
+            return;
+        }
         foreach ($Components->Models as $Model) {
             Model::from([
                 Model::namespace => $Config->namespace ?? $Model->namespace,
