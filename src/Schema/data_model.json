@@ -84,9 +84,9 @@
       "type": "object",
       "description": "Contains nested properties",
       "properties": {
-        "exclude_type": {
+        "type": {
           "type": "boolean",
-          "description": "Excludes the constant type",
+          "description": "Include the constant type",
           "default": true
         },
         "exclude_comments": {
