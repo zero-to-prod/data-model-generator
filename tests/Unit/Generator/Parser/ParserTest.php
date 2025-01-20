@@ -95,10 +95,6 @@ class ParserTest extends TestCase
                 class User
                 {
                 use DataModel;
-                \ZeroToProd\DataModel\Describe(['required' => true])
-                \ZeroToProd\DataModel\Describe(['required' => true])
-                public App\User \$User;
-                private string \$name;
                 }
                 PHP
         );
