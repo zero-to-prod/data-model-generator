@@ -4,8 +4,8 @@
   "namespace": "App\\DataModels",
   "readonly": true,
   "include_constants": false,
-  "comments": true,
   "model": {
+    "comments": true,
     "use_statements": [
       "use \\Zerotoprod\\DataModel\\DataModel;"
     ]
@@ -16,12 +16,12 @@
         "type": "int"
       }
     },
-    "exclude_comments": false,
+    "comments": true,
     "readonly": true,
     "visibility": "public"
   },
   "constants": {
-    "exclude_type": true,
+    "type": true,
     "exclude_comments": false,
     "visibility": "public"
   }
