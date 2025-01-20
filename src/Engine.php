@@ -21,76 +21,86 @@ class Engine
 
         foreach ($Components->Models as $Model) {
             $model = [
-                Model::namespace => $Config->namespace ?? $Model->namespace,
+                Model::namespace => $Config->namespace
+                    ?? $Model->namespace,
                 Model::imports => $Model->imports,
                 Model::readonly => $Config->model->readonly,
-                Model::comment => $Config->model->comments ? $Model->comment : null,
+                Model::comment => $Config->model->comments
+                    ? $Model->comment
+                    : null,
                 Model::use_statements => [...$Config->model->use_statements, ...$Model->use_statements],
                 Model::constants => $Config->model->constants
                     ? self::transformConstants($Config, $Model->constants)
                     : [],
                 Model::filename => $Model->filename,
-                Model::directory => $Config->directory ?? $Model->directory,
+                Model::directory => $Config->directory
+                    ?? $Model->directory,
+                Model::properties => [],
             ];
 
             if ($Config->model->properties) {
-                $properties = [];
-                foreach ($Model->properties as $name => $Property) {
-                    $properties[$name] = [
-                        Property::comment => $Config->model->properties->comments ? $Property->comment : null,
-                        Property::visibility => $Config->model->properties->visibility ?? $Property->visibility ?? Visibility::public,
+                $model[Model::properties] = array_map(
+                    static fn(string $name, Property $Property) => [
+                        Property::comment => $Config->model->properties->comments
+                            ? $Property->comment
+                            : null,
+                        Property::visibility => $Config->model->properties->visibility
+                            ?? $Property->visibility
+                                ?? Visibility::public,
                         Property::readonly => $Config->model->properties->readonly,
-                        Property::type => $Config->model->properties->types[$Property->type]->type ?? $Property->type,
+                        Property::type => $Config->model->properties->types[$Property->type]->type
+                            ?? $Property->type,
                         Property::name => $name,
                         Property::attributes => $Property->attributes,
-                    ];
-                }
-                $model[Model::properties] = $properties;
-            } else {
-                $model[Model::properties] = [];
+                    ],
+                    array_keys($Model->properties),
+                    array_values($Model->properties)
+                );
             }
 
             Model::from($model)->save();
         }
 
         foreach ($Components->Enums as $Enum) {
-            $cases = [];
-            foreach ($Enum->cases as $Case) {
-                $cases[] = [
-                    EnumCase::comment => $Case->comment,
-                    EnumCase::name => $Case->name,
-                    EnumCase::value => $Case->value,
-                ];
-            }
-
             Enum::from([
-                Enum::namespace => $Config->namespace ?? $Enum->namespace,
+                Enum::namespace => $Config->namespace
+                    ?? $Enum->namespace,
                 Enum::imports => $Enum->imports,
-                Enum::comment => $Config->model->comments ? $Enum->comment : null,
+                Enum::comment => $Config->model->comments
+                    ? $Enum->comment
+                    : null,
                 Enum::backed_type => $Enum->backed_type,
                 Enum::use_statements => $Enum->use_statements,
                 Enum::constants => $Config->model->constants
                     ? self::transformConstants($Config, $Enum->constants)
                     : [],
-                Enum::cases => $cases,
+                Enum::cases => array_map(
+                    static fn(EnumCase $Case) => [
+                        EnumCase::comment => $Case->comment,
+                        EnumCase::name => $Case->name,
+                        EnumCase::value => $Case->value,
+                    ],
+                    $Enum->cases
+                ),
                 Enum::filename => $Enum->filename,
-                Enum::directory => $Config->directory ?? $Enum->directory,
+                Enum::directory => $Config->directory
+                    ?? $Enum->directory,
             ])->save();
         }
     }
 
     private static function transformConstants(Config $Config, array $Constants): array
     {
-        $result = [];
-        foreach ($Constants as $name => $Constant) {
-            $result[$name] = [
+        return array_map(
+            static fn(string $name, Constant $Constant) => [
                 Constant::comment => $Config->model->constants?->comments ? $Constant->comment : null,
                 Constant::visibility => $Config->model->constants->visibility ?? $Constant->visibility,
                 Constant::type => $Config->model->constants?->type ? $Constant->type : null,
                 Constant::name => $name,
                 Constant::value => $Constant->value,
-            ];
-        }
-        return $result;
+            ],
+            array_keys($Constants),
+            array_values($Constants)
+        );
     }
 }
