@@ -6,7 +6,7 @@
       "directory": "./tests/generated",
       "properties": {
         "age": {
-          "type": "int"
+          "type": ["integer", "number"]
         }
       }
     }
