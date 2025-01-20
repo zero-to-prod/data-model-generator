@@ -24,7 +24,7 @@ class Engine
                 Model::namespace => $Config->namespace ?? $Model->namespace,
                 Model::imports => $Model->imports,
                 Model::readonly => $Config->model->readonly,
-                Model::comment => $Config->comments ? $Model->comment : null,
+                Model::comment => $Config->model->comments ? $Model->comment : null,
                 Model::use_statements => array_merge($Config->model->use_statements, $Model->use_statements),
                 Model::constants => $Config->model->constants
                     ? self::transformConstants($Config, $Model->constants)
@@ -62,7 +62,7 @@ class Engine
             Enum::from([
                 Enum::namespace => $Config->namespace ?? $Enum->namespace,
                 Enum::imports => $Enum->imports,
-                Enum::comment => $Config->comments
+                Enum::comment => $Config->model->comments
                     ? $Enum->comment
                     : null,
                 Enum::backed_type => $Enum->backed_type,
