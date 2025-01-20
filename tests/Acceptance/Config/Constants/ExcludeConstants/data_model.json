@@ -1,3 +1,4 @@
 {
-  "$schema": "../../../../../src/Schema/data_model.json"
+  "$schema": "../../../../../src/Schema/data_model.json",
+  "model": {}
 }
