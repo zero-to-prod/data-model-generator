@@ -39,16 +39,8 @@
               "type": "object",
               "description": "A map of types and the resulting type",
               "additionalProperties": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "The type of the property"
-                  }
-                },
-                "required": [
-                  "type"
-                ]
+                "type": "string",
+                "description": "The property type."
               }
             },
             "comments": {
