@@ -48,7 +48,7 @@ class Engine
                             ?? $Property->visibility
                                 ?? Visibility::public,
                         Property::readonly => $Config->model->properties->readonly,
-                        Property::type => $Config->model->properties->types[$Property->type]->type
+                        Property::type => array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->type)))
                             ?? $Property->type,
                         Property::name => $name,
                         Property::attributes => $Property->attributes,
