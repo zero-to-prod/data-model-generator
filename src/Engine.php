@@ -90,9 +90,9 @@ class Engine
                         ? null
                         : $Constant->comment,
                     Constant::visibility => $Config?->constants->visibility ?? $Constant->visibility,
-                    Constant::type => $Config?->constants?->exclude_type
-                        ? null
-                        : $Constant->type,
+                    Constant::type => $Config?->constants?->type
+                        ? $Constant->type
+                        : null,
                     Constant::name => $name,
                     Constant::value => $Constant->value,
                 ],
