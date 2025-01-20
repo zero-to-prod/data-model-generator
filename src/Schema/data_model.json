@@ -13,11 +13,6 @@
       "description": "The Fully Qualified Namespace for the DataModels",
       "nullable": true
     },
-    "comments": {
-      "type": "boolean",
-      "description": "Controls the visibility of comments",
-      "default": true
-    },
     "model": {
       "type": "object",
       "description": "Config for a model",
@@ -29,6 +24,11 @@
         "readonly": {
           "type": "boolean",
           "description": "Adds the `readonly` modifier to the DataModel.",
+          "default": true
+        },
+        "comments": {
+          "type": "boolean",
+          "description": "Controls the visibility of comments",
           "default": true
         },
         "properties": {
