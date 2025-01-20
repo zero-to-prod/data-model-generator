@@ -58,7 +58,7 @@
             ]
           }
         },
-        "exclude_comments": {
+        "comments": {
           "type": "boolean",
           "description": "Controls the visibility of comments",
           "default": false
