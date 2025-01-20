@@ -13,11 +13,6 @@
       "description": "The Fully Qualified Namespace for the DataModels",
       "nullable": true
     },
-    "include_constants": {
-      "type": "boolean",
-      "description": "Excludes constants that match property names.",
-      "default": false
-    },
     "comments": {
       "type": "boolean",
       "description": "Controls the visibility of comments",
@@ -35,6 +30,32 @@
           "type": "boolean",
           "description": "Adds the `readonly` modifier to the DataModel.",
           "default": true
+        },
+        "constants": {
+          "type": "object",
+          "description": "Contains nested properties",
+          "properties": {
+            "type": {
+              "type": "boolean",
+              "description": "Include the constant type",
+              "default": true
+            },
+            "comments": {
+              "type": "boolean",
+              "description": "Controls the visibility of comments",
+              "default": true
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "public",
+                "protected",
+                "private"
+              ],
+              "default": "public",
+              "description": "Visibility of the property"
+            }
+          }
         }
       }
     },
@@ -77,32 +98,6 @@
           ],
           "default": "public",
           "description": "Visibility of the property: public, protected, private."
-        }
-      }
-    },
-    "constants": {
-      "type": "object",
-      "description": "Contains nested properties",
-      "properties": {
-        "type": {
-          "type": "boolean",
-          "description": "Include the constant type",
-          "default": true
-        },
-        "exclude_comments": {
-          "type": "boolean",
-          "description": "Controls the visibility of comments",
-          "default": false
-        },
-        "visibility": {
-          "type": "string",
-          "enum": [
-            "public",
-            "protected",
-            "private"
-          ],
-          "default": "public",
-          "description": "Visibility of the property"
         }
       }
     }
