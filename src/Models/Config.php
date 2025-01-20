@@ -43,17 +43,6 @@ class Config
     public ?ModelConfig $model;
 
     /**
-     * Config for properties
-     *
-     * @see $properties
-     */
-    public const properties = 'properties';
-
-    /** Config for properties */
-    #[Describe(['nullable'])]
-    public ?PropertyConfig $properties;
-
-    /**
      * Controls the visibility of comments
      *
      * @see $comments
