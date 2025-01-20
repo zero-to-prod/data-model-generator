@@ -32,17 +32,6 @@ class Config
     public ?string $namespace;
 
     /**
-     * Applies readonly to the class
-     *
-     * @see $readonly
-     */
-    public const readonly = 'readonly';
-
-    /** Applies readonly to the class */
-    #[Describe(['default' => false])]
-    public bool $readonly;
-
-    /**
      * Config for model
      *
      * @see $model
