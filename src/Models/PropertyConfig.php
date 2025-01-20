@@ -10,13 +10,6 @@ class PropertyConfig
     use DataModel;
 
     /**
-     * A map of types and the resulting type.
-     *
-     * @see $types
-     */
-    public const types = 'types';
-
-    /**
      * Controls the visibility of the property
      *
      * @see $visibility
@@ -40,6 +33,13 @@ class PropertyConfig
     /**
      * A map of types and the resulting type.
      *
+     * @see $types
+     */
+    public const types = 'types';
+
+    /**
+     * A map of types and the resulting type.
+     *
      * @var array<string, Type> $types
      */
     #[Describe([
@@ -48,6 +48,11 @@ class PropertyConfig
     ])]
     public array $types;
 
+    /**
+     * A map of types and the resulting type.
+     *
+     * @see $types
+     */
     public static function resolveTypes($value): array
     {
         return array_combine(
