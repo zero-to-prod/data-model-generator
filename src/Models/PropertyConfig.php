@@ -10,11 +10,11 @@ class PropertyConfig
     use DataModel;
 
     /**
-     * Controls the readonly modifier for the property
+     * A map of types and the resulting type.
      *
-     * @see $readonly
+     * @see $types
      */
-    public const readonly = 'readonly';
+    public const types = 'types';
 
     /**
      * Controls the visibility of the property
@@ -23,22 +23,15 @@ class PropertyConfig
      */
     public const visibility = 'visibility';
 
-    /**
-     * A map of types and the resulting type.
-     *
-     * @see $types
-     */
-    public const types = 'types';
-
-    /**
-     * Controls the visibility of comments
-     *
-     * @see $exclude_comments
-     */
-    public const exclude_comments = 'exclude_comments';
-
     /** Controls the visibility of the property */
     public Visibility $visibility;
+
+    /**
+     * Controls the readonly modifier for the property
+     *
+     * @see $readonly
+     */
+    public const readonly = 'readonly';
 
     /** Controls the readonly modifier for the property */
     #[Describe(['default' => false])]
@@ -67,7 +60,14 @@ class PropertyConfig
         );
     }
 
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $comments
+     */
+    public const comments = 'comments';
+
     /** Controls the visibility of comments */
     #[Describe(['default' => false])]
-    public bool $exclude_comments;
+    public bool $comments;
 }
