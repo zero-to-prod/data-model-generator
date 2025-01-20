@@ -31,15 +31,15 @@ class Engine
                     array_map(
                         static function (Property $Property, $name) use ($Config) {
                             $result = [];
-                            $result[Property::comment] = $Config?->properties?->comments
+                            $result[Property::comment] = $Config?->model->properties?->comments
                                 ? $Property->comment
                                 : null;
-                            $result[Property::visibility] = $Config?->properties?->visibility
+                            $result[Property::visibility] = $Config?->model->properties?->visibility
                                 ?? $Property->visibility
                                 ?? Visibility::public;
-                            $result[Property::readonly] = $Config?->properties?->readonly
+                            $result[Property::readonly] = $Config?->model->properties?->readonly
                                 ?? $Property->readonly;
-                            $result[Property::type] = $Config->properties->types[$Property->type]->type ?? $Property->type;
+                            $result[Property::type] = $Config->model->properties->types[$Property->type]->type ?? $Property->type;
                             $result[Property::name] = $name;
                             $result[Property::attributes] = $Property->attributes;
 
