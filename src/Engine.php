@@ -23,9 +23,9 @@ class Engine
                 Model::readonly => $Config->model->readonly ?? $Model->readonly,
                 Model::comment => $Config->comments ? $Model->comment : null,
                 Model::use_statements => array_merge($Config->model->use_statements ?? [], $Model->use_statements ?? []),
-                Model::constants => $Config->include_constants ?? null
-                    ? []
-                    : self::transformConstants($Config, $Model->constants),
+                Model::constants => $Config->model->constants
+                    ? self::transformConstants($Config, $Model->constants)
+                    : [],
                 Model::properties => array_combine(
                     array_keys($Model->properties),
                     array_map(
@@ -63,9 +63,9 @@ class Engine
                     : null,
                 Enum::backed_type => $Enum->backed_type,
                 Enum::use_statements => $Enum->use_statements,
-                Enum::constants => $Config->include_constants ?? null
-                    ? []
-                    : self::transformConstants($Config, $Enum->constants),
+                Enum::constants => $Config->model->constants
+                    ? self::transformConstants($Config, $Enum->constants)
+                    : [],
                 Enum::cases => array_map(
                     static fn(EnumCase $Case) => [
                         EnumCase::comment => $Case->comment,
@@ -86,11 +86,11 @@ class Engine
             array_keys($Constants),
             array_map(
                 static fn(Constant $Constant, $name) => [
-                    Constant::comment => $Config?->constants?->exclude_comments
-                        ? null
-                        : $Constant->comment,
-                    Constant::visibility => $Config?->constants->visibility ?? $Constant->visibility,
-                    Constant::type => $Config?->constants?->type
+                    Constant::comment => $Config?->model->constants?->comments
+                        ? $Constant->comment
+                        : null,
+                    Constant::visibility => $Config?->model->constants->visibility ?? $Constant->visibility,
+                    Constant::type => $Config?->model->constants?->type
                         ? $Constant->type
                         : null,
                     Constant::name => $name,
