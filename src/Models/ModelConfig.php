@@ -52,4 +52,15 @@ class ModelConfig
     /** Applies readonly to the class */
     #[Describe(['default' => false])]
     public bool $readonly;
+
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $comments
+     */
+    public const comments = 'comments';
+
+    /** Controls the visibility of comments */
+    #[Describe(['default' => false])]
+    public bool $comments;
 }
