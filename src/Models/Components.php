@@ -10,29 +10,11 @@ class Components
     use DataModel;
 
     /**
-     * A Config for the project
-     *
-     * @see $Config
-     */
-    public const Config = 'Config';
-
-    /**
      * A collection of Models
      *
      * @see $Models
      */
     public const Models = 'Models';
-
-    /**
-     * A collection of Enums
-     *
-     * @see $Enums
-     */
-    public const Enums = 'Enums';
-
-    /** A collection of Models */
-    #[Describe(['nullable'])]
-    public ?Config $Config;
 
     /**
      * A collection of Models
@@ -45,6 +27,13 @@ class Components
         'default' => []
     ])]
     public readonly array $Models;
+
+    /**
+     * A collection of Enums
+     *
+     * @see $Enums
+     */
+    public const Enums = 'Enums';
 
     /**
      * A collection of Enums
