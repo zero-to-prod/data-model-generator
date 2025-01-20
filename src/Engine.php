@@ -31,9 +31,9 @@ class Engine
                     array_map(
                         static function (Property $Property, $name) use ($Config) {
                             $result = [];
-                            $result[Property::comment] = $Config?->properties?->exclude_comments
-                                ? null
-                                : $Property->comment;
+                            $result[Property::comment] = $Config?->properties?->comments
+                                ? $Property->comment
+                                : null;
                             $result[Property::visibility] = $Config?->properties?->visibility
                                 ?? $Property->visibility
                                 ?? Visibility::public;
