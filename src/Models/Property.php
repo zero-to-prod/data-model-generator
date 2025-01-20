@@ -64,8 +64,8 @@ class Property
     public readonly bool $readonly;
 
     /** The property type */
-    #[Describe(['nullable'])]
-    public readonly ?string $type;
+    #[Describe(['default' => []])]
+    public readonly array $type;
 
     /** The property name */
     #[Describe(['required' => true])]
@@ -88,7 +88,7 @@ class Property
             implode(' ', array_filter([
                 $this->visibility->value,
                 $this->readonly ? 'readonly' : null,
-                $this->type,
+                implode('|', $this->type),
                 "$$this->name",
             ])).';'
         ]));
