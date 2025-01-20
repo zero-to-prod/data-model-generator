@@ -20,35 +20,36 @@ class Engine
             Model::from([
                 Model::namespace => $Config->namespace ?? $Model->namespace,
                 Model::imports => $Model->imports,
-                Model::readonly => $Config->model->readonly ?? $Model->readonly,
+                Model::readonly => $Config->model->readonly,
                 Model::comment => $Config->comments ? $Model->comment : null,
-                Model::use_statements => array_merge($Config->model->use_statements ?? [], $Model->use_statements ?? []),
+                Model::use_statements => array_merge($Config->model->use_statements, $Model->use_statements),
                 Model::constants => $Config->model->constants
                     ? self::transformConstants($Config, $Model->constants)
                     : [],
-                Model::properties => array_combine(
-                    array_keys($Model->properties),
-                    array_map(
-                        static function (Property $Property, $name) use ($Config) {
-                            $result = [];
-                            $result[Property::comment] = $Config?->model->properties?->comments
-                                ? $Property->comment
-                                : null;
-                            $result[Property::visibility] = $Config?->model->properties?->visibility
-                                ?? $Property->visibility
-                                ?? Visibility::public;
-                            $result[Property::readonly] = $Config?->model->properties?->readonly
-                                ?? $Property->readonly;
-                            $result[Property::type] = $Config->model->properties->types[$Property->type]->type ?? $Property->type;
-                            $result[Property::name] = $name;
-                            $result[Property::attributes] = $Property->attributes;
-
-                            return $result;
-                        },
-                        $Model->properties,
+                Model::properties => $Config->model->properties
+                    ? array_combine(
                         array_keys($Model->properties),
-                    ),
-                ),
+                        array_map(
+                            static function (Property $Property, $name) use ($Config) {
+                                $result = [];
+                                $result[Property::comment] = $Config->model->properties->comments
+                                    ? $Property->comment
+                                    : null;
+                                $result[Property::visibility] = $Config->model->properties->visibility
+                                    ?? $Property->visibility
+                                    ?? Visibility::public;
+                                $result[Property::readonly] = $Config->model->properties->readonly;
+                                $result[Property::type] = $Config->model->properties->types[$Property->type]->type ?? $Property->type;
+                                $result[Property::name] = $name;
+                                $result[Property::attributes] = $Property->attributes;
+
+                                return $result;
+                            },
+                            $Model->properties,
+                            array_keys($Model->properties),
+                        ),
+                    )
+                    : [],
                 Model::filename => $Model->filename,
                 Model::directory => $Config->directory ?? $Model->directory,
             ])->save();
@@ -58,7 +59,7 @@ class Engine
             Enum::from([
                 Enum::namespace => $Config->namespace ?? $Enum->namespace,
                 Enum::imports => $Enum->imports,
-                Enum::comment => $Config?->comments
+                Enum::comment => $Config->comments
                     ? $Enum->comment
                     : null,
                 Enum::backed_type => $Enum->backed_type,
@@ -80,17 +81,17 @@ class Engine
         }
     }
 
-    private static function transformConstants(?Config $Config, array $Constants): array
+    private static function transformConstants(Config $Config, array $Constants): array
     {
         return array_combine(
             array_keys($Constants),
             array_map(
                 static fn(Constant $Constant, $name) => [
-                    Constant::comment => $Config?->model->constants?->comments
+                    Constant::comment => $Config->model->constants?->comments
                         ? $Constant->comment
                         : null,
-                    Constant::visibility => $Config?->model->constants->visibility ?? $Constant->visibility,
-                    Constant::type => $Config?->model->constants?->type
+                    Constant::visibility => $Config->model->constants->visibility ?? $Constant->visibility,
+                    Constant::type => $Config->model->constants?->type
                         ? $Constant->type
                         : null,
                     Constant::name => $name,
