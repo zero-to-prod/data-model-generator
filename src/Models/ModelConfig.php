@@ -19,4 +19,15 @@ class ModelConfig
     /** The use statement for the model. */
     #[Describe(['default' => []])]
     public array $use_statements;
+
+    /**
+     * Applies readonly to the class
+     *
+     * @see $readonly
+     */
+    public const readonly = 'readonly';
+
+    /** Applies readonly to the class */
+    #[Describe(['default' => false])]
+    public bool $readonly;
 }
