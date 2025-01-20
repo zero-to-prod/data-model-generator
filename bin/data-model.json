@@ -14,9 +14,7 @@
     },
     "properties": {
       "types": {
-        "int32": {
-          "type": "int"
-        }
+        "int32":  "int"
       },
       "comments": true,
       "readonly": true,
