@@ -54,28 +54,6 @@ class Config
     public ?PropertyConfig $properties;
 
     /**
-     * Config for constants
-     *
-     * @see $constants
-     */
-    public const constants = 'constants';
-
-    /** Config for constants */
-    #[Describe(['nullable'])]
-    public ?ConstantConfig $constants;
-
-    /**
-     * Include constants
-     *
-     * @see $include_constants
-     */
-    public const include_constants = 'include_constants';
-
-    /** Include constants */
-    #[Describe(['default' => false])]
-    public bool $include_constants;
-
-    /**
      * Controls the visibility of comments
      *
      * @see $comments
