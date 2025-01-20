@@ -13,7 +13,10 @@ class DoesNotApplyReadonlyTest extends TestCase
     #[Test] public function generate(): void
     {
         Engine::generate(
-            Components::from(json_decode(file_get_contents(__DIR__.'/models.json'), true)),
+            Components::from([
+                Components::Config => json_decode(file_get_contents(__DIR__.'/data_model.json'), true),
+                ...json_decode(file_get_contents(__DIR__.'/models.json'), true),
+            ]),
         );
 
         self::assertStringEqualsFile(
