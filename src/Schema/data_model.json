@@ -13,11 +13,6 @@
       "description": "The Fully Qualified Namespace for the DataModels",
       "nullable": true
     },
-    "readonly": {
-      "type": "boolean",
-      "description": "Adds the `readonly` modifier to the DataModel.",
-      "default": true
-    },
     "include_constants": {
       "type": "boolean",
       "description": "Excludes constants that match property names.",
@@ -35,6 +30,11 @@
         "use_statements": {
           "type": "array",
           "description": "The use statements for the model."
+        },
+        "readonly": {
+          "type": "boolean",
+          "description": "Adds the `readonly` modifier to the DataModel.",
+          "default": true
         }
       }
     },
