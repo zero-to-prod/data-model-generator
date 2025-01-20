@@ -17,13 +17,6 @@ class ConstantConfig
     public const visibility = 'visibility';
 
     /**
-     * Controls the visibility of comments
-     *
-     * @see $exclude_comments
-     */
-    public const exclude_comments = 'exclude_comments';
-
-    /**
      * Excludes the constant type.
      *
      * @see $type
@@ -37,7 +30,14 @@ class ConstantConfig
     /** Controls the visibility of the constant. */
     public Visibility $visibility;
 
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $comments
+     */
+    public const comments = 'comments';
+
     /** Controls the visibility of comments */
     #[Describe(['default' => false])]
-    public bool $exclude_comments;
+    public bool $comments;
 }
