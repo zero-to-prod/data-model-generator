@@ -20,7 +20,7 @@ class Engine
             Model::from([
                 Model::namespace => $Config->namespace ?? $Model->namespace,
                 Model::imports => $Model->imports,
-                Model::readonly => $Config->readonly ?? $Model->readonly,
+                Model::readonly => $Config->model->readonly ?? $Model->readonly,
                 Model::comment => $Config->comments ? $Model->comment : null,
                 Model::use_statements => array_merge($Config->model->use_statements ?? [], $Model->use_statements ?? []),
                 Model::constants => $Config->include_constants ?? null
