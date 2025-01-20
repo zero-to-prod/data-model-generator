@@ -1,4 +1,6 @@
 {
   "$schema": "../../../../../src/Schema/data_model.json",
-  "readonly": true
+  "model": {
+    "readonly": true
+  }
 }
