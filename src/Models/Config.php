@@ -41,15 +41,4 @@ class Config
     /** Config for model */
     #[Describe(['nullable'])]
     public ?ModelConfig $model;
-
-    /**
-     * Controls the visibility of comments
-     *
-     * @see $comments
-     */
-    public const comments = 'comments';
-
-    /** Controls the visibility of comments */
-    #[Describe(['default' => false])]
-    public bool $comments;
 }
