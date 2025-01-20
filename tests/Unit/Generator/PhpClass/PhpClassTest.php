@@ -47,7 +47,7 @@ class PhpClassTest extends TestCase
                 [
                     Property::comment => '/** Comment */',
                     Property::visibility => Visibility::public,
-                    Property::type => 'App\\User',
+                    Property::type => ['App\\User'],
                     Property::name => 'User',
                     Property::attributes => [
                         "\ZeroToProd\DataModel\Describe(['required' => true])"
@@ -56,7 +56,7 @@ class PhpClassTest extends TestCase
                 [
                     Property::comment => '/** Comment */',
                     Property::visibility => Visibility::private,
-                    Property::type => 'string',
+                    Property::type => ['string'],
                     Property::name => 'name',
                     Property::attributes => [
                         "\ZeroToProd\DataModel\Describe(['required' => true])"
@@ -197,13 +197,13 @@ class PhpClassTest extends TestCase
                 [
                     Property::comment => '/** Comment */',
                     Property::visibility => Visibility::public,
-                    Property::type => 'App\\User',
+                    Property::type => ['App\\User'],
                     Property::name => 'User',
                 ],
                 [
                     Property::comment => '/** Comment */',
                     Property::visibility => Visibility::private,
-                    Property::type => 'string',
+                    Property::type => ['string'],
                     Property::name => 'name',
                 ],
             ]
