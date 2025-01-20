@@ -86,11 +86,11 @@ class Engine
             array_keys($Constants),
             array_map(
                 static fn(Constant $Constant, $name) => [
-                    Constant::comment => $Config?->constants->exclude_comments
+                    Constant::comment => $Config?->constants?->exclude_comments
                         ? null
                         : $Constant->comment,
                     Constant::visibility => $Config?->constants->visibility ?? $Constant->visibility,
-                    Constant::type => $Config?->constants->exclude_type
+                    Constant::type => $Config?->constants?->exclude_type
                         ? null
                         : $Constant->type,
                     Constant::name => $name,
