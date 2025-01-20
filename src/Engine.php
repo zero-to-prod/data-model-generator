@@ -13,9 +13,8 @@ use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class Engine
 {
-    public static function generate(Components $Components): void
+    public static function generate(Components $Components, Config $Config): void
     {
-        $Config = $Components->Config;
         if (is_null($Config->model)) {
             return;
         }
