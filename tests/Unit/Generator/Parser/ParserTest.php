@@ -96,9 +96,9 @@ class ParserTest extends TestCase
                 {
                 use DataModel;
                 /** Comment */
-                public const string name = 'name';
+                public const name = 'name';
                 /** Comment */
-                private const bool bool = 'bool';
+                private const bool = 'bool';
                 \ZeroToProd\DataModel\Describe(['required' => true])
                 \ZeroToProd\DataModel\Describe(['required' => true])
                 public App\User \$User;
