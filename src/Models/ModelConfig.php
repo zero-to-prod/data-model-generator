@@ -10,6 +10,17 @@ class ModelConfig
     use DataModel;
 
     /**
+     * Config for properties
+     *
+     * @see $properties
+     */
+    public const properties = 'properties';
+
+    /** Config for properties */
+    #[Describe(['nullable'])]
+    public ?PropertyConfig $properties;
+
+    /**
      * Config for constants
      *
      * @see $constants
