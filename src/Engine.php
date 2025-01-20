@@ -15,15 +15,15 @@ class Engine
 {
     public static function generate(Components $Components): void
     {
-        $Config = $Components->Config;
+        $Config = $Components->Config ?? Config::from();
         foreach ($Components->Models as $Model) {
             Model::from([
                 Model::namespace => $Config->namespace ?? $Model->namespace,
                 Model::imports => $Model->imports,
                 Model::readonly => $Config->readonly ?? $Model->readonly,
-                Model::comment => $Model->comment,
+                Model::comment => $Config->comments ? $Model->comment : null,
                 Model::use_statements => array_merge($Config->model->use_statements ?? [], $Model->use_statements ?? []),
-                Model::constants => $Config->exclude_constants ?? null
+                Model::constants => $Config->include_constants ?? null
                     ? []
                     : self::transformConstants($Config, $Model->constants),
                 Model::properties => array_combine(
@@ -58,12 +58,12 @@ class Engine
             Enum::from([
                 Enum::namespace => $Config->namespace ?? $Enum->namespace,
                 Enum::imports => $Enum->imports,
-                Enum::comment => $Config?->comments || $Config === null
+                Enum::comment => $Config?->comments
                     ? $Enum->comment
                     : null,
                 Enum::backed_type => $Enum->backed_type,
                 Enum::use_statements => $Enum->use_statements,
-                Enum::constants => $Config->exclude_constants ?? null
+                Enum::constants => $Config->include_constants ?? null
                     ? []
                     : self::transformConstants($Config, $Enum->constants),
                 Enum::cases => array_map(
