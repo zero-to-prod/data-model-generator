@@ -1,6 +1,11 @@
 {
   "$schema": "../../../../../src/Schema/data_model.json",
   "model": {
-    "properties": {}
+    "properties": {
+      "types": {
+        "integer": "int",
+        "number": "float"
+      }
+    }
   }
 }
