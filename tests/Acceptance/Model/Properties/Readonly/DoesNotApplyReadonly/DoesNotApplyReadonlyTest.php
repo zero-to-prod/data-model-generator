@@ -5,19 +5,13 @@ namespace Tests\Acceptance\Model\Properties\Readonly\DoesNotApplyReadonly;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Zerotoprod\DataModelGenerator\Engine;
-use Zerotoprod\DataModelGenerator\Models\Components;
 
 class DoesNotApplyReadonlyTest extends TestCase
 {
     /** @link Engine::generate() */
     #[Test] public function generate(): void
     {
-        Engine::generate(
-            Components::from([
-                Components::Config => json_decode(file_get_contents(__DIR__.'/data_model.json'), true),
-                ...json_decode(file_get_contents(__DIR__.'/models.json'), true),
-            ]),
-        );
+        $this->engineGenerate(__DIR__);
 
         self::assertStringEqualsFile(
             expectedFile: self::$test_dir.'/User.php',
