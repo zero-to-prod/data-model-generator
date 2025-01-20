@@ -10,6 +10,17 @@ class ModelConfig
     use DataModel;
 
     /**
+     * Config for constants
+     *
+     * @see $constants
+     */
+    public const constants = 'constants';
+
+    /** Config for constants */
+    #[Describe(['nullable'])]
+    public ?ConstantConfig $constants;
+
+    /**
      * The use statement for the model.
      *
      * @see $use_statement
