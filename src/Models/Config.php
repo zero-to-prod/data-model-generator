@@ -39,8 +39,13 @@ class Config
     public const model = 'model';
 
     /** Config for model */
-    #[Describe(['nullable'])]
-    public ?ModelConfig $model;
+    #[Describe(['default' => [self::class, 'model']])]
+    public ModelConfig $model;
+
+    public static function model(): ModelConfig
+    {
+        return ModelConfig::from();
+    }
 
     /**
      * Controls the visibility of comments
