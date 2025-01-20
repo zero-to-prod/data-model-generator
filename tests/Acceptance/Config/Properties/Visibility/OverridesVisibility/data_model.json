@@ -1,6 +1,8 @@
 {
   "$schema": "../../../../../../src/Schema/data_model.json",
-  "properties": {
-    "visibility": "private"
+  "model": {
+    "properties": {
+      "visibility": "private"
+    }
   }
 }

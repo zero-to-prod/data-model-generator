@@ -10,13 +10,6 @@ class ConstantConfig
     use DataModel;
 
     /**
-     * Excludes the constant type.
-     *
-     * @see $exclude_type
-     */
-    public const exclude_type = 'exclude_type';
-
-    /**
      * Controls the visibility of the constant.
      *
      * @see $visibility
@@ -24,20 +17,27 @@ class ConstantConfig
     public const visibility = 'visibility';
 
     /**
-     * Controls the visibility of comments
+     * Excludes the constant type.
      *
-     * @see $exclude_comments
+     * @see $type
      */
-    public const exclude_comments = 'exclude_comments';
+    public const type = 'type';
 
     /** Excludes the constant type.*/
     #[Describe(['default' => false])]
-    public bool $exclude_type;
+    public bool $type;
 
     /** Controls the visibility of the constant. */
     public Visibility $visibility;
 
+    /**
+     * Controls the visibility of comments
+     *
+     * @see $comments
+     */
+    public const comments = 'comments';
+
     /** Controls the visibility of comments */
     #[Describe(['default' => false])]
-    public bool $exclude_comments;
+    public bool $comments;
 }

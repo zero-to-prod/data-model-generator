@@ -1,6 +1,8 @@
 {
   "$schema": "../../../../../../src/Schema/data_model.json",
-  "properties": {
-    "exclude_comments": true
+  "model": {
+    "properties": {
+      "comments": false
+    }
   }
 }

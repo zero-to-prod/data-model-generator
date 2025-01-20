@@ -1,6 +1,8 @@
 {
   "$schema": "../../../../../../src/Schema/data_model.json",
-  "constants": {
-    "exclude_type": true
+  "model": {
+    "constants": {
+      "exclude_type": true
+    }
   }
 }

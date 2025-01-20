@@ -13,21 +13,6 @@
       "description": "The Fully Qualified Namespace for the DataModels",
       "nullable": true
     },
-    "readonly": {
-      "type": "boolean",
-      "description": "Adds the `readonly` modifier to the DataModel.",
-      "default": true
-    },
-    "exclude_constants": {
-      "type": "boolean",
-      "description": "Excludes constants that match property names.",
-      "default": false
-    },
-    "comments": {
-      "type": "boolean",
-      "description": "Controls the visibility of comments",
-      "default": true
-    },
     "model": {
       "type": "object",
       "description": "Config for a model",
@@ -35,74 +20,84 @@
         "use_statements": {
           "type": "array",
           "description": "The use statements for the model."
-        }
-      }
-    },
-    "properties": {
-      "type": "object",
-      "description": "Properties for the model.",
-      "properties": {
-        "types": {
-          "type": "object",
-          "description": "A map of types and the resulting type",
-          "additionalProperties": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "description": "The type of the property"
-              }
-            },
-            "required": [
-              "type"
-            ]
-          }
-        },
-        "exclude_comments": {
-          "type": "boolean",
-          "description": "Controls the visibility of comments",
-          "default": false
         },
         "readonly": {
           "type": "boolean",
-          "description": "Adds the `readonly` modifier",
+          "description": "Adds the `readonly` modifier to the DataModel.",
           "default": true
         },
-        "visibility": {
-          "type": "string",
-          "enum": [
-            "public",
-            "protected",
-            "private"
-          ],
-          "default": "public",
-          "description": "Visibility of the property: public, protected, private."
-        }
-      }
-    },
-    "constants": {
-      "type": "object",
-      "description": "Contains nested properties",
-      "properties": {
-        "exclude_type": {
-          "type": "boolean",
-          "description": "Excludes the constant type",
-          "default": true
-        },
-        "exclude_comments": {
+        "comments": {
           "type": "boolean",
           "description": "Controls the visibility of comments",
-          "default": false
+          "default": true
         },
-        "visibility": {
-          "type": "string",
-          "enum": [
-            "public",
-            "protected",
-            "private"
-          ],
-          "default": "public",
-          "description": "Visibility of the property"
+        "properties": {
+          "type": "object",
+          "description": "Properties for the model.",
+          "properties": {
+            "types": {
+              "type": "object",
+              "description": "A map of types and the resulting type",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the property"
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              }
+            },
+            "comments": {
+              "type": "boolean",
+              "description": "Controls the visibility of comments",
+              "default": false
+            },
+            "readonly": {
+              "type": "boolean",
+              "description": "Adds the `readonly` modifier",
+              "default": true
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "public",
+                "protected",
+                "private"
+              ],
+              "default": "public",
+              "description": "Visibility of the property: public, protected, private."
+            }
+          }
+        },
+        "constants": {
+          "type": "object",
+          "description": "Contains nested properties",
+          "properties": {
+            "type": {
+              "type": "boolean",
+              "description": "Include the constant type",
+              "default": true
+            },
+            "comments": {
+              "type": "boolean",
+              "description": "Controls the visibility of comments",
+              "default": true
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "public",
+                "protected",
+                "private"
+              ],
+              "default": "public",
+              "description": "Visibility of the property"
+            }
+          }
         }
       }
     }
