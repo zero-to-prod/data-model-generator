@@ -46,23 +46,6 @@ class PropertyConfig
     public array $types;
 
     /**
-     * A map of types and the resulting type.
-     *
-     * @see $types
-     */
-    public static function resolveTypes($value): array
-    {
-        return array_combine(
-            array_keys($value),
-            array_map(
-                static fn(string $format, array $type) => Type::from(array_merge([Type::format => $format], [$type])),
-                array_keys($value),
-                $value
-            )
-        );
-    }
-
-    /**
      * Controls the visibility of comments
      *
      * @see $comments
