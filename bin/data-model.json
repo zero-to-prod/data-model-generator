@@ -12,16 +12,16 @@
       "type": true,
       "comments": true,
       "visibility": "public"
-    }
-  },
-  "properties": {
-    "types": {
-      "int32": {
-        "type": "int"
-      }
     },
-    "comments": true,
-    "readonly": true,
-    "visibility": "public"
+    "properties": {
+      "types": {
+        "int32": {
+          "type": "int"
+        }
+      },
+      "comments": true,
+      "readonly": true,
+      "visibility": "public"
+    }
   }
 }
