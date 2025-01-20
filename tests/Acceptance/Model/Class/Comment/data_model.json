@@ -1,5 +1,6 @@
 {
   "$schema": "../../../../../src/Schema/data_model.json",
-  "comments": true,
-  "model": {}
+  "model": {
+    "comments": true
+  }
 }
