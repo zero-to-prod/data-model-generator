@@ -3,7 +3,7 @@
   "directory": "./app/DataModels",
   "namespace": "App\\DataModels",
   "readonly": true,
-  "exclude_constants": false,
+  "include_constants": false,
   "comments": true,
   "model": {
     "use_statements": [
