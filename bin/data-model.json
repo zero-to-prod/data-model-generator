@@ -1,8 +1,7 @@
 {
-  "$schema": "../src/Schema/data_model.json",
+  "$schema": "./vendor/zero-to-prod/data-model-generator/src/Schema/data_model.json",
   "directory": "./app/DataModels",
   "namespace": "App\\DataModels",
-  "readonly": true,
   "model": {
     "comments": true,
     "use_statements": [
