@@ -16,7 +16,7 @@ class PropertyTest extends TestCase
             Property::comment => '/** Comment */',
             Property::visibility => Visibility::public,
             Property::readonly => true,
-            Property::type => 'App\\User',
+            Property::type => ['App\\User'],
             Property::name => 'name',
             Property::attributes => [
                 "\ZeroToProd\DataModel\Describe(['required' => true])",

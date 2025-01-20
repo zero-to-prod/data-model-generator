@@ -19,7 +19,7 @@ class TypeTest extends TestCase
                 <?php
                 class User
                 {
-                public int \$age;
+                public int|float \$age;
                 }
                 PHP
         );

@@ -102,8 +102,8 @@
                   "description": "Controls the readonly modifier of the property."
                 },
                 "type": {
-                  "type": "string",
-                  "description": "Data type of the property"
+                  "type": "array",
+                  "description": "Data types of the property"
                 },
                 "attributes": {
                   "type": "array",

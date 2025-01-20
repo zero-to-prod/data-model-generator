@@ -40,30 +40,10 @@ class PropertyConfig
     /**
      * A map of types and the resulting type.
      *
-     * @var array<string, Type> $types
+     * @var array<string, string> $types
      */
-    #[Describe([
-        'cast' => [self::class, 'resolveTypes'],
-        'type' => Type::class,
-    ])]
+    #[Describe(['default' => []])]
     public array $types;
-
-    /**
-     * A map of types and the resulting type.
-     *
-     * @see $types
-     */
-    public static function resolveTypes($value): array
-    {
-        return array_combine(
-            array_keys($value),
-            array_map(
-                static fn(string $format, array $type) => Type::from(array_merge([Type::format => $format], $type)),
-                array_keys($value),
-                $value
-            )
-        );
-    }
 
     /**
      * Controls the visibility of comments

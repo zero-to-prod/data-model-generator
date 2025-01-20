@@ -7,7 +7,7 @@
       "properties": {
         "age": {
           "visibility": "public",
-          "type": "date"
+          "type": ["date"]
         }
       }
     }

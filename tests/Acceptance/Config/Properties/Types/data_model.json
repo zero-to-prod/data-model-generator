@@ -3,9 +3,7 @@
   "model": {
     "properties": {
       "types": {
-        "date": {
-          "type": "\\Date"
-        }
+        "date": "\\Date"
       }
     }
   }

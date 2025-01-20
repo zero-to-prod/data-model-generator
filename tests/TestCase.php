@@ -22,7 +22,7 @@ abstract class TestCase extends BaseTestCase
         );
     }
 
-    public function engineGenerate(string $dir = __DIR__): void
+    public function engineGenerate(string $dir): void
     {
         Engine::generate(
             Components::from(json_decode(file_get_contents($dir.'/models.json'), true)),
