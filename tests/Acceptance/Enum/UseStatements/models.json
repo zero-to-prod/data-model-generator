@@ -3,7 +3,6 @@
   "Enums": [
     {
       "filename": "Role.php",
-      "directory": "./tests/generated",
       "use_statements": [
         "use \\Zerotoprod\\DataModel\\DataModel;",
         "use \\Zerotoprod\\DataModel\\Transformable;"
