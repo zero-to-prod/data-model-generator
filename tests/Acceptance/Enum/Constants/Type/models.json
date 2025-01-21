@@ -3,7 +3,6 @@
   "Enums": [
     {
       "filename": "Role.php",
-      "directory": "./tests/generated",
       "constants": {
         "admin": {
           "type": "string",
