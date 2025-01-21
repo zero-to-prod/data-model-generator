@@ -9,38 +9,41 @@ class ModelConfig
 {
     use DataModel;
 
-    /**
-     * Config for properties
-     *
-     * @see $properties
-     */
-    public const properties = 'properties';
 
-    /** Config for properties */
+    /**
+     * The directory of the file.
+     *
+     * @see $directory
+     */
+    public const directory = 'directory';
+
+    /**
+     * The directory of the file.
+     */
     #[Describe(['nullable'])]
-    public ?PropertyConfig $properties;
+    public string $directory;
 
     /**
-     * Config for constants
+     * The Fully Qualified Namespace of the class
      *
-     * @see $constants
+     * @see $namespace
      */
-    public const constants = 'constants';
+    public const namespace = 'namespace';
 
-    /** Config for constants */
+    /** The Fully Qualified Namespace of the class */
     #[Describe(['nullable'])]
-    public ?ConstantConfig $constants;
+    public readonly ?string $namespace;
 
     /**
-     * The use statement for the model.
+     * Imports used in the class
      *
-     * @see $use_statement
+     * @see $imports
      */
-    public const use_statements = 'use_statements';
+    public const imports = 'imports';
 
-    /** The use statement for the model. */
+    /** Imports used in the class */
     #[Describe(['default' => []])]
-    public array $use_statements;
+    public readonly array $imports;
 
     /**
      * Applies readonly to the class
@@ -63,4 +66,37 @@ class ModelConfig
     /** Controls the visibility of comments */
     #[Describe(['default' => false])]
     public bool $comments;
+
+    /**
+     * The use statement for the model.
+     *
+     * @see $use_statement
+     */
+    public const use_statements = 'use_statements';
+
+    /** The use statement for the model. */
+    #[Describe(['default' => []])]
+    public array $use_statements;
+
+    /**
+     * Config for constants
+     *
+     * @see $constants
+     */
+    public const constants = 'constants';
+
+    /** Config for constants */
+    #[Describe(['nullable'])]
+    public ?ConstantConfig $constants;
+
+    /**
+     * Config for properties
+     *
+     * @see $properties
+     */
+    public const properties = 'properties';
+
+    /** Config for properties */
+    #[Describe(['nullable'])]
+    public ?PropertyConfig $properties;
 }
