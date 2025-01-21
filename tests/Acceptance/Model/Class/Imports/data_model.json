@@ -1,4 +1,6 @@
 {
   "$schema": "../../../../../src/Schema/data_model.json",
-  "model": {}
+  "model": {
+    "directory": "./tests/generated"
+  }
 }
