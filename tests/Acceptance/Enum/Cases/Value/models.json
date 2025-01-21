@@ -3,7 +3,6 @@
   "Enums": [
     {
       "filename": "Role.php",
-      "directory": "./tests/generated",
       "backed_type": "int",
       "cases": {
         "admin": {
