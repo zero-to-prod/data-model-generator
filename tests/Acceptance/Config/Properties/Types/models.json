@@ -3,11 +3,12 @@
   "Models": [
     {
       "filename": "User.php",
-      "directory": "./tests/generated",
       "properties": {
         "age": {
           "visibility": "public",
-          "type": ["date"]
+          "types": [
+            "date"
+          ]
         }
       }
     }
