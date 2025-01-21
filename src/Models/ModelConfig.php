@@ -9,7 +9,6 @@ class ModelConfig
 {
     use DataModel;
 
-
     /**
      * The directory of the file.
      *
