@@ -14,7 +14,7 @@ class OverridesDirectoryTest extends TestCase
         $this->engineGenerate(__DIR__);
 
         self::assertStringEqualsFile(
-            expectedFile: self::$test_dir.'/app/User.php',
+            expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
                 class User
@@ -24,7 +24,7 @@ class OverridesDirectoryTest extends TestCase
         );
 
         self::assertStringEqualsFile(
-            expectedFile: self::$test_dir.'/app/Address.php',
+            expectedFile: self::$test_dir.'/Address.php',
             actualString: <<<PHP
                 <?php
                 class Address
