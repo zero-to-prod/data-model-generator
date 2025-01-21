@@ -2,8 +2,7 @@
   "$schema": "../../../../src/Schema/models.json",
   "Models": [
     {
-      "filename": "User.php",
-      "directory": "./tests/generated"
+      "filename": "User.php"
     }
   ]
 }
