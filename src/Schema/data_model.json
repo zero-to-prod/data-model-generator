@@ -3,54 +3,44 @@
   "title": "Config",
   "type": "object",
   "properties": {
-    "directory": {
-      "type": "string",
-      "description": "The directory DataModels will be saved to",
-      "default": "."
-    },
-    "namespace": {
-      "type": "string",
-      "description": "The Fully Qualified Namespace for the DataModels",
-      "nullable": true
-    },
     "model": {
       "type": "object",
       "description": "Config for a model",
       "properties": {
+        "directory": {
+          "type": "string",
+          "description": "The directory DataModels will be saved to.",
+          "default": "."
+        },
+        "namespace": {
+          "type": "string",
+          "description": "The Fully Qualified Namespace for the DataModels"
+        },
+        "imports": {
+          "type": "array",
+          "description": "Imports used in the class."
+        },
+        "comments": {
+          "type": "boolean",
+          "description": "Controls the visibility of comments for the DataModel class.",
+          "default": true
+        },
+        "readonly": {
+          "type": "boolean",
+          "description": "PHP >= 8.2 Adds the `readonly` modifier to the DataModel class.",
+          "default": true
+        },
         "use_statements": {
           "type": "array",
           "description": "The use statements for the model."
         },
-        "readonly": {
-          "type": "boolean",
-          "description": "Adds the `readonly` modifier to the DataModel.",
-          "default": true
-        },
-        "comments": {
-          "type": "boolean",
-          "description": "Controls the visibility of comments",
-          "default": true
-        },
         "properties": {
           "type": "object",
-          "description": "Properties for the model.",
+          "description": "Properties of the DataModel.",
           "properties": {
-            "types": {
-              "type": "object",
-              "description": "A map of types and the resulting type",
-              "additionalProperties": {
-                "type": "string",
-                "description": "The property type."
-              }
-            },
             "comments": {
               "type": "boolean",
-              "description": "Controls the visibility of comments",
-              "default": false
-            },
-            "readonly": {
-              "type": "boolean",
-              "description": "Adds the `readonly` modifier",
+              "description": "Controls the visibility of property comments",
               "default": true
             },
             "visibility": {
@@ -62,6 +52,19 @@
               ],
               "default": "public",
               "description": "Visibility of the property: public, protected, private."
+            },
+            "readonly": {
+              "type": "boolean",
+              "description": "Adds the `readonly` modifier",
+              "default": true
+            },
+            "types": {
+              "type": "object",
+              "description": "A map of types and the resulting type",
+              "additionalProperties": {
+                "type": "string",
+                "description": "The property type."
+              }
             }
           }
         },
@@ -69,14 +72,14 @@
           "type": "object",
           "description": "Contains nested properties",
           "properties": {
-            "type": {
-              "type": "boolean",
-              "description": "Include the constant type",
-              "default": true
-            },
             "comments": {
               "type": "boolean",
               "description": "Controls the visibility of comments",
+              "default": true
+            },
+            "type": {
+              "type": "boolean",
+              "description": "PHP >= 8.3 Include the constant type",
               "default": true
             },
             "visibility": {

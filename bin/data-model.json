@@ -1,23 +1,26 @@
 {
   "$schema": "./vendor/zero-to-prod/data-model-generator/src/Schema/data_model.json",
-  "directory": "./app/DataModels",
-  "namespace": "App\\DataModels",
   "model": {
+    "namespace": "App\\DataModels",
+    "directory": "./app/DataModels",
     "comments": true,
+    "readonly": true,
     "use_statements": [
-      "use \\Zerotoprod\\DataModel\\DataModel;"
+      "use DataModel;"
     ],
-    "constants": {
-      "type": true,
-      "comments": true,
-      "visibility": "public"
-    },
     "properties": {
-      "types": {
-        "int32":  "int"
-      },
       "comments": true,
+      "visibility": "public",
       "readonly": true,
+      "types": {
+        "integer": "int",
+        "boolean": "bool",
+        "number": "float"
+      }
+    },
+    "constants": {
+      "comments": true,
+      "type": true,
       "visibility": "public"
     }
   }

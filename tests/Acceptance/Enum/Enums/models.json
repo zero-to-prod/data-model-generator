@@ -2,12 +2,10 @@
   "$schema": "../../../../src/Schema/models.json",
   "Enums": [
     {
-      "filename": "Role.php",
-      "directory": "./tests/generated"
+      "filename": "Role.php"
     },
     {
-      "filename": "Permission.php",
-      "directory": "./tests/generated"
+      "filename": "Permission.php"
     }
   ]
 }

@@ -82,7 +82,7 @@ class Constant
                     $this->name,
                     '=',
                     $this->value
-                ])) . ';'
+                ])).';'
             ])
         );
     }

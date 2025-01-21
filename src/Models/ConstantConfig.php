@@ -2,8 +2,8 @@
 
 namespace Zerotoprod\DataModelGenerator\Models;
 
-use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 use Zerotoprod\DataModel\Describe;
+use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
 class ConstantConfig
 {

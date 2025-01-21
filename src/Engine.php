@@ -9,7 +9,6 @@ use Zerotoprod\DataModelGenerator\Models\Enum;
 use Zerotoprod\DataModelGenerator\Models\EnumCase;
 use Zerotoprod\DataModelGenerator\Models\Model;
 use Zerotoprod\DataModelGenerator\Models\Property;
-use Zerotoprod\DataModelGenerator\Models\Visibility;
 
 class Engine
 {
@@ -20,60 +19,41 @@ class Engine
         }
 
         foreach ($Components->Models as $Model) {
-            $model = [
-                Model::namespace => $Config->namespace
-                    ?? $Model->namespace,
-                Model::imports => $Model->imports,
-                Model::readonly => $Config->model->readonly,
-                Model::comment => $Config->model->comments
-                    ? $Model->comment
-                    : null,
-                Model::use_statements => [...$Config->model->use_statements, ...$Model->use_statements],
-                Model::constants => $Config->model->constants
-                    ? self::transformConstants($Config, $Model->constants)
-                    : [],
+            Model::from([
+                Model::directory => $Config->model->directory ?? $Model->directory,
                 Model::filename => $Model->filename,
-                Model::directory => $Config->directory
-                    ?? $Model->directory,
-                Model::properties => [],
-            ];
-
-            if ($Config->model->properties) {
-                $model[Model::properties] = array_map(
-                    static fn(string $name, Property $Property) => [
-                        Property::comment => $Config->model->properties->comments
-                            ? $Property->comment
-                            : null,
-                        Property::visibility => $Config->model->properties->visibility
-                            ?? $Property->visibility
-                                ?? Visibility::public,
-                        Property::readonly => $Config->model->properties->readonly,
-                        Property::type => array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->type)))
-                            ?: $Property->type,
-                        Property::name => $name,
-                        Property::attributes => $Property->attributes,
-                    ],
-                    array_keys($Model->properties),
-                    array_values($Model->properties)
-                );
-            }
-
-            Model::from($model)->save();
+                Model::namespace => $Config->model->namespace ?? $Model->namespace,
+                Model::imports => [...$Config->model->imports, ...$Model->imports],
+                Model::comment => $Config->model->comments ? $Model->comment : null,
+                Model::readonly => $Config->model->readonly,
+                Model::use_statements => [...$Config->model->use_statements, ...$Model->use_statements],
+                Model::properties => $Config->model->properties
+                    ? array_map(
+                        static fn(string $name, Property $Property) => [
+                            Property::comment => $Config->model->properties->comments ? $Property->comment : null,
+                            Property::visibility => $Config->model->properties->visibility ?? $Property->visibility,
+                            Property::readonly => $Config->model->properties->readonly,
+                            Property::types => array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
+                                ?: $Property->types,
+                            Property::name => $name,
+                            Property::attributes => $Property->attributes,
+                        ],
+                        array_keys($Model->properties),
+                        array_values($Model->properties)
+                    )
+                    : [],
+                Model::constants => $Config->model->constants ? self::transformConstants($Config, $Model->constants) : [],
+            ])->save();
         }
 
         foreach ($Components->Enums as $Enum) {
             Enum::from([
-                Enum::namespace => $Config->namespace
-                    ?? $Enum->namespace,
-                Enum::imports => $Enum->imports,
-                Enum::comment => $Config->model->comments
-                    ? $Enum->comment
-                    : null,
+                Enum::namespace => $Config->model->namespace ?? $Enum->namespace,
+                Enum::imports => [...$Config->model->imports, ...$Enum->imports],
+                Enum::comment => $Config->model->comments ? $Enum->comment : null,
                 Enum::backed_type => $Enum->backed_type,
-                Enum::use_statements => $Enum->use_statements,
-                Enum::constants => $Config->model->constants
-                    ? self::transformConstants($Config, $Enum->constants)
-                    : [],
+                Enum::use_statements => [...$Config->model->use_statements, ...$Enum->use_statements],
+                Enum::constants => $Config->model->constants ? self::transformConstants($Config, $Enum->constants) : [],
                 Enum::cases => array_map(
                     static fn(EnumCase $Case) => [
                         EnumCase::comment => $Case->comment,
@@ -83,8 +63,7 @@ class Engine
                     $Enum->cases
                 ),
                 Enum::filename => $Enum->filename,
-                Enum::directory => $Config->directory
-                    ?? $Enum->directory,
+                Enum::directory => $Config->model->directory ?? $Enum->directory,
             ])->save();
         }
     }

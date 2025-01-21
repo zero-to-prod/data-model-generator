@@ -14,55 +14,6 @@ class Model
     use File;
 
     /**
-     * The Fully Qualified Namespace of the class
-     *
-     * @see $namespace
-     */
-    public const namespace = 'namespace';
-
-    /**
-     * Imports used in the class
-     *
-     * @see $imports
-     */
-    public const imports = 'imports';
-
-    /**
-     * Specifies a class
-     *
-     * @see $readonly
-     */
-    public const readonly = 'readonly';
-
-    /**
-     * Specifies the class comment
-     *
-     * @see $comment
-     */
-    public const comment = 'comment';
-
-    /**
-     * Traits used in the class
-     *
-     * @see $use_statements
-     */
-    public const use_statements = 'use_statements';
-
-    /**
-     * Constants used in the class
-     *
-     * @see $constants
-     */
-    public const constants = 'constants';
-
-    /**
-     * Properties used in the class
-     *
-     * @see $properties
-     */
-    public const properties = 'properties';
-
-    /**
      * The filename of the file including the extension:
      * ```
      * User.php
@@ -79,25 +30,67 @@ class Model
      */
     public const directory = 'directory';
 
-    /** The Fully Qualified Namespace of the class*/
+    /**
+     * The Fully Qualified Namespace of the class
+     *
+     * @see $namespace
+     */
+    public const namespace = 'namespace';
+
+    /** The Fully Qualified Namespace of the class */
     #[Describe(['nullable'])]
     public readonly ?string $namespace;
+
+    /**
+     * Imports used in the class
+     *
+     * @see $imports
+     */
+    public const imports = 'imports';
 
     /** Imports used in the class */
     #[Describe(['default' => []])]
     public readonly array $imports;
 
+    /**
+     * Specifies a class
+     *
+     * @see $readonly
+     */
+    public const readonly = 'readonly';
+
     /** Specifies a class */
     #[Describe(['default' => false])]
     public readonly bool $readonly;
+
+    /**
+     * Specifies the class comment
+     *
+     * @see $comment
+     */
+    public const comment = 'comment';
 
     /** Specifies the class comment */
     #[Describe(['nullable'])]
     public readonly ?string $comment;
 
+    /**
+     * Traits used in the class
+     *
+     * @see $use_statements
+     */
+    public const use_statements = 'use_statements';
+
     /** Traits used in the class */
     #[Describe(['default' => []])]
     public readonly array $use_statements;
+
+    /**
+     * Constants used in the class
+     *
+     * @see $constants
+     */
+    public const constants = 'constants';
 
     /**
      * Constants used in the class
@@ -121,6 +114,13 @@ class Model
             )
         );
     }
+
+    /**
+     * Properties used in the class
+     *
+     * @see $properties
+     */
+    public const properties = 'properties';
 
     /**
      * Properties used in the class

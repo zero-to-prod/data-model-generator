@@ -1,6 +1,7 @@
 {
   "$schema": "../../../../../src/Schema/data_model.json",
-  "directory": "./tests/generated",
-  "namespace": "App\\DataModels",
-  "model": {}
+  "model": {
+    "namespace": "App\\DataModels",
+    "directory": "./tests/generated"
+  }
 }

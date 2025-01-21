@@ -17,7 +17,8 @@ class PropertyConfig
     public const visibility = 'visibility';
 
     /** Controls the visibility of the property */
-    public Visibility $visibility;
+    #[Describe(['nullable'])]
+    public ?Visibility $visibility;
 
     /**
      * Controls the readonly modifier for the property

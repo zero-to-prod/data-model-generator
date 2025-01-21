@@ -3,7 +3,6 @@
   "Models": [
     {
       "filename": "User.php",
-      "directory": "./tests/generated",
       "namespace": "App\\DataModels"
     }
   ]

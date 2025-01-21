@@ -16,12 +16,20 @@ class Property
      */
     public const comment = 'comment';
 
+    /** The property docblock */
+    #[Describe(['nullable'])]
+    public readonly ?string $comment;
+
     /**
      * The property visibility: public, protected, private
      *
      * @see $visibility
      */
     public const visibility = 'visibility';
+
+    /** The property visibility: public, protected, private */
+    #[Describe(['default' => Visibility::public])]
+    public readonly Visibility $visibility;
 
     /**
      * Applies readonly modifier.
@@ -30,12 +38,20 @@ class Property
      */
     public const readonly = 'readonly';
 
+    /** Applies readonly modifier. */
+    #[Describe(['default' => false])]
+    public readonly bool $readonly;
+
     /**
-     * The property type
+     * The property types
      *
-     * @see $type
+     * @see $types
      */
-    public const type = 'type';
+    public const types = 'types';
+
+    /** The property types */
+    #[Describe(['default' => []])]
+    public readonly array $types;
 
     /**
      * The property name
@@ -44,32 +60,16 @@ class Property
      */
     public const name = 'name';
 
+    /** The property name */
+    #[Describe(['required' => true])]
+    public readonly string $name;
+
     /**
      * Attributes of the property
      *
      * @see $attributes
      */
     public const attributes = 'attributes';
-
-    /** The property docblock */
-    #[Describe(['nullable'])]
-    public readonly ?string $comment;
-
-    /** The property visibility: public, protected, private */
-    #[Describe(['default' => Visibility::public])]
-    public readonly Visibility $visibility;
-
-    /** Applies readonly modifier. */
-    #[Describe(['default' => false])]
-    public readonly bool $readonly;
-
-    /** The property type */
-    #[Describe(['default' => []])]
-    public readonly array $type;
-
-    /** The property name */
-    #[Describe(['required' => true])]
-    public readonly string $name;
 
     /** Attributes of the property */
     #[Describe(['default' => []])]
@@ -88,7 +88,7 @@ class Property
             implode(' ', array_filter([
                 $this->visibility->value,
                 $this->readonly ? 'readonly' : null,
-                implode('|', $this->type),
+                implode('|', $this->types),
                 "$$this->name",
             ])).';'
         ]));

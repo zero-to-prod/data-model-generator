@@ -3,7 +3,6 @@
   "Enums": [
     {
       "filename": "Role.php",
-      "directory": "./tests/generated",
       "namespace": "App\\DataModels",
       "imports": [
         "Zerotoprod\\DataModel\\DataModel"

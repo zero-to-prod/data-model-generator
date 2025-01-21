@@ -3,10 +3,12 @@
   "Models": [
     {
       "filename": "User.php",
-      "directory": "./tests/generated",
       "properties": {
         "age": {
-          "type": ["integer", "number"]
+          "types": [
+            "integer",
+            "number"
+          ]
         }
       }
     }
