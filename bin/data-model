@@ -4,6 +4,7 @@
 include __DIR__.'/../vendor/autoload.php';
 
 use Zerotoprod\DataModelAdapterOpenapi30\OpenApi30;
+use Zerotoprod\DataModelAdapterSwagger\Swagger;
 use Zerotoprod\DataModelGenerator\Engine;
 use Zerotoprod\DataModelGenerator\Models\Config;
 
@@ -32,11 +33,16 @@ if ($argv[1] === 'generate' && isset($argv[2])) {
     if ($content === false) {
         echo "Failed to download the file from the path specified: $argv[2].\n";
     } else {
-        $Components = OpenApi30::adapt(
-            $content,
+        $schema = json_decode($content, true);
+        $Components = match ($schema) {
+            isset($schema['openapi']) && $schema['openapi'] === '3.0.0' => OpenApi30::adapt($schema),
+            isset($schema['swagger']) && $schema['swagger'] === '2.0' => Swagger::adapt($schema),
+            default => throw new RuntimeException('Unsupported Schema')
+        };
+
+        Engine::generate(
+            $Components,
             Config::from(json_decode(file_get_contents('data-model.json'), true))
         );
-
-        Engine::generate($Components);
     }
 }
