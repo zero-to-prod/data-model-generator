@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-include __DIR__.'/../vendor/autoload.php';
+require getcwd() . '/vendor/autoload.php';
 
 use Zerotoprod\DataModelAdapterOpenapi30\OpenApi30;
 use Zerotoprod\DataModelAdapterSwagger\Swagger;
