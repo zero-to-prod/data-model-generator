@@ -19,8 +19,8 @@ class PhpClassTest extends TestCase
         $PhpClass = Model::from([
             Model::namespace => 'App\\DataModels',
             Model::imports => [
-                'App\\DataModel',
-                'ZeroToProd\\DataModel\\DataModel',
+                'use App\\DataModel;',
+                'use ZeroToProd\\DataModel\\DataModel;',
             ],
             Model::readonly => true,
             Model::use_statements => [
@@ -108,8 +108,8 @@ class PhpClassTest extends TestCase
     {
         $PhpClass = PhpClassFactory::factory()
             ->set(Model::imports, [
-                'App\\DataModel',
-                'ZeroToProd\\DataModel\\DataModel',
+                'use App\\DataModel;',
+                'use ZeroToProd\\DataModel\\DataModel;',
             ])
             ->make();
 
