@@ -5,7 +5,7 @@
       "filename": "User.php",
       "namespace": "App\\DataModels",
       "imports": [
-        "Zerotoprod\\DataModel\\DataModel"
+        "use Zerotoprod\\DataModel\\DataModel;"
       ]
     }
   ]
