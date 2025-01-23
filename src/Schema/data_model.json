@@ -10,20 +10,32 @@
         "directory": {
           "type": "string",
           "description": "The directory DataModels will be saved to.",
-          "default": "."
+          "default": ".",
+          "examples": [
+            "./app/DataModels"
+          ]
         },
         "namespace": {
           "type": "string",
-          "description": "The Fully Qualified Namespace for the DataModels"
+          "description": "The Fully Qualified Namespace for the DataModels",
+          "examples": [
+            "App\\DataModels"
+          ]
         },
         "imports": {
           "type": "array",
-          "description": "Imports used in the class."
+          "description": "Imports used in the class.",
+          "examples": [
+            "use Zerotoprod\\DataModel;"
+          ]
         },
         "comments": {
           "type": "boolean",
           "description": "Controls the visibility of comments for the DataModel class.",
-          "default": true
+          "default": true,
+          "examples": [
+            "Class comment."
+          ]
         },
         "readonly": {
           "type": "boolean",
@@ -32,7 +44,10 @@
         },
         "use_statements": {
           "type": "array",
-          "description": "The use statements for the model."
+          "description": "The use statements for the model.",
+          "examples": [
+            "use DataModel;"
+          ]
         },
         "properties": {
           "type": "object",
@@ -41,7 +56,10 @@
             "comments": {
               "type": "boolean",
               "description": "Controls the visibility of property comments",
-              "default": true
+              "default": true,
+              "examples": [
+                "Property comment."
+              ]
             },
             "visibility": {
               "type": "string",
@@ -64,7 +82,14 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "The property type."
-              }
+              },
+              "examples": [
+                {
+                  "integer": "int",
+                  "boolean": "bool",
+                  "number": "float"
+                }
+              ]
             }
           }
         },
@@ -75,12 +100,18 @@
             "comments": {
               "type": "boolean",
               "description": "Controls the visibility of comments",
-              "default": true
+              "default": true,
+              "examples": [
+                "Constant comment."
+              ]
             },
             "type": {
               "type": "boolean",
               "description": "PHP >= 8.3 Include the constant type",
-              "default": true
+              "default": true,
+              "examples": [
+                "string"
+              ]
             },
             "visibility": {
               "type": "string",
