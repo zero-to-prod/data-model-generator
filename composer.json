@@ -54,7 +54,7 @@
     "phpunit/phpunit": "^10.0"
   },
   "bin": [
-    "bin/data-model"
+    "bin/data-model-generator"
   ],
   "suggest": {
     "zero-to-prod/data-model": "Transform Data to Type-Safe DTOs",
