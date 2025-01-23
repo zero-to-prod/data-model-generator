@@ -28,7 +28,7 @@ trait RendersClassComponents
         return implode(
             PHP_EOL,
             array_map(
-                static fn(string $statement) => "use $statement;",
+                static fn(string $statement) => $statement,
                 $this->imports
             )
         );
