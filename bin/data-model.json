@@ -7,7 +7,7 @@
       "use Zerotoprod\\DataModel;"
     ],
     "comments": true,
-    "readonly": true,
+    "readonly": false,
     "use_statements": [
       "use DataModel;"
     ],
