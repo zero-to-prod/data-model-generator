@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../../../src/Schema/models.json",
+  "Models": [
+    {
+      "filename": "User.php",
+      "properties": {
+        "age": {
+          "visibility": "public",
+          "types": [
+            "date"
+          ]
+        }
+      }
+    }
+  ]
+}

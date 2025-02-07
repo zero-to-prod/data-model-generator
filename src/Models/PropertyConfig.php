@@ -47,6 +47,17 @@ class PropertyConfig
     public array $types;
 
     /**
+     * Sets the property to null.
+     *
+     * @see $readonly
+     */
+    public const nullable = 'nullable';
+
+    /** Sets the property to null. */
+    #[Describe(['default' => false])]
+    public bool $nullable;
+
+    /**
      * Controls the visibility of comments
      *
      * @see $comments

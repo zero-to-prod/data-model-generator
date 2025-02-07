@@ -19,7 +19,8 @@
         "integer": "int",
         "boolean": "bool",
         "number": "float"
-      }
+      },
+      "nullable": true
     },
     "constants": {
       "comments": true,

@@ -90,6 +90,11 @@
                   "number": "float"
                 }
               ]
+            },
+            "nullable": {
+              "type": "boolean",
+              "description": "Sets the property to null.",
+              "default": true
             }
           }
         },
