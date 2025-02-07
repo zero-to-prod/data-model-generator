@@ -33,9 +33,11 @@ class Engine
                             Property::comment => $Config->model->properties->comments ? $Property->comment : null,
                             Property::visibility => $Config->model->properties->visibility ?? $Property->visibility,
                             Property::readonly => $Config->model->properties->readonly,
-                            Property::types => array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
-                                ?: $Property->types,
-                            Property::name => $name,
+                            Property::types => array_filter(array_merge(array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
+                                    ?: $Property->types,
+                                [($Config->model->properties->nullable ? 'null' : null)]
+                            )),
+                            Property::name => $name.($Config->model->properties->nullable ? ' = null' : null),
                             Property::attributes => $Property->attributes,
                         ],
                         array_keys($Model->properties),
