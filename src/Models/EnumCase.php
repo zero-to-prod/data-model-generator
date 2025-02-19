@@ -5,6 +5,9 @@ namespace Zerotoprod\DataModelGenerator\Models;
 use Zerotoprod\DataModel\Describe;
 use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 
+/**
+ * @link https://github.com/zero-to-prod/data-model-generator
+ */
 class EnumCase
 {
     use DataModel;
@@ -12,36 +15,54 @@ class EnumCase
     /**
      * The case docblock
      *
-     * @see $comment
+     * @see  $comment
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const comment = 'comment';
 
     /**
      * The case name
      *
-     * @see $name
+     * @see  $name
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const name = 'name';
 
     /**
      * Value of the case
      *
-     * @see $value
+     * @see  $value
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const value = 'value';
 
-    /** The case docblock */
+    /**
+     * The case docblock
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?string $comment;
 
-    /** The case name */
+    /**
+     * The case name
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['required' => true])]
     public readonly string $name;
 
-    /** Value of the case */
+    /**
+     * Value of the case
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?string $value;
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public function render(): string
     {
         return implode(PHP_EOL, array_filter([

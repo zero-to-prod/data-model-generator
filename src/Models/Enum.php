@@ -7,6 +7,9 @@ use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
 use Zerotoprod\File\File;
 
+/**
+ * @link https://github.com/zero-to-prod/data-model-generator
+ */
 class Enum
 {
     use DataModel;
@@ -16,83 +19,112 @@ class Enum
     /**
      * The Fully Qualified Namespace of the enum
      *
-     * @see $namespace
+     * @see  $namespace
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const namespace = 'namespace';
 
     /**
      * Imports used in the enum
      *
-     * @see $imports
+     * @see  $imports
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const imports = 'imports';
 
     /**
      * Specifies the enum comment
      *
-     * @see $comment
+     * @see  $comment
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const comment = 'comment';
 
     /**
      * The enum backing
      *
-     * @see $backed_type
+     * @see  $backed_type
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const backed_type = 'backed_type';
 
     /**
      * Traits used in the enum
      *
-     * @see $use_statements
+     * @see  $use_statements
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const use_statements = 'use_statements';
 
     /**
      * Constants used in the enum
      *
-     * @see $constants
+     * @see  $constants
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const constants = 'constants';
 
     /**
      * Cases used in the enum
      *
-     * @see $cases
+     * @see  $cases
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const cases = 'cases';
 
     /**
      * The filename of the file.
      *
-     * @see $filename
+     * @see  $filename
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const filename = 'filename';
 
     /**
      * The directory of the file.
      *
-     * @see $directory
+     * @see  $directory
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const directory = 'directory';
 
-    /** The Fully Qualified Namespace of the enum */
+    /**
+     * The Fully Qualified Namespace of the enum
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?string $namespace;
 
-    /** Imports used in the enum */
+    /**
+     * Imports used in the enum
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['default' => []])]
     public readonly array $imports;
 
-    /** Specifies the enum comment */
+    /**
+     * Specifies the enum comment
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?string $comment;
 
-    /** The enum backing */
+    /**
+     * The enum backing
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?BackedEnumType $backed_type;
 
-    /** Traits used in the enum */
+    /**
+     * Traits used in the enum
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['default' => []])]
     public readonly array $use_statements;
 
@@ -100,6 +132,7 @@ class Enum
      * Constants used in the enum
      *
      * @var Constant[]
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     #[Describe([
         'cast' => [self::class, 'resolveConstants'],
@@ -107,6 +140,9 @@ class Enum
     ])]
     public readonly array $constants;
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public static function resolveConstants($value): array
     {
         return array_combine(
@@ -123,6 +159,7 @@ class Enum
      * Cases used in the enum
      *
      * @var EnumCase[]
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     #[Describe([
         'cast' => [self::class, 'resolveCases'],
@@ -130,6 +167,9 @@ class Enum
     ])]
     public readonly array $cases;
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public static function resolveCases($value): array
     {
         return array_combine(
@@ -144,6 +184,8 @@ class Enum
 
     /**
      * Renders the enum
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function render(): string
     {
@@ -161,11 +203,17 @@ class Enum
         ]));
     }
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public function save(): string
     {
         return $this->put($this->render());
     }
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public function classLine(): string
     {
         return $this->backed_type
@@ -173,6 +221,9 @@ class Enum
             : "enum {$this->filename()}";
     }
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public function cases(): string
     {
         return implode(

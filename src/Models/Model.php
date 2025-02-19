@@ -7,6 +7,9 @@ use Zerotoprod\DataModelGenerator\Helpers\DataModel;
 use Zerotoprod\DataModelGenerator\Helpers\RendersClassComponents;
 use Zerotoprod\File\File;
 
+/**
+ * @link https://github.com/zero-to-prod/data-model-generator
+ */
 class Model
 {
     use DataModel;
@@ -19,76 +22,104 @@ class Model
      * User.php
      * ```
      *
-     * @see $filename
+     * @see  $filename
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const filename = 'filename';
 
     /**
      * The directory of the file.
      *
-     * @see $directory
+     * @see  $directory
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const directory = 'directory';
 
     /**
      * The Fully Qualified Namespace of the class
      *
-     * @see $namespace
+     * @see  $namespace
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const namespace = 'namespace';
 
-    /** The Fully Qualified Namespace of the class */
+    /**
+     * The Fully Qualified Namespace of the class
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?string $namespace;
 
     /**
      * Imports used in the class
      *
-     * @see $imports
+     * @see  $imports
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const imports = 'imports';
 
-    /** Imports used in the class */
+    /**
+     * Imports used in the class
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['default' => []])]
     public readonly array $imports;
 
     /**
      * Specifies a class
      *
-     * @see $readonly
+     * @see  $readonly
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const readonly = 'readonly';
 
-    /** Specifies a class */
+    /**
+     * Specifies a class
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['default' => false])]
     public readonly bool $readonly;
 
     /**
      * Specifies the class comment
      *
-     * @see $comment
+     * @see  $comment
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const comment = 'comment';
 
-    /** Specifies the class comment */
+    /**
+     * Specifies the class comment
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['nullable'])]
     public readonly ?string $comment;
 
     /**
      * Traits used in the class
      *
-     * @see $use_statements
+     * @see  $use_statements
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const use_statements = 'use_statements';
 
-    /** Traits used in the class */
+    /**
+     * Traits used in the class
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     #[Describe(['default' => []])]
     public readonly array $use_statements;
 
     /**
      * Constants used in the class
      *
-     * @see $constants
+     * @see  $constants
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const constants = 'constants';
 
@@ -96,6 +127,7 @@ class Model
      * Constants used in the class
      *
      * @var array<string, Constant> $constants
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     #[Describe([
         'cast' => [self::class, 'resolveConstants'],
@@ -103,6 +135,9 @@ class Model
     ])]
     public readonly array $constants;
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public static function resolveConstants($value): array
     {
         return array_combine(
@@ -118,7 +153,8 @@ class Model
     /**
      * Properties used in the class
      *
-     * @see $properties
+     * @see  $properties
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public const properties = 'properties';
 
@@ -126,6 +162,7 @@ class Model
      * Properties used in the class
      *
      * @var array<string, Property> $properties
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     #[Describe([
         'cast' => [self::class, 'resolveProperties'],
@@ -133,6 +170,9 @@ class Model
     ])]
     public readonly array $properties;
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public static function resolveProperties($value): array
     {
         return array_combine(
@@ -149,6 +189,7 @@ class Model
      * Renders the class
      *
      * @link PhpClassTest::render()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function render(): string
     {
@@ -166,6 +207,9 @@ class Model
         ]));
     }
 
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public function save(): string
     {
         return $this->put($this->render());
@@ -176,6 +220,7 @@ class Model
      *
      * @link PhpClassTest::classLine()
      * @link PhpClassTest::readonlyClassLine()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function classLine(): string
     {
@@ -188,6 +233,7 @@ class Model
      * Properties used in the class
      *
      * @link PhpClassTest::properties()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function properties(): string
     {

@@ -10,8 +10,16 @@ use Zerotoprod\DataModelGenerator\Models\EnumCase;
 use Zerotoprod\DataModelGenerator\Models\Model;
 use Zerotoprod\DataModelGenerator\Models\Property;
 
+/**
+ * Builds DataModels from a Schema
+ *
+ * @link https://github.com/zero-to-prod/data-model-generator
+ */
 class Engine
 {
+    /**
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
     public static function generate(Components $Components, Config $Config): void
     {
         if (!$Config->model) {
@@ -33,10 +41,13 @@ class Engine
                             Property::comment => $Config->model->properties->comments ? $Property->comment : null,
                             Property::visibility => $Config->model->properties->visibility ?? $Property->visibility,
                             Property::readonly => $Config->model->properties->readonly,
-                            Property::types => array_filter(array_merge(array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
-                                    ?: $Property->types,
-                                [($Config->model->properties->nullable ? 'null' : null)]
-                            )),
+                            Property::types => array_filter(
+                                array_merge(
+                                    array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
+                                        ?: $Property->types,
+                                    [($Config->model->properties->nullable ? 'null' : null)]
+                                )
+                            ),
                             Property::name => $name.($Config->model->properties->nullable ? ' = null' : null),
                             Property::attributes => $Property->attributes,
                         ],

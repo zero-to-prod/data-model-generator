@@ -4,12 +4,16 @@ namespace Zerotoprod\DataModelGenerator\Helpers;
 
 use Zerotoprod\DataModelGenerator\Models\Constant;
 
+/**
+ * @link https://github.com/zero-to-prod/data-model-generator
+ */
 trait RendersClassComponents
 {
     /**
      * Returns the Fully Qualified namespace line
      *
      * @link PhpClassTest::namespaceLine()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function namespaceLine(): string
     {
@@ -22,6 +26,7 @@ trait RendersClassComponents
      * Imports used in the class
      *
      * @link PhpClassTest::imports()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function imports(): string
     {
@@ -38,6 +43,7 @@ trait RendersClassComponents
      * Traits used in the class
      *
      * @link PhpClassTest::useStatements()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function useStatements(): string
     {
@@ -48,6 +54,7 @@ trait RendersClassComponents
      * Constants used in the class
      *
      * @link PhpClassTest::constants()
+     * @link https://github.com/zero-to-prod/data-model-generator
      */
     public function constants(): string
     {
