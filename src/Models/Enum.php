@@ -146,11 +146,11 @@ class Enum
     public static function resolveConstants($value): array
     {
         return array_combine(
-            array_keys($value),
+            array_keys($value ?? []),
             array_map(
                 static fn(string $name, array $constant) => Constant::from(array_merge([Constant::name => $name], $constant)),
-                array_keys($value),
-                $value
+                array_keys($value ?? []),
+                $value ?? []
             )
         );
     }
@@ -173,11 +173,11 @@ class Enum
     public static function resolveCases($value): array
     {
         return array_combine(
-            array_keys($value),
+            array_keys($value ?? []),
             array_map(
                 static fn(string $name, array $constant) => EnumCase::from(array_merge([EnumCase::name => $name], $constant)),
-                array_keys($value),
-                $value
+                array_keys($value ?? []),
+                $value ?? []
             )
         );
     }
