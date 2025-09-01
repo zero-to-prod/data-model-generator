@@ -9,6 +9,54 @@
 [![wakatime](https://wakatime.com/badge/github/zero-to-prod/data-model-generator.svg)](https://wakatime.com/badge/github/zero-to-prod/data-model-generator)
 [![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod/data-model-generator?branch=main)](https://hitsofcode.com/github/zero-to-prod/data-model-generator/view?branch=main)
 
+## Contents
+
+- [Installation](#installation)
+- [Documentation Publishing](#documentation-publishing)
+    - [Automatic Documentation Publishing](#automatic-documentation-publishing)
+- [Testing](#testing)
+
+## Installation
+
+Install the package via composer:
+
+```bash
+composer require zero-to-prod/data-model-generator
+```
+
+## Documentation Publishing
+
+You can publish this README to your local documentation directory.
+
+This can be useful for providing documentation for AI agents.
+
+This can be done using the included script:
+
+```bash
+# Publish to default location (./docs/zero-to-prod/data-model-generator)
+vendor/bin/zero-to-prod-data-model-generator
+
+# Publish to custom directory
+vendor/bin/zero-to-prod-data-model-generator /path/to/your/docs
+```
+
+### Automatic Documentation Publishing
+
+You can automatically publish documentation by adding the following to your `composer.json`:
+
+```json
+{
+    "scripts": {
+        "post-install-cmd": [
+            "zero-to-prod-data-model-generator"
+        ],
+        "post-update-cmd": [
+            "zero-to-prod-data-model-generator"
+        ]
+    }
+}
+```
+
 ## Testing
 
 ```shell
