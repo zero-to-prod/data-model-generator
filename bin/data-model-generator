@@ -3,8 +3,6 @@
 
 require getcwd() . '/vendor/autoload.php';
 
-use Zerotoprod\DataModelAdapterOpenapi30\OpenApi30;
-use Zerotoprod\DataModelAdapterSwagger\Swagger;
 use Zerotoprod\DataModelGenerator\Engine;
 use Zerotoprod\DataModelGenerator\Models\Config;
 
@@ -38,10 +36,20 @@ if (isset($argv[1]) && $argv[1] === 'generate' && isset($argv[2])) {
     $Components = null;
     $schema = json_decode($content, true);
     if (isset($schema['openapi']) && str_starts_with($schema['openapi'], '3.0.')) {
-        $Components = OpenApi30::adapt($schema);
+        if (!class_exists(\Zerotoprod\DataModelAdapterOpenapi30\OpenApi30::class)) {
+            echo "OpenAPI 3.0 adapter not installed. Run: composer require zero-to-prod/data-model-adapter-openapi30\n";
+
+            return 1;
+        }
+        $Components = \Zerotoprod\DataModelAdapterOpenapi30\OpenApi30::adapt($schema);
     }
     if (isset($schema['swagger']) && $schema['swagger'] === '2.0') {
-        $Components = Swagger::adapt($schema);
+        if (!class_exists(\Zerotoprod\DataModelAdapterSwagger\Swagger::class)) {
+            echo "Swagger 2.0 adapter not installed. Run: composer require zero-to-prod/data-model-adapter-swagger\n";
+
+            return 1;
+        }
+        $Components = \Zerotoprod\DataModelAdapterSwagger\Swagger::adapt($schema);
     }
     if (!$Components) {
         throw new RuntimeException('Unsupported Schema');
