@@ -27,7 +27,7 @@ if (in_array('init', $argv, true)) {
     }
 }
 
-if ($argv[1] === 'generate' && isset($argv[2])) {
+if (isset($argv[1]) && $argv[1] === 'generate' && isset($argv[2])) {
     $content = @file_get_contents($argv[2]);
 
     if ($content === false) {
@@ -37,7 +37,7 @@ if ($argv[1] === 'generate' && isset($argv[2])) {
     }
     $Components = null;
     $schema = json_decode($content, true);
-    if (isset($schema['openapi']) && $schema['openapi'] === '3.0.0') {
+    if (isset($schema['openapi']) && str_starts_with($schema['openapi'], '3.0.')) {
         $Components = OpenApi30::adapt($schema);
     }
     if (isset($schema['swagger']) && $schema['swagger'] === '2.0') {

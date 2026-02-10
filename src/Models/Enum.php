@@ -208,7 +208,7 @@ class Enum
      */
     public function save(): string
     {
-        return $this->put($this->render());
+        return $this->put($this->render(), overwrite: true);
     }
 
     /**

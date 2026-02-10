@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../../src/Schema/models.json",
+  "Enums": [
+    {
+      "filename": "Status.php",
+      "backed_type": "string",
+      "cases": {
+        "Active": {
+          "value": "'active'"
+        }
+      }
+    }
+  ]
+}
