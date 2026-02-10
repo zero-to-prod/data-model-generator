@@ -48,14 +48,31 @@ class Engine
                             $attributes = $Property->attributes;
 
                             if ($nullable) {
+                                $describeParam = null;
+
                                 if ($Property->required) {
-                                    $attributes[] = "#[\\Zerotoprod\\DataModel\\Describe(['required' => true])]";
+                                    $describeParam = "'required' => true";
                                 } elseif ($isReadonly) {
                                     $types[] = 'null';
-                                    $attributes[] = "#[\\Zerotoprod\\DataModel\\Describe(['nullable'])]";
+                                    $describeParam = "'nullable' => true";
                                 } else {
                                     $types[] = 'null';
                                     $default = 'null';
+                                }
+
+                                if ($describeParam !== null) {
+                                    $merged = false;
+                                    foreach ($attributes as $i => $attr) {
+                                        if (str_contains($attr, '\\Zerotoprod\\DataModel\\Describe(')) {
+                                            $pos = strrpos($attr, '])]');
+                                            $attributes[$i] = substr($attr, 0, $pos).", $describeParam])]";
+                                            $merged = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!$merged) {
+                                        $attributes[] = "#[\\Zerotoprod\\DataModel\\Describe([$describeParam])]";
+                                    }
                                 }
                             }
 

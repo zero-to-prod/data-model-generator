@@ -21,7 +21,7 @@ class NullableRequiredTest extends TestCase
                 {
                 #[\Zerotoprod\DataModel\Describe(['required' => true])]
                 public string \$name;
-                #[\Zerotoprod\DataModel\Describe(['nullable'])]
+                #[\Zerotoprod\DataModel\Describe(['nullable' => true])]
                 public \Date|null \$age;
                 }
                 PHP
