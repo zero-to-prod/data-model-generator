@@ -39,7 +39,7 @@ if (isset($argv[1]) && $argv[1] === 'generate' && isset($argv[2])) {
         if (!class_exists(\Zerotoprod\DataModelAdapterOpenapi30\OpenApi30::class)) {
             echo "OpenAPI 3.0 adapter not installed. Run: composer require zero-to-prod/data-model-adapter-openapi30\n";
 
-            return 1;
+            exit(1);
         }
         $Components = \Zerotoprod\DataModelAdapterOpenapi30\OpenApi30::adapt($schema);
     }
@@ -47,7 +47,7 @@ if (isset($argv[1]) && $argv[1] === 'generate' && isset($argv[2])) {
         if (!class_exists(\Zerotoprod\DataModelAdapterSwagger\Swagger::class)) {
             echo "Swagger 2.0 adapter not installed. Run: composer require zero-to-prod/data-model-adapter-swagger\n";
 
-            return 1;
+            exit(1);
         }
         $Components = \Zerotoprod\DataModelAdapterSwagger\Swagger::adapt($schema);
     }

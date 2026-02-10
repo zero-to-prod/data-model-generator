@@ -42,6 +42,7 @@ class CliTest extends TestCase
 
     #[Test] public function generate_accepts_openapi_3_0_4(): void
     {
+        $adapterInstalled = class_exists(\Zerotoprod\DataModelAdapterOpenapi30\OpenApi30::class);
         $schema = tempnam(sys_get_temp_dir(), 'openapi_');
         $config = './data-model.json';
         $configExisted = file_exists($config);
@@ -72,13 +73,17 @@ class CliTest extends TestCase
 
         try {
             exec(self::$bin." generate $schema 2>&1", $output, $exitCode);
+            $outputStr = implode("\n", $output);
 
-            self::assertSame(0, $exitCode);
-            self::assertEmpty(
-                array_filter($output, static fn($line) => str_contains($line, 'Unsupported') || str_contains($line, 'Fatal')),
-                'CLI rejected a valid OpenAPI 3.0.4 schema'
-            );
-            self::assertFileExists(self::$test_dir.'/Item.php');
+            self::assertStringNotContainsString('Unsupported Schema', $outputStr, 'CLI should accept OpenAPI 3.0.4');
+
+            if ($adapterInstalled) {
+                self::assertSame(0, $exitCode, "CLI failed with output: $outputStr");
+                self::assertFileExists(self::$test_dir.'/Item.php');
+            } else {
+                self::assertSame(1, $exitCode);
+                self::assertStringContainsString('adapter not installed', $outputStr);
+            }
         } finally {
             @unlink($schema);
             if (!$configExisted) {
@@ -89,6 +94,7 @@ class CliTest extends TestCase
 
     #[Test] public function generate_accepts_openapi_3_0_1(): void
     {
+        $adapterInstalled = class_exists(\Zerotoprod\DataModelAdapterOpenapi30\OpenApi30::class);
         $schema = tempnam(sys_get_temp_dir(), 'openapi_');
         $config = './data-model.json';
         $configExisted = file_exists($config);
@@ -119,13 +125,17 @@ class CliTest extends TestCase
 
         try {
             exec(self::$bin." generate $schema 2>&1", $output, $exitCode);
+            $outputStr = implode("\n", $output);
 
-            self::assertSame(0, $exitCode);
-            self::assertEmpty(
-                array_filter($output, static fn($line) => str_contains($line, 'Unsupported') || str_contains($line, 'Fatal')),
-                'CLI rejected a valid OpenAPI 3.0.1 schema'
-            );
-            self::assertFileExists(self::$test_dir.'/Thing.php');
+            self::assertStringNotContainsString('Unsupported Schema', $outputStr, 'CLI should accept OpenAPI 3.0.1');
+
+            if ($adapterInstalled) {
+                self::assertSame(0, $exitCode, "CLI failed with output: $outputStr");
+                self::assertFileExists(self::$test_dir.'/Thing.php');
+            } else {
+                self::assertSame(1, $exitCode);
+                self::assertStringContainsString('adapter not installed', $outputStr);
+            }
         } finally {
             @unlink($schema);
             if (!$configExisted) {
