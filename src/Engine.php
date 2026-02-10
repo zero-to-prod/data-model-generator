@@ -101,7 +101,7 @@ class Engine
                 Enum::imports => [...$Config->model->imports, ...$Enum->imports],
                 Enum::comment => $Config->model->comments ? $Enum->comment : null,
                 Enum::backed_type => $Enum->backed_type,
-                Enum::use_statements => [...$Config->model->use_statements, ...$Enum->use_statements],
+                Enum::use_statements => $Enum->use_statements,
                 Enum::constants => $Config->model->constants ? self::transformConstants($Config, $Enum->constants) : [],
                 Enum::cases => array_map(
                     static fn(EnumCase $Case) => [

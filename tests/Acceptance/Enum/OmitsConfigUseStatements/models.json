@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../src/Schema/models.json",
+  "Models": [
+    {
+      "filename": "User.php",
+      "properties": {
+        "name": {
+          "types": ["string"]
+        }
+      }
+    }
+  ],
+  "Enums": [
+    {
+      "filename": "Role.php",
+      "backed_type": "string",
+      "cases": {
+        "admin": {
+          "value": "'admin'"
+        }
+      }
+    }
+  ]
+}

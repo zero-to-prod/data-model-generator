@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../../src/Schema/data_model.json",
+  "model": {
+    "directory": "./tests/generated",
+    "use_statements": [
+      "use \\Zerotoprod\\DataModel\\DataModel;"
+    ],
+    "properties": {}
+  }
+}
