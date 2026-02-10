@@ -9,7 +9,7 @@ use Zerotoprod\DataModelGenerator\Engine;
 class OmitsConfigUseStatementsTest extends TestCase
 {
     /** @link Engine::generate() */
-    #[Test] public function model_includes_config_use_statements(): void
+    #[Test] public function model_includes_config_imports_and_use_statements(): void
     {
         $this->engineGenerate(__DIR__);
 
@@ -17,6 +17,7 @@ class OmitsConfigUseStatementsTest extends TestCase
             expectedFile: self::$test_dir.'/User.php',
             actualString: <<<PHP
                 <?php
+                use Zerotoprod\DataModel\DataModel;
                 class User
                 {
                 use \Zerotoprod\DataModel\DataModel;
@@ -27,7 +28,7 @@ class OmitsConfigUseStatementsTest extends TestCase
     }
 
     /** @link Engine::generate() */
-    #[Test] public function enum_omits_config_use_statements(): void
+    #[Test] public function enum_omits_config_imports_and_use_statements(): void
     {
         $this->engineGenerate(__DIR__);
 

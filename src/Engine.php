@@ -98,7 +98,7 @@ class Engine
         foreach ($Components->Enums as $Enum) {
             Enum::from([
                 Enum::namespace => $Config->model->namespace ?? $Enum->namespace,
-                Enum::imports => [...$Config->model->imports, ...$Enum->imports],
+                Enum::imports => $Enum->imports,
                 Enum::comment => $Config->model->comments ? $Enum->comment : null,
                 Enum::backed_type => $Enum->backed_type,
                 Enum::use_statements => $Enum->use_statements,

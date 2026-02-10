@@ -2,6 +2,9 @@
   "$schema": "../../../../src/Schema/data_model.json",
   "model": {
     "directory": "./tests/generated",
+    "imports": [
+      "use Zerotoprod\\DataModel\\DataModel;"
+    ],
     "use_statements": [
       "use \\Zerotoprod\\DataModel\\DataModel;"
     ],
