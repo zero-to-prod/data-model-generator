@@ -109,6 +109,38 @@ class Property
     public readonly array $attributes;
 
     /**
+     * Whether this property is required by the schema
+     *
+     * @see  $required
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
+    public const required = 'required';
+
+    /**
+     * Whether this property is required by the schema
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
+    #[Describe(['default' => false])]
+    public readonly bool $required;
+
+    /**
+     * The default value string (e.g., 'null')
+     *
+     * @see  $default
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
+    public const default = 'default';
+
+    /**
+     * The default value string (e.g., 'null')
+     *
+     * @link https://github.com/zero-to-prod/data-model-generator
+     */
+    #[Describe(['nullable'])]
+    public readonly ?string $default;
+
+    /**
      * Renders the property
      *
      * @Link PropertyTest::render()
@@ -123,7 +155,9 @@ class Property
                 $this->visibility->value,
                 $this->readonly ? 'readonly' : null,
                 implode('|', $this->types),
-                "$$this->name",
+                $this->default !== null
+                    ? "$$this->name = $this->default"
+                    : "$$this->name",
             ])).';'
         ]));
     }

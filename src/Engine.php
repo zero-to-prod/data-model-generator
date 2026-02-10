@@ -37,20 +37,39 @@ class Engine
                 Model::use_statements => [...$Config->model->use_statements, ...$Model->use_statements],
                 Model::properties => $Config->model->properties
                     ? array_map(
-                        static fn(string $name, Property $Property) => [
-                            Property::comment => $Config->model->properties->comments ? $Property->comment : null,
-                            Property::visibility => $Config->model->properties->visibility ?? $Property->visibility,
-                            Property::readonly => $Config->model->properties->readonly,
-                            Property::types => array_filter(
-                                array_merge(
-                                    array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
-                                        ?: $Property->types,
-                                    [($Config->model->properties->nullable ? 'null' : null)]
-                                )
-                            ),
-                            Property::name => $name.($Config->model->properties->nullable ? ' = null' : null),
-                            Property::attributes => $Property->attributes,
-                        ],
+                        static function (string $name, Property $Property) use ($Config) {
+                            $isReadonly = $Config->model->readonly || $Config->model->properties->readonly;
+                            $nullable = $Config->model->properties->nullable;
+
+                            $types = array_values(array_intersect_key($Config->model->properties->types, array_flip($Property->types)))
+                                ?: $Property->types;
+
+                            $default = null;
+                            $attributes = $Property->attributes;
+
+                            if ($nullable) {
+                                if ($Property->required) {
+                                    $attributes[] = "#[\\Zerotoprod\\DataModel\\Describe(['required' => true])]";
+                                } elseif ($isReadonly) {
+                                    $types[] = 'null';
+                                    $attributes[] = "#[\\Zerotoprod\\DataModel\\Describe(['nullable'])]";
+                                } else {
+                                    $types[] = 'null';
+                                    $default = 'null';
+                                }
+                            }
+
+                            return [
+                                Property::comment => $Config->model->properties->comments ? $Property->comment : null,
+                                Property::visibility => $Config->model->properties->visibility ?? $Property->visibility,
+                                Property::readonly => $Config->model->properties->readonly,
+                                Property::types => $types,
+                                Property::name => $name,
+                                Property::attributes => $attributes,
+                                Property::required => $Property->required,
+                                Property::default => $default,
+                            ];
+                        },
                         array_keys($Model->properties),
                         array_values($Model->properties)
                     )

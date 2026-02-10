@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../../../src/Schema/data_model.json",
+  "model": {
+    "directory": "./tests/generated",
+    "readonly": true,
+    "properties": {
+      "types": {
+        "date": "\\Date"
+      },
+      "nullable": true
+    }
+  }
+}

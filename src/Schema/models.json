@@ -111,6 +111,10 @@
                     "type": "string"
                   },
                   "description": "List of attributes for the property"
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "Whether this property is required by the schema"
                 }
               }
             }
